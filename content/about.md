@@ -14,13 +14,11 @@ The members of this team are below.
 ## Luke DiIorio
 I am a current senior majoring in mathematics. 
 
-## Luis Iberico
+#Anamaria Pananas 
+I am a media science major in communications with a statistical methods track minor. 
+github account page link: https://github.com/apananas
 
-Luis is a Ph.D. student in Stats and is the Teaching Fellow for the course.
 
-## Dan Sussman
-
-Dan is a professor in the Math/Stat department and is the instructor for the course.
 
 <!-- Please leave in the information below -->
 
