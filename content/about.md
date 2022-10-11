@@ -18,6 +18,9 @@ I am a current senior majoring in mathematics.
 I am a media science major in communications with a statistical methods track minor. 
 github account page link: https://github.com/apananas
 
+## Mengyao Shi
+I am a senior majoring in Statistics track.
+gihhub account page link: https://github.com/
 
 
 <!-- Please leave in the information below -->
