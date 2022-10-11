@@ -14,7 +14,7 @@ The members of this team are below.
 ## Luke DiIorio
 I am a current senior majoring in mathematics. 
 
-#Anamaria Pananas 
+## Anamaria Pananas 
 I am a media science major in communications with a statistical methods track minor. 
 github account page link: https://github.com/apananas
 
