@@ -1,6 +1,6 @@
 ---
-title: example
-author: Daniel Sussman
+title: Blog: Finding our Data Sets
+author: Team
 date: '2022-10-12'
 slug: []
 categories: []
@@ -13,3 +13,4 @@ lastmod: '2022-10-12T09:30:55-04:00'
 featuredVideo: ~
 featuredImage: ~
 ---
+
