@@ -20,7 +20,7 @@ github account page link: https://github.com/apananas
 
 ## Mengyao Shi
 I am a senior majoring in Statistics track.
-github account page link: https://github.com/
+github ccount page link: https://github.com/
 
 
 <!-- Please leave in the information below -->
