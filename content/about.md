@@ -19,7 +19,13 @@ I am a media science major in communications with a statistical methods track mi
 github account page link: https://github.com/apananas
 
 ## Francesco Benatti
-I am s master's student in economics, particularly interested in political economy. Here is my Github account page link: https://github.com/francescobenatti
+I am a master's student in economics, particularly interested in political economy. Here is my Github account page link: https://github.com/francescobenatti
+
+## Mengyao Shi
+I am a senior majoring in Statistics track.
+github ccount page link: https://github.com/
+
+>>>>>>> 4e9bed5c9b0175bb8cadab1769840c8216ca6d06
 
 <!-- Please leave in the information below -->
 
