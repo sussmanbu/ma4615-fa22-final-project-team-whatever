@@ -21,10 +21,13 @@ This data comes from UNICEF, the United Nations International Children’s Fund,
 
 This particular data set is the Nutrition report for preschool/school age children and women that ranges from 2013-2016. Its sources include national household surveys, and modeled estimates from UNICEF. One table has approximately 200 rows and 18 columns, but we believe that we could find a way to combine the two to increase that number. There is much opportunity to clean the data, as there are some missing values, values that belong to different years, and a few other notes listed for us at the bottom of the table. The main question we would like to ask would be what the most acceptable condition is for children to have a “healthy nutrition”, and possibly being able to define more clearly about what that means for children across the world. 
 
-#just a rough draft of some of the questions we need to answer for the post - can edit whatever you want! - anamaria#
+
+~ "Ukraine Conflict Twitter Datasets" https://www.kaggle.com/datasets/bwandowando/ukraine-russian-crisis-twitter-dataset-1-2-m-rows
 
 The second data that we are interested in observes the ongoing Ukraine conflict through Twitter. One of the questions here could be how the social media platform, Twitter, contributes to the public opinion/reporting about the ongoing war in Ukraine. It could potentially "measure" how powerful Twitter (or lack thereof) can be during serious international conflicts. 
-This data is from --- and has approx. -- rows and -- columns. We would start by loading and cleaning the data by _. Some potential challenges with this data could be --. 
+
+This dataset, made public in Kaggle, collects 50+ million tweets from Twitter API about the ongoing Ukraine War.  The rows are 50+ million (the various tweets), while the columns are 30+ variables, including userid, username, tweet text strings, location, following, followers, totaltweets, retweetcount, hashtags etc. The data was collected by an independent Kaggle user and data scientist from the Philippines (username: BWANDOWANDO), with the intention of allowing people to document and make EDAs of the ongoing public sentiment regarding the war. With this data, we hope to visualize the evolution of public opinion through the EDA of main hashtags and their relation to the main news events of the war, potentially making a sentiment analysis exploring public polarization around these events. It would be hard: the data is already cleaned, but setting up a sentiment analysis would require knowledge of NLP that we should develop in these months, so we might limit ourselves to hashtags and tweet count analyses. 
+
 
 Our final data set is from the CDC, which gives information about E-cigarette legislation and its affect on youth. We could explore how state level preemption on laws surrounding youth access to e-cigarette affect the e-cigarette usage among the youth population. (add about how the CDC collected this data here?)
 
