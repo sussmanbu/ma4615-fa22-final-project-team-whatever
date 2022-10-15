@@ -31,9 +31,11 @@ The second data that we are interested in observes the ongoing Ukraine conflict 
 This dataset, made public in Kaggle, collects 50+ million tweets from Twitter API about the ongoing Ukraine War.  The rows are 50+ million (the various tweets), while the columns are 30+ variables, including userid, username, tweet text strings, location, following, followers, totaltweets, retweetcount, hashtags etc. The data was collected by an independent Kaggle user and data scientist from the Philippines (username: BWANDOWANDO), with the intention of allowing people to document and make EDAs of the ongoing public sentiment regarding the war. With this data, we hope to visualize the evolution of public opinion through the EDA of main hashtags and their relation to the main news events of the war, potentially making a sentiment analysis exploring public polarization around these events. It would be hard: the data is already cleaned, but setting up a sentiment analysis would require knowledge of NLP that we should develop in these months, so we might limit ourselves to hashtags and tweet count analyses. 
 
 
-Our final data set is from the CDC, which gives information about E-cigarette legislation and its affect on youth. We could explore how state level preemption on laws surrounding youth access to e-cigarette affect the e-cigarette usage among the youth population. (add about how the CDC collected this data here?)
+~ CDC E-Cigarette Legislation: https://chronicdata.cdc.gov/Legislation/CDC-STATE-System-E-Cigarette-Legislation-Preemptio/88eg-qzed
 
-(About the data - #rows/columns, how we would clean the data, possible challenges, the overall mission)
+Our final data set is from the CDC, Center for Disease Control and Prevention, which gives information about e-cigarette legislation and its affect on youth. We could explore how state level preemption on laws surrounding youth access to e-cigarette affect the e-cigarette usage among the youth population. The data has 4,582 rows and 16 columns. Some of the columns could be cleaned, or modified to show be more meaningful to our analysis. 
+
+The data focuses on preemption surrounding tobacco law in various states. Its source is the CDC "StateSystem", which houses data about the prevention of tobacco use. Even though this data seems pretty organized, it has the possibility to be well assisted with another data set that further helps explain the effect of legislation (preemption) on how youth have access to smoking products and how that affects their usage, and potentially their overall health. 
 >>>>>>> cc4856fcef401953cc829827bad41a67f3ca7797
 
 
