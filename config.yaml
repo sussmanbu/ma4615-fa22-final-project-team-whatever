@@ -4,6 +4,7 @@ baseURL: https://teamwhateverfinalproject.netlify.app
 
 title: MA 415 Project
 
+
 # Comment when installing using Hugo Modules
 theme: eureka
 # Uncomment when installing using Hugo Modules

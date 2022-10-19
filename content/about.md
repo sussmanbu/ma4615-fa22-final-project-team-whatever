@@ -18,10 +18,12 @@ I am a current senior majoring in mathematics.
 I am a media science major in communications with a statistical methods track minor. 
 github account page link: https://github.com/apananas
 
+## Francesco Benatti
+I am a master's student in economics, particularly interested in political economy. Here is my Github account page link: https://github.com/francescobenatti
+
 ## Mengyao Shi
 I am a senior majoring in Statistics track.
 github ccount page link: https://github.com/
-
 
 <!-- Please leave in the information below -->
 
