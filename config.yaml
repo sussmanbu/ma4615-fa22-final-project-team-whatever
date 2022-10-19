@@ -1,10 +1,8 @@
-<<<<<<< HEAD
 
-baseURL: https://teamwhateverfinalproject.netlify.app
-=======
-baseURL: https://teamwhateverfinalproject.netlify.app/
->>>>>>> cc4856fcef401953cc829827bad41a67f3ca7797
-title: MA 415 Project
+
+baseURL:https://teamwhateverfinalproject.netlify.app
+
+title:MA 415 Project
 
 # Comment when installing using Hugo Modules
 theme: eureka
