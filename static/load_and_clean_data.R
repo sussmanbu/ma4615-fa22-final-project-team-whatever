@@ -1,6 +1,6 @@
 library(tidyverse)
 
-loan_data <- read_csv(here::here("dataset", "loan_refusal.csv"))
+nutrition_data <- readxl::read_xlsx("dataset/Nutrition-Dataset.xlsx")
 
 ## CLEAN the data
 loan_data_clean <- loan_data
