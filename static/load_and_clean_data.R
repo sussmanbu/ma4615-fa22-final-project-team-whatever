@@ -10,6 +10,6 @@ save(loan_data_clean, file = here::here("dataset/Nutrition-Dataset.xlsx"))
 data <- nutrition_data[-(218:246),]
 
 data2 <- data[ -c(3,5,7,9,11,13,15,17,19,21,23,25) ]  
-
+S<- c()
 
 
