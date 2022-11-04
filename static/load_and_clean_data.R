@@ -29,11 +29,11 @@ names(nd)[12] = "MinAcceptDiet%"
 names(nd)[13] = "ZeroVegtable%"
 
 
+as.numeric(nd$`LowBirthWT%`)
 
+str(nd)
 
-
-
-
+nd$`LowBirthWT%` <- round(as.numeric(nd$`LowBirthWT%`), 2)
 
 
 
