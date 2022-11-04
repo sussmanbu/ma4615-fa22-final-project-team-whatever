@@ -36,7 +36,14 @@ nd$`UnWeighted%` <- round(as.numeric(nd$`UnWeighted%`), 2)
 nd$`EarlyBreastFeeding%` <- round(as.numeric(nd$`EarlyBreastFeeding%`), 2)
 nd$`ExclusiveBreastFeeding%` <- round(as.numeric(nd$`ExclusiveBreastFeeding%`), 2)
 nd$`IntroSolidFood%` <- round(as.numeric(nd$`IntroSolidFood%`), 2)
-
+nd$AllChildrenBF<-round(as.numeric(nd$`AllChildrenBF%`),2)
+nd$`Poorest20%BF%`<-round(as.numeric(nd$`Poorest20%BF%`),2)
+nd$`Richest20%BF%`<-round(as.numeric(nd$`Richest20%BF%`),2)
+nd$`DietDiversity%`<-round(as.numeric(nd$`DietDiversity%`),2)
+nd$`MinMealFreq%`<-round(as.numeric(nd$`MinMealFreq%`),2)
+nd$`MinAcceptDiet%`<-round(as.numeric(nd$`MinAcceptDiet%`),2)
+nd$`ZeroVegtable%`<-round(as.numeric(nd$`ZeroVegtable%`),2)
+nd$AllChildrenBF <- round(as.numeric(nd$AllChildrenBF),2)
 
 
 
