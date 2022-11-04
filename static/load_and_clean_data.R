@@ -1,11 +1,10 @@
 library(tidyverse)
-nd <- readxl::read_xlsx("dataset/Complete Nutrition Data.xlsx", range="A8:Z225")
+nd <- readxl::read_xlsx("dataset/Table-7-and-8-Nutrition-EN.xlsx", range="A8:Z225")
 
 ## CLEAN the data
 
 #Removing Empty Columns
 nd <- nd[ -c(1,4,6,8,10,12,14,16,18,20,22,24,26) ] 
-
 
 #Renaming Columns
 colnames(nd)
