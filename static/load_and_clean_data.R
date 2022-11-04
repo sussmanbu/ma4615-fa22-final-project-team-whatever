@@ -5,7 +5,7 @@ nd <- readxl::read_xlsx("dataset/Table-7-and-8-Nutrition-EN.xlsx", range="A8:Z22
 
 
 #gets rid of NA columns 
-loan_data_clean <- nutrition_data
+loan_data_clean <- nd
  
 
 
@@ -29,7 +29,10 @@ names(nd)[12] = "MinAcceptDiet%"
 names(nd)[13] = "ZeroVegtable%"
 
 
-save(nd, file = here::here("dataset/Complete Nutrition Data.xlsx"))
+
+
+
+
 
 
 
