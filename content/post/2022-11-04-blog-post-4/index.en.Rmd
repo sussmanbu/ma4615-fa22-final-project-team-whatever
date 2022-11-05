@@ -23,7 +23,7 @@ During our EDA, the main thing we realized as a group was that our data set alon
 library(tidyverse)
 nd %>% ggplot(aes(x = `LowBirthWT%`, y = `ZeroVegtable%`)) + geom_point()
 ```
-From the plot above we can see that as there is a positive linear relationship between Low Birth Weight Percentage and Zero Fruit and Vegetable percentage. The shows us that zero fruit and vegetabke intake could be a good predictor for low birth weight.
+From the plot above we can see that as there is a positive linear relationship between Low Birth Weight Percentage and Zero Fruit and Vegetable percentage. The shows us that zero fruit and vegetable intake could be a good predictor for low birth weight.
 
 
 
@@ -32,4 +32,4 @@ nd %>% ggplot(aes(x = `AllChildrenBF%`)) + geom_boxplot()
 nd %>% ggplot(aes(x = `Poorest20%BF%`)) + geom_boxplot()
 nd %>% ggplot(aes(x = `Richest20%BF%`)) + geom_boxplot()
 ```
-The three boxplots above show how different economic conditions effect Breats Feeding percentage and more likely low birtwieght percentage. Seeing the different in economic status and birth weight could be useful and should definitly be part of another possible data set we add to our current dataset.
+The three boxplots above show how different economic conditions effect Breast Feeding percentage and more likely low birth weight percentage. Seeing the different in economic status and birth weight could be useful and should definitely be part of another possible data set we add to our current data set.
