@@ -1,0 +1,14 @@
+#trying some plots
+
+
+
+```{r}
+library(tidyverse)
+load(here::here("../../dataset/ndWASH.RData"))
+ndWASH %>% ggplot(aes(x = `% urban`, y = `HOSPITAL_Limited sanitation services`)) + geom_point()
+ndWASH  %>% ggplot(aes(x = `Population (thousands)`)) + geom_boxplot()
+ndWASH  %>% ggplot(aes(x = `% urban`)) + geom_boxplot()
+ndWASH  %>% ggplot(aes(x = `NATIONAL_No sanitation service`)) + geom_boxplot()
+
+```
+
