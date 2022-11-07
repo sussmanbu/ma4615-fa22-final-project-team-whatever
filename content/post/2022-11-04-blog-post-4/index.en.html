@@ -15,6 +15,43 @@ featuredImage: ~
 ---
 
 
+
+During our EDA, the main thing we realized as a group was that our data set alone inst enough to make a accurate model. We will need to add 1 or 2 more data sets to our original data to make sure we can accurately answer our overarching question for this project. The data set currently has tons of missing values and only one categorical variable so getting some variety and other variables will make analyzing this data much easier. Below we have added graphs that show the current data we are working with and initial insight on how certain variables will answer our question of what the most acceptable condition is for children to have a “healthy nutrition”. 
+
+
+
+
+
+```{r}
+library(tidyverse)
+nd %>% ggplot(aes(x = `LowBirthWT%`, y = `ZeroVegtable%`)) + geom_point()
+```
+From the plot above we can see that as there is a positive linear relationship between Low Birth Weight Percentage and Zero Fruit and Vegetable percentage. The shows us that zero fruit and vegetable intake could be a good predictor for low birth weight.
+
+
+
+
+
+```{r}
+nd %>% ggplot(aes(x = `AllChildrenBF%`)) + geom_boxplot()
+nd %>% ggplot(aes(x = `Poorest20%BF%`)) + geom_boxplot()
+nd %>% ggplot(aes(x = `Richest20%BF%`)) + geom_boxplot()
+```
+
+
+
+
+The three boxplots above show how different economic conditions effect Breast Feeding percentage and more likely low birth weight percentage. Seeing the different in economic status and birth weight could be useful and should definitely be part of another possible data set we add to our current data set.
+
+
+
+
+
+
+
+
+
+
 <div id="TOC">
 
 </div>
