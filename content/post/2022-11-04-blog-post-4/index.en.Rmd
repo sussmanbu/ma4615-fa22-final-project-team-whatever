@@ -21,6 +21,7 @@ During our EDA, the main thing we realized as a group was that our data set alon
  
 ```{r}
 library(tidyverse)
+load(here::here("../../dataset/data_file.RData"))
 nd %>% ggplot(aes(x = `LowBirthWT%`, y = `ZeroVegtable%`)) + geom_point()
 ```
 From the plot above we can see that as there is a positive linear relationship between Low Birth Weight Percentage and Zero Fruit and Vegetable percentage. The shows us that zero fruit and vegetable intake could be a good predictor for low birth weight.
