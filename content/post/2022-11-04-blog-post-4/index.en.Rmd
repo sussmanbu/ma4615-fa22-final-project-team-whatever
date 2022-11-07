@@ -15,7 +15,7 @@ featuredImage: ~
 ---
 
 
-During our EDA, the main thing we realized as a group was that our data set alone inst enough to make a accurate model. We will need to add 1 or 2 more data sets to our original data to make sure we can accurately answer our overarching question for this project. The data set currently has tons of missing values and only one categorical variable so getting some variety and other variables will make analyzing this data much easier. Below we have added graphs that show the current data we are working with and initial insight on how certain variables will answer our question of what the most acceptable condition is for children to have a “healthy nutrition”. 
+During our EDA, the main thing we realized as a group was that our data set alone isnt enough to make a accurate model. We will need to add 1 or 2 more data sets to our original data to make sure we can accurately answer our overarching question for this project. The data set currently has tons of missing values and only one categorical variable so getting some variety and other variables will make analyzing this data much easier. Below we have added graphs that show the current data we are working with and initial insight on how certain variables will answer our question of what the most acceptable condition is for children to have a “healthy nutrition”. 
 
 
  
