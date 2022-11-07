@@ -29,7 +29,7 @@ names(nd)[12] = "MinAcceptDiet%"
 names(nd)[13] = "ZeroVegtable%"
 
 
-
+ 
 #Changing Chr Values to Numeric and adding NA values
 nd$`LowBirthWT%` <- round(as.numeric(nd$`LowBirthWT%`), 2)
 nd$`UnWeighted%` <- round(as.numeric(nd$`UnWeighted%`), 2)
