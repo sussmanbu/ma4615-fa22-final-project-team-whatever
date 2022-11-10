@@ -10,7 +10,7 @@ loan_data_clean <- nd
 
 
 #Removing Empty Columns
-nd <- nd[ -c(1,4,6,8,10,12,14,16,18,20,22,24,26) ] 
+nd <- nd[-c(1,4,6,8,10,12,14,16,18,20,22,24,26)]
 
 #Renaming Columns
 colnames(nd)
@@ -43,7 +43,8 @@ nd$`DietDiversity%`<-round(as.numeric(nd$`DietDiversity%`),2)
 nd$`MinMealFreq%`<-round(as.numeric(nd$`MinMealFreq%`),2)
 nd$`MinAcceptDiet%`<-round(as.numeric(nd$`MinAcceptDiet%`),2)
 nd$`ZeroVegtable%`<-round(as.numeric(nd$`ZeroVegtable%`),2)
-nd$AllChildrenBF <- round(as.numeric(nd$AllChildrenBF),2)
+
+
 
 
 
