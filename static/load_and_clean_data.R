@@ -47,5 +47,5 @@ nd$`ZeroVegtable%`<-round(as.numeric(nd$`ZeroVegtable%`),2)
 
 
 
-
+save(nd, file = "dataset/data_file.RData")
 

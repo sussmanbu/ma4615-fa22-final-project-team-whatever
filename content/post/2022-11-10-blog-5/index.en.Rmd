@@ -1,0 +1,15 @@
+---
+title: Blog 5
+author: Daniel Sussman
+date: '2022-11-10'
+slug: []
+categories: []
+tags: []
+description: ~
+toc: yes
+authors: []
+series: []
+lastmod: '2022-11-10T17:16:27-05:00'
+featuredVideo: ~
+featuredImage: ~
+---
