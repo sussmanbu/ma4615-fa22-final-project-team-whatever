@@ -35,4 +35,7 @@ Our final data set is from the CDC, Center for Disease Control and Prevention, w
 
 The data focuses on preemption surrounding tobacco law in various states. Its source is the CDC "StateSystem", which houses data about the prevention of tobacco use. Even though this data seems pretty organized, it has the possibility to be well assisted with another data set that further helps explain the effect of legislation (preemption) on how youth have access to smoking products and how that affects their usage, and potentially their overall health. 
 
+```{r}
+print(here::here())
+```
 
