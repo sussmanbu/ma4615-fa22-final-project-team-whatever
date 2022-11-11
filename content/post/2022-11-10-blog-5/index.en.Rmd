@@ -18,7 +18,7 @@ When deciding what data sets to add, we came across a Mortality Under 5 set that
 Here are a few steps we need to take to use this Mortality data set: 
   #  1. May narrow down years to 2013- 2018 to match the Nutrition data set - have a more recent outlook
   #  2. Values given as rates per thousand, so we would transform it to percentages 
-  #  3. Rename 
+
   
 
 
