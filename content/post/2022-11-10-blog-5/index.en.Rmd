@@ -18,10 +18,11 @@ When deciding what data sets to add, we came across a Mortality Under 5 set that
 Here are a few steps we need to take to use this Mortality data set: 
   #  1. May narrow down years to 2013- 2018 to match the Nutrition data set - have a more recent outlook
   #  2. Values given as rates per thousand, so we would transform it to percentages 
+  
+We have already done most of this cleaning in the load and clean data script. 
 
+
+  Challenges: When attempting the combination, we realized that the country columns do not necessarily match. This could be confusing and give us misleading results - so we have to find which countries do not match and try to fix it.  
   
 
-
- 
-
-What are some influential factors that cause countries have higher mortality rates than others? (possible factors: Nutrition, GDP, Sanitation)
+Question: What are some influential factors that cause countries have higher mortality rates than others? (possible factors: Nutrition, GDP, Sanitation)
