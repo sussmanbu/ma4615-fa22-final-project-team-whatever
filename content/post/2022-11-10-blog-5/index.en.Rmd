@@ -1,6 +1,6 @@
 ---
-title: Blog 5
-author: Daniel Sussman
+title: Blog Post 5
+author: Team Data4Children
 date: '2022-11-10'
 slug: []
 categories: []
@@ -13,33 +13,27 @@ lastmod: '2022-11-10T17:16:27-05:00'
 featuredVideo: ~
 featuredImage: ~
 ---
-<<<<<<< HEAD
 
-=======
-When deciding what data sets to add, we came across a Mortality Under 5 set that houses country-wide mortality rates for children under the age of 5. We have been having trouble finding a clear question to focus on with the Nutrition data set, so we decided to switch our perspective to investigate Nutrition and Low Birth weight as an influential factor of Mortality Rates. 
+When deciding what data sets to add, we came across a Mortality Under 5 data set that houses country-wide mortality rates for children under the age of 5. We have been having trouble finding a clear question to focus on with the Nutrition data set, so we decided to switch our perspective to investigate, among others, Nutrition and Low Birth weight as an influential factor of Mortality Rates. Focusing on the causes of Mortality Rates will allow us to integrate more data sets and enrich our analysis, by including other factors such as sanitation levels in hospitals and households, children diseases, education and economic factors.
 
-Here are a few steps we need to take to use this Mortality data set: 
-<<<<<<< HEAD
-  1. May narrow down years to 2013- 2018 to match the Nutrition data set
-  2. Values given as rates per thousand, so we would transform it to percentages 
+Here are a few steps we took or might need to take in the future to use this Mortality data set: 
 
+  1. We may narrow down years to 2013- 2018 to match the Nutrition data set. We still kept all the years available, from 1950 to 2020, because we plan to make a time-series analysis of mortality evolution.
+  2. As per the nutrition dataset, we have already done most of the cleaning in the load and clean data script: we filtered and renamed the columns, coverted the values from characters to numbers, and selected only the median estimate of mortality values for each country (the data provided three estimates for each country, to give a confidence interval: low, median and high).
+  3. Values were given as deaths per thousand, so we transformed it to percentages by dividing the values by 10.
+
+
+Essentially, the question we want to address is: Why do some countries have higher children's (under 5) mortality rates than others? What are some influential factors that cause these differences in mortality? Possible factors we will investigate are: Nutrition, GDP, Sanitation, Education levels, Diseases like HIV/AIDS, Diarrhea, Malaria etc., and Violence levels). As per the first two data sets, most of these variables can be extracted from different data sets provided by UNICEF data website. 
+
+One early challenge we encountered is that, when attempting to combine the two data sets on nutrition and mortality rates, we realized that the country rows do not necessarily match. This could be confusing and give us misleading results - so we have to find which countries do not match and try to fix it.  
+  
+Here is a graph from the Under_5_Mortality_Rates data set: 
  
+```{r}
+suppressPackageStartupMessages(library(tidyverse)) 
+load(here::here("dataset/U5Mortality.RData"))
 
+U5Mortality %>% filter(Country == "United States of America" | Country == "Haiti" | Country =="Burkina Faso" | Country =="United Kingdom" | Country =="Venezuela" | Country =="Sri Lanka" | Country == "India") %>% ggplot(aes(x= Country, y=`2020`)) + geom_col(fill = "blue4") + labs(y = "Mortality Rate (%) in 2020", title = "Mortality Rates of selected countries in 2020") 
 
+```
 
-
-
-Why do some countries have higher mortality rates than others? (Nutrition + GDP, Sanitation,  new factors)
->>>>>>> 5d54455affcdcc5571058edbb44ff088d09d44ff
-=======
-  #  1. May narrow down years to 2013- 2018 to match the Nutrition data set - have a more recent outlook
-  #  2. Values given as rates per thousand, so we would transform it to percentages 
-  
-We have already done most of this cleaning in the load and clean data script. 
-
-
-  Challenges: When attempting the combination, we realized that the country columns do not necessarily match. This could be confusing and give us misleading results - so we have to find which countries do not match and try to fix it.  
-  
-
-Question: What are some influential factors that cause countries have higher mortality rates than others? (possible factors: Nutrition, GDP, Sanitation)
->>>>>>> 75374e378a15cc1b8e07f0ee95fa87344c9d0f7f
