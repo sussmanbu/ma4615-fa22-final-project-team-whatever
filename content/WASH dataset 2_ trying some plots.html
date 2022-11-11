@@ -1,0 +1,28 @@
+
+
+<p>#trying some plots</p>
+<div id="dls-i-recommend-deleting-this-file" class="section level1">
+<h1>DLS: I recommend deleting this file</h1>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
+## ✔ ggplot2 3.3.6      ✔ purrr   0.3.4 
+## ✔ tibble  3.1.8      ✔ dplyr   1.0.10
+## ✔ tidyr   1.2.1      ✔ stringr 1.4.1 
+## ✔ readr   2.1.3      ✔ forcats 0.5.2 
+## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>load(here::here(&quot;dataset/ndWASH.RData&quot;))
+ndWASH %&gt;% ggplot(aes(x = `% urban`, y = `HOSPITAL_Limited sanitation services`)) + geom_point()</code></pre>
+<pre><code>## Warning: Removed 3924 rows containing missing values (geom_point).</code></pre>
+<p><img src="/WASH%20dataset%202_%20trying%20some%20plots_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<pre class="r"><code>ndWASH  %&gt;% ggplot(aes(x = `Population (thousands)`)) + geom_boxplot()</code></pre>
+<pre><code>## Warning: Removed 20 rows containing non-finite values (stat_boxplot).</code></pre>
+<p><img src="/WASH%20dataset%202_%20trying%20some%20plots_files/figure-html/unnamed-chunk-1-2.png" width="672" /></p>
+<pre class="r"><code>ndWASH  %&gt;% ggplot(aes(x = `% urban`)) + geom_boxplot()</code></pre>
+<pre><code>## Warning: Removed 64 rows containing non-finite values (stat_boxplot).</code></pre>
+<p><img src="/WASH%20dataset%202_%20trying%20some%20plots_files/figure-html/unnamed-chunk-1-3.png" width="672" /></p>
+<pre class="r"><code>ndWASH  %&gt;% ggplot(aes(x = `NATIONAL_No sanitation service`)) + geom_boxplot()</code></pre>
+<pre><code>## Warning: Removed 3227 rows containing non-finite values (stat_boxplot).</code></pre>
+<p><img src="/WASH%20dataset%202_%20trying%20some%20plots_files/figure-html/unnamed-chunk-1-4.png" width="672" /></p>
+</div>
