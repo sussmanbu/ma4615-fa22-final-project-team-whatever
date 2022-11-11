@@ -53,8 +53,6 @@ library(tidyverse)
 U5Mortality <- readxl::read_xlsx("dataset/Mortality-rate-under-five_2021 (1).xlsx", 
                         sheet = "U5MR Country estimates", , range="B14:BV600")
 
-
-U5Mortality
 ## CLEAN the data
 
 #Renaming first 2 Columns
@@ -219,3 +217,12 @@ U5Mortality$`2019` <- round(as.numeric(U5Mortality$`2019`), 2)
 U5Mortality$`2020` <- round(as.numeric(U5Mortality$`2020`), 2)
 
 #Transform values from rates over 1000 to rates over 100 (i.e. transforming values to %)
+
+U5Mortality <- cbind(U5Mortality$Country,U5Mortality[,2:72]/10)
+
+
+
+
+
+
+
