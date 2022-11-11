@@ -219,7 +219,7 @@ U5Mortality$`2020` <- round(as.numeric(U5Mortality$`2020`), 2)
 #Transform values from rates over 1000 to rates over 100 (i.e. transforming values to %)
 
 U5Mortality <- cbind(U5Mortality$Country,U5Mortality[,2:72]/10)
-
+U5Mortality
 
 
 
