@@ -220,5 +220,5 @@ U5Mortality$`2020` <- round(as.numeric(U5Mortality$`2020`), 2)
 U5Mortality <- cbind(U5Mortality$Country,U5Mortality[,2:72]/10)
 names(U5Mortality)[1] = "Country"
 
-save(nd, file = "dataset/U5Mortality.RData")
+save(U5Mortality, file = "dataset/U5Mortality.RData")
 
