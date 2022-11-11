@@ -1,6 +1,6 @@
 ---
 title: Blog 5
-author: Daniel Sussman
+author: Team
 date: '2022-11-10'
 slug: []
 categories: []
@@ -13,16 +13,15 @@ lastmod: '2022-11-10T17:16:27-05:00'
 featuredVideo: ~
 featuredImage: ~
 ---
-When deciding what data sets to add, we came across a Mortality Under 5 set that houses country-wide mortality rates for children under the age of 5. We have been having trouble finding a clear question to focus on with the Nutrition data set, so we decided to switch our perspective to investigate Nutrition and Low Birthweight as an influential factor of Mortality Rates. 
+When deciding what data sets to add, we came across a Mortality Under 5 set that houses country-wide mortality rates for children under the age of 5.The data set is also from UNICEF, and has a year range from 1950-2020 for each country (given a few NA values from earlier years) We have been having trouble finding a clear question to focus on with the Nutrition data set, so we decided to switch our perspective to investigate Nutrition and Low Birth weight as an influential factor of Mortality Rates. 
 
 Here are a few steps we need to take to use this Mortality data set: 
-  1. May narrow down years to 2013- 2018 to match the Nutrition data set
-  2. Values given as rates per thousand, so we would transform it to percentages 
+  #  1. May narrow down years to 2013- 2018 to match the Nutrition data set - have a more recent outlook
+  #  2. Values given as rates per thousand, so we would transform it to percentages 
+  #  3. Rename 
+  
+
 
  
 
-
-
-
-
-Why do some countries have higher mortality rates than others? (Nutrition + GDP, Sanitation,  new factors)
+What are some influential factors that cause countries have higher mortality rates than others? (possible factors: Nutrition, GDP, Sanitation)
