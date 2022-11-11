@@ -53,6 +53,8 @@ library(tidyverse)
 U5Mortality <- readxl::read_xlsx("dataset/Mortality-rate-under-five_2021 (1).xlsx", 
                         sheet = "U5MR Country estimates", , range="B14:BV600")
 
+
+U5Mortality
 ## CLEAN the data
 
 #Renaming first 2 Columns
