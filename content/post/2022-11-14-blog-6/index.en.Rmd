@@ -1,0 +1,16 @@
+---
+title: 'Blog 6 '
+author: Team
+date: '2022-11-14'
+slug: []
+categories: []
+tags: []
+description: ~
+toc: yes
+authors: []
+series: []
+lastmod: '2022-11-14T09:50:09-05:00'
+featuredVideo: ~
+featuredImage: ~
+---
+blog 6 start here
