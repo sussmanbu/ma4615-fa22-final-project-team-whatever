@@ -13,4 +13,5 @@ lastmod: '2022-11-14T09:50:09-05:00'
 featuredVideo: ~
 featuredImage: ~
 ---
-blog 6 start here
+
+Given our focus on Under 5 mortality, we thought that the interactive graph presenting the Big Picture of our project should give a sense of optimism and progress. We thus decided to make an animated evolution of the Under 5 mortality rates, over time, of countries around the world. We got inspired by the statistician Hans Rosling and his team's beautiful visualizations, which has a similar graph 
