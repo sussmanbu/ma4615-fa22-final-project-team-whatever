@@ -227,5 +227,8 @@ library(tidyverse)
 income_per_capita_ppp <- read_csv("dataset/income_per_person_gdppercapita_ppp_inflation_adjusted.csv")
 income_per_capita_ppp <- income_per_capita_ppp[c(1,153:224)] 
 
+
 #problem: some character values are listed as, e.g., 10.8k instead of 10800. 
 #How to convert them to comparable numbers without going one by one?
+
+# (this chunk does not work) income_per_capita_ppp %>% mutate(`1950` = case_when(str_detect(income_per_capita_ppp,"k") ~ as.numeric(str_extract(income_per_capita_ppp, "[\\d\\.]+")) * 1000))
