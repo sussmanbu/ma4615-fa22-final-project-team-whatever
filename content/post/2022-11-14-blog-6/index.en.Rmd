@@ -13,4 +13,5 @@ lastmod: '2022-11-14T09:50:09-05:00'
 featuredVideo: ~
 featuredImage: ~
 ---
-blog 6 start here
+
+Given our focus on Under 5 mortality, we thought that the interactive graph presenting the Big Picture of our project should give a sense of optimism and progress. We thus decided to make an animated evolution of the relation between Under 5 mortality rates and GDP per capita, over time, of countries around the world. We expect to see a negative relationship meaning that, as GDP per capita grows, U5Mortality rates will decrease over the same time period. We got inspired by the statistician Hans Rosling and his team's beautiful visualizations, which has a similar graph relating life expectancy and GDP per capita over time (see https://www.gapminder.org/tools/#$chart-type=bubbles&url=v1). 
