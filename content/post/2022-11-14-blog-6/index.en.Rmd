@@ -13,10 +13,17 @@ lastmod: '2022-11-14T09:50:09-05:00'
 featuredVideo: ~
 featuredImage: ~
 ---
-
-Given our focus on Under 5 mortality, we thought that the interactive graph presenting the Big Picture of our project should give a sense of optimism and progress. We thus decided to make an animated evolution of the relation between Under 5 mortality rates and GDP per capita, over time, of countries around the world. We expect to see a negative relationship, meaning that, as GDP per capita grows, U5Mortality rates decreases over the same time period. The time period is the one available in our U5Mortality data set, i.e. from 1950 to 2020. We got inspired by the statistician Hans Rosling and his team's beautiful visualizations, which has a similar graph relating life expectancy and GDP per capita over time (see https://www.gapminder.org/tools/#$chart-type=bubbles&url=v1). 
+ 
+ Given our focus on Under 5 mortality, we thought that the interactive graph presenting the Big Picture of our project should give a sense of optimism and progress. We thus decided to make an animated evolution of the relation between Under 5 mortality rates and GDP per capita, over time, of countries around the world. We expect to see a negative relationship, meaning that, as GDP per capita grows, U5Mortality rates decreases over the same time period. The time period is the one available in our U5Mortality data set, i.e. from 1950 to 2020. We got inspired by the statistician Hans Rosling and his team's beautiful visualizations, which has a similar graph relating life expectancy and GDP per capita over time (see https://www.gapminder.org/tools/#$chart-type=bubbles&url=v1). 
 
 
 We plan to use the `gapminder` package and the `ggplotly` command. Before constructing the actual animated graph, we first need to fix a couple of current problems related to cleaning the data set about GDP per capita: first, the values that are higher than 9,999 are recorded as "10k", "10.1k", "10.2k" etc. We still need to replace all "k" values with 000, before converting all the values from characters to numbers. The second issue however is that we will still need to work on the data to group all years in one variable (year), while maintaining the values of each year for each country. This will expand the number of rows while drastically reducing the number of rows, allowing us to plot the three variables (year, GDP per capita and U5Mortality rate) in one signle graph. After doing that, we will be able to merge the two datasets (U5Mortality and GDP per capita) and construct the interactive.
 
 
+<<<<<<< HEAD
+
+We plan to use the `gapminder` package and the `ggplotly` command. Before constructing the actual animated graph, we first need to fix a couple of current problems related to cleaning the data set about GDP per capita: first, the values that are higher than 9,999 are recorded as "10k", "10.1k", "10.2k" etc. We still need to replace all "k" values with 000, before converting all the values from characters to numbers. The second issue however is that we will still need to work on the data to group all years in one variable (year), while maintaining the values of each year for each country. This will expand the number of rows while drastically reducing the number of rows, allowing us to plot the three variables (year, GDP per capita and U5Mortality rate) in one signle graph. After doing that, we will be able to merge the two datasets (U5Mortality and GDP per capita) and construct the interactive.
+
+
+=======
+>>>>>>> 40f24dff53b8a37ed5103a0771344a755c62447f
