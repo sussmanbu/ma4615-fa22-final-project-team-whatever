@@ -13,11 +13,23 @@ lastmod: '2022-11-14T09:50:09-05:00'
 featuredVideo: ~
 featuredImage: ~
 ---
+Given our focus on mortality rates for children under the age of five, we want to create an interactive element that will represent any optimism and progress that we find through the analysis of our data. Below we will describe our thought process about the interactive element, and some limitations we are experiencing. 
 
 
-Given our focus on Under 5 mortality, we thought that the interactive graph presenting the Big Picture of our project should give a sense of optimism and progress. We thus decided to make an animated evolution of the relation between Under 5 mortality rates and GDP per capita, over time, of countries around the world. We expect to see a negative relationship, meaning that, as GDP per capita grows, U5Mortality rates decreases over the same time period. The time period is the one available in our U5Mortality data set, i.e. from 1950 to 2020. We got inspired by the statistician Hans Rosling and his team's beautiful visualizations, which has a similar graph relating life expectancy and GDP per capita over time (see https://www.gapminder.org/tools/#$chart-type=bubbles&url=v1). 
+Our first thought was to create an animation that depicts the evolution of the relation between the mortality rates and GDP per capita of countries around the world. For example, we would be able to display a potentially negative relationship whereas GDP per capita grows, the U5Mortality rates decrease over the selected time period. The time period for the U5Mortality data set is from 1950 -2020. 
 
 
-We plan to use the `gapminder` package and the `ggplotly` command. Before constructing the actual animated graph, we first need to fix a couple of current problems related to cleaning the data set about GDP per capita: first, the values that are higher than 9,999 are recorded as "10k", "10.1k", "10.2k" etc. We still need to replace all "k" values with 000, before converting all the values from characters to numbers. The second issue however is that we will still need to work on the data to group all years in one variable (year), while maintaining the values of each year for each country. This will expand the number of rows while drastically reducing the number of rows, allowing us to plot the three variables (year, GDP per capita and U5Mortality rate) in one signle graph. After doing that, we will be able to merge the two datasets (U5Mortality and GDP per capita) and construct the interactive.
+When researching inspiration for what type of visual we could create, we found work by statistician Hans Rosling and his team which gave a few helpful examples (see https://www.gapminder.org/tools/#$chart-type=bubbles&url=v1). We plan to use the `gapminder` package and the `ggplotly` command. Before constructing the actual animated graph, we first need to fix a couple of current problems related to cleaning the data set about GDP per capita: first, the values that are higher than 9,999 are recorded as "10k", "10.1k", "10.2k" etc. We still need to replace all "k" values with 000, before converting all the values from characters to numbers. The second issue however is that we will still need to work on the data to group all years in one variable (year), while maintaining the values of each year for each country. This will expand the number of rows while drastically reducing the number of rows, allowing us to plot the three variables (year, GDP per capita and U5Mortality rate) in one single graph. After doing that, we will be able to merge the two datasets (U5Mortality and GDP per capita) and construct the interactive.
+
+
+However, with all of this said, we do still intend to incorporate the nutrition data set into this interactive as well. A limitation to this was the “years”, as the nutrition data set does not have data for each like the other two data sets do. We also had trouble trying to visualize what an interactive could look like incorporating all three elements (mortality rates, GDP, and Nutrition variables). We hope to possibly be able to create an interactive that ... 
+
+
+For our personal connection element, we hope that our interactive will be able to represent an equitable view of the global state of children. Even as we investigate past years, we hope it will also give insight into potential future patterns, where viewers of our interactive would be able to explore the relationship between our influential factors and the mortality rate in the country, or countries, of their choosing. We hope our work can integrate the UNICEF mission with our own – to analyze and represent their data in a way that encourages the attention of viewers to the factors that are affecting the future of youth. 
+
+
+
+
+
 
 
