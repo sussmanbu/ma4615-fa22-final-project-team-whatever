@@ -14,6 +14,8 @@ draft: false
 
 ## Part 2: Cleaning the Dataest 
 
+In order to clean our Nutrition Data set we first had to deal with the issue of loading our data set into our R environment. The formatting of our original data set was extremely awkward and difficult to use. The column names did not appear and were instead relocated into the rows. In order to fix these issues, we had to go back to the original data set in excel and reformat the data to ensure that each column and its respective data matched up properly. From there we re-named each column using the names() function, rounded all values to 2 decimal places and replaced empty values with NA using the as.numeric() function and the round function, completing the cleaning part of our Nutrition Dataset.
+
 
 ## Part 3: The Limitations of our Data
 
