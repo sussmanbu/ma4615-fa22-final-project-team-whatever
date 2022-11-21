@@ -6,15 +6,10 @@ featuredVideo:
 featuredImage: images/data-import-cheatsheet-thumbs.png
 draft: false
 ---
-<<<<<<< HEAD
 
 As the world continues to face adversities that threaten our future, we hope that our project can provide some insight for an important factor - the health and survival of future generations around the world. Our project takes a global perspective, which is reflected in the data we discovered. Below we will discuss the process of obtaining and cleaning, as well as the contents, of the data. Inspired by UNICEF's mission for data collection, we have created a project that holds an influential and timeless analysis of the progress of children mortality rates around the globe. 
 
-
-=======
- 
->>>>>>> 51d2b132d2df5282477549b7ef666d092680d3a3
-## Part 1: The Original Dataset: Where and How 
+##Part 1: The Original Dataset
 Our original data set is a Nutrition data report from UNICEF, which can be found here: https://datascienceinrfa2022.slack.com/files/U041CK3KQ04/F046DRAP9QD/table-7-and-8-nutrition-en.xlsx?origin_team=T03ULS93NUE&origin_channel=C045P4CGA04
 
 ### A little about the source - UNICEF: 
@@ -23,6 +18,13 @@ The United Nations Children's Fund (UNICEF) is an organization that is dedicated
 As this with our source, our plan in this project is to develop an analysis of the data into a comprehensible report that helps people get a more connected perception of some influence of certain factors, such as nutrition and GDP on the mortality rates of children under the age of 5. Below, we continue to explain the process of cleaning and combining these data sets. 
  
 ### Nutrition Data set
+This is the first data set we chose to tackle. The variables of the data include low birthweight, which is mainly sourced from modelled estimates from World Health Organization alongside UNICEF, which is shown as the percentage of infants weighing less than 2,500 grams at birth. Other variables that we may include from this data, such as minimum meal frequency and zero vegetable or fruit consumptions are the percentage of children who were able to have solid/soft foods for a minimum time and the percentage of children or ate zero vegetables or fruits, respectively. The ages of the children for these two variables range from 6-23 months. 
+
+
+In this data table, Low birth weight percentages are from 2015, and the infant and children feeding variables range from the years 2013 - 2018. At first we thought would be helpful in being able to focus on a pretty recent year range, however we discuss the limitations to this below on the page. 
+
+
+All of this information is according to the data set itself, which explicitly lists the sources and variable meanings. 
 
 
 ## Part 2: Cleaning the Dataest 
