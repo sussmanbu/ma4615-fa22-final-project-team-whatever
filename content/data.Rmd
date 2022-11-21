@@ -1,9 +1,3 @@
-------------------------------------------------------------------------
-
-------------------------------------------------------------------------
-
-![](https://ileadsantaclarita.org/wp-content/uploads/2022/10/UNICEF-logo.png)
-
 As the world continues to face adversities that threaten our future, we hope that our project can provide some insight for an important factor - the health and survival of future generations around the world. Our project takes a global perspective, which is reflected in the data we discovered. Below we will discuss the process of obtaining and cleaning, as well as the contents, of the data. Inspired by UNICEF's mission for data collection, we have created a project that holds an influential and timeless analysis of the progress of children mortality rates around the globe.
 
 ## Part 1: The Original Dataset
