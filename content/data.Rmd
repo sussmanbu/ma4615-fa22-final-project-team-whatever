@@ -12,7 +12,7 @@ As the world continues to face adversities that threaten our future, we hope tha
 ## Part 1: The Original Dataset
 Our original data set is a Nutrition data report from UNICEF, which can be found here: https://datascienceinrfa2022.slack.com/files/U041CK3KQ04/F046DRAP9QD/table-7-and-8-nutrition-en.xlsx?origin_team=T03ULS93NUE&origin_channel=C045P4CGA04
 
-### A little about the source - UNICEF: 
+### About the source - UNICEF: 
 The United Nations Children's Fund (UNICEF) is an organization that is dedicated to child development around the world. Their research provides data that gives an equitable view of the state of many factors such as poverty, education, violence, and health. Their efforts have led them to become the number one source of data in these matters, and continue to provide their data with easy access in hopes to educate the public about why they do the work that they do. 
 
 As this with our source, our plan in this project is to develop an analysis of the data into a comprehensible report that helps people get a more connected perception of some influence of certain factors, such as nutrition and GDP on the mortality rates of children under the age of 5. Below, we continue to explain the process of cleaning and combining these data sets. 
