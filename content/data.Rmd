@@ -3,7 +3,7 @@ title: Data
 description:
 toc: true
 featuredVideo:
-featuredImage: images/Unicef.png
+featuredImage: images/UNICEF-logo.png
 draft: false
 ---
 
