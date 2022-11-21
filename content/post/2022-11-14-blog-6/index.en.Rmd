@@ -30,10 +30,3 @@ For our personal connection element, we hope that our interactive will be able t
 
 
 
-<<<<<<< HEAD
-We plan to use the `gapminder` package and the `ggplotly` command. Before constructing the actual animated graph, we first need to fix a couple of current problems related to cleaning the data set about GDP per capita: first, the values that are higher than 9,999 are recorded as "10k", "10.1k", "10.2k" etc. We still need to replace all "k" values with 000, before converting all the values from characters to numbers. The second issue however is that we will still need to work on the data to group all years in one variable (year), while maintaining the values of each year for each country. This will expand the number of rows while drastically reducing the number of rows, allowing us to plot the three variables (year, GDP per capita and U5Mortality rate) in one signle graph. After doing that, we will be able to merge the two datasets (U5Mortality and GDP per capita) and construct the interactive.
-=======
-
->>>>>>> e3ed204c5c8d6b19c647643ad2813a5d3292c8f1
-
-
