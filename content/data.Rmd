@@ -15,7 +15,8 @@ As the world continues to face adversities that threaten our future, we hope tha
 ## Part 1: The Original Dataset
 
 
-Our original data set is a Nutrition data report from UNICEF, which can be found here: <https://datascienceinrfa2022.slack.com/files/U041CK3KQ04/F046DRAP9QD/table-7-and-8-nutrition-en.xlsx?origin_team=T03ULS93NUE&origin_channel=C045P4CGA04>
+Our original data set is a Nutrition data report from UNICEF, which can be found here: https://data.unicef.org/resources/dataset/sowc-2019-statistical-tables/
+(scroll down to “Tables 7 and 8- Nutrition” to view the tables.)
 
 ### About the source - UNICEF:
 
