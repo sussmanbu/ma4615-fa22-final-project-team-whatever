@@ -6,10 +6,14 @@ featuredVideo:
 featuredImage: images/data-import-cheatsheet-thumbs.png
 draft: false
 ---
+<<<<<<< HEAD
 
 As the world continues to face adversities that threaten our future, we hope that our project can provide some insight for an important factor - the health and survival of future generations around the world. Our project takes a global perspective, which is reflected in the data we discovered. Below we will discuss the process of obtaining and cleaning, as well as the contents, of the data. Inspired by UNICEF's mission for data collection, we have created a project that holds an influential and timeless analysis of the progress of children mortality rates around the globe. 
 
 
+=======
+ 
+>>>>>>> 51d2b132d2df5282477549b7ef666d092680d3a3
 ## Part 1: The Original Dataset: Where and How 
 Our original data set is a Nutrition data report from UNICEF, which can be found here: https://datascienceinrfa2022.slack.com/files/U041CK3KQ04/F046DRAP9QD/table-7-and-8-nutrition-en.xlsx?origin_team=T03ULS93NUE&origin_channel=C045P4CGA04
 

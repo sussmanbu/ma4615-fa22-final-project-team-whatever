@@ -226,9 +226,9 @@ save(U5Mortality, file = "dataset/U5Mortality.RData")
 library(tidyverse)
 income_per_capita_ppp <- read_csv("dataset/income_per_person_gdppercapita_ppp_inflation_adjusted.csv")
 income_per_capita_ppp <- income_per_capita_ppp[c(1,153:224)] 
-
-income_per_capita_ppp <- as.numeric(sub("k", "e3", c(income_per_capita_ppp[,2:73]), fixed = TRUE))
-
+income_per_capita_ppp <- income_per_capita_ppp[,1:72]
+income_per_capita_ppp <- cbind(income_per_capita_ppp$country, as.numeric(income_per_capita_ppp[,2:72]))
+income_per_capita_ppp <- pivot_longer(income_per_capita_ppp, income_per_capita_ppp[,2:72])
 
 #problem: some character values are listed as, e.g., 10.8k instead of 10800. 
 #How to convert them to comparable numbers without going one by one?
