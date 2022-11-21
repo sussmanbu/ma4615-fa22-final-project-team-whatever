@@ -1,4 +1,16 @@
+---
+title: Data
+description:
+toc: true
+featuredVideo:
+featuredImage: images/data-import-cheatsheet-thumbs.png
+draft: false
+---
 
+
+<div id="TOC">
+
+</div>
 
 <p>As the world continues to face adversities that threaten our future, we hope that our project can provide some insight for an important factor - the health and survival of future generations around the world. Our project takes a global perspective, which is reflected in the data we discovered. Below we will discuss the process of obtaining and cleaning, as well as the contents, of the data. Inspired by UNICEF’s mission for data collection, we have created a project that holds an influential and timeless analysis of the progress of children mortality rates around the globe.</p>
 <div id="part-1-the-original-dataset" class="section level2">
@@ -18,6 +30,7 @@
 </div>
 <div id="part-2-cleaning-the-dataest" class="section level2">
 <h2>Part 2: Cleaning the Dataest</h2>
+<p>In order to clean our Nutrition Data set we first had to deal with the issue of loading our data set into our R environment. The formatting of our original data set was extremely awkward and difficult to use. The column names did not appear and were instead relocated into the rows. In order to fix these issues, we had to go back to the original data set in excel and reformat the data to ensure that each column and its respective data matched up properly. From there we re-named each column using the names() function, rounded all values to 2 decimal places and replaced empty values with NA using the as.numeric() function and the round function, completing the cleaning part of our Nutrition Dataset.</p>
 </div>
 <div id="part-3-the-limitations-of-our-data" class="section level2">
 <h2>Part 3: The Limitations of our Data</h2>
