@@ -229,7 +229,7 @@ income_per_capita_ppp <- income_per_capita_ppp[c(1,153:224)]
 income_per_capita_ppp <- income_per_capita_ppp[,1:72]
 
 
-
+# Function to detect and remove K from dataset
 fun1 <- 
 function(x){
   k <- str_detect(x, "k") 
@@ -240,7 +240,7 @@ function(x){
   return(x)
 }
 
-
+#Joining Datasets
 income_per_capita_ppp <- cbind(income_per_capita_ppp$country,apply(income_per_capita_ppp[,2:72],2,fun1))
 
 income_per_capita_ppp <-as.data.frame(income_per_capita_ppp)%>%pivot_longer(-V1)
