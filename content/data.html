@@ -39,9 +39,11 @@ draft: false
 </div>
 <div id="part-4-additional-datasets" class="section level2">
 <h2>Part 4: Additional Dataset(s)</h2>
-<p>For our project we added two additional data sets. One contains the mortality rates of children under the age of 5 for each country over the years from 1950 to 2021 and the other contains the income per capita for each country over the years from 1950 to 2021. Combining these two data sets took quite a bit of work. We first had to design a function that removed the k’s from the numerical values representing thousand and then multiplied by 1000 to get a numerical representation of the numbers. From there we used the pivot_longer() and inner_join() functions to combine the data sets for use in our interactive and modeling.</p>
+<p>For our project we added two additional data sets. One contains the mortality rates of children under the age of 5 for each country over the years from 1950 to 2021 and the other contains the PPP-adjusted income per capita for each country over the years from 1950 to 2021. The U5Mortality Rate data set comes from UNICEF website as well, specifically from the UN Inter-agency Group for Child Mortality Estimation (UN IGME). The data about income per capita, instead, come from Gapminder.org, a webpage founded by statistician Hans Rosling, that originally took the data from the World Bank. Combining these two data sets took quite a bit of work. We first had to design a function that removed the k’s from the values representing thousand and then, after converting the character strings to numerical values, multiplied by 1000 to get a numerical representation of the numbers. From there we used the pivot_longer() and inner_join() functions to combine the data sets for use in our interactive and modeling.</p>
 <div id="variables-of-additional-datasets" class="section level3">
 <h3>Variables of Additional Dataset(s)</h3>
+<p>We thus ended up with a merged data set (income-mortality) that had 4 column variables (Country, Year, Mortality, Income) and 11,999 rows, representing each country in each year from 1950 to 2020.</p>
 <p>##Link to load_and_clean_data</p>
+<p><a href="https://github.com/sussmanbu/ma4615-fa22-final-project-team-whatever/blob/77b0d7e6aa7441b05842568ac59fcbc74685993a/static/load_and_clean_data.R" class="uri">https://github.com/sussmanbu/ma4615-fa22-final-project-team-whatever/blob/77b0d7e6aa7441b05842568ac59fcbc74685993a/static/load_and_clean_data.R</a></p>
 </div>
 </div>
