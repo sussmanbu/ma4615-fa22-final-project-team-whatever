@@ -9,13 +9,7 @@ draft: false
 
 As the world continues to face adversities that threaten our future, we hope that our project can provide some insight for an important factor - the health and survival of future generations around the world. Our project takes a global perspective, which is reflected in the data we discovered. Below we will discuss the process of obtaining and cleaning, as well as the contents, of the data. Inspired by UNICEF's mission for data collection, we have created a project that holds an influential and timeless analysis of the progress of children mortality rates around the globe.
 
-<<<<<<< HEAD
-=======
-=======
-
->>>>>>> 1bc8df9c4660b9ec1298aaf61eda38a3661ade66
 ## Part 1: The Original Dataset
-
 
 Our original data set is a Nutrition data report from UNICEF, which can be found here: https://data.unicef.org/resources/dataset/sowc-2019-statistical-tables/
 (scroll down to “Tables 7 and 8- Nutrition” to view the tables.)
@@ -38,21 +32,14 @@ All of this information is according to the data set itself, which explicitly li
 
 In order to clean our Nutrition Data set we first had to deal with the issue of loading our data set into our R environment. The formatting of our original data set was extremely awkward and difficult to use. The column names did not appear and were instead relocated into the rows. In order to fix these issues, we had to go back to the original data set in excel and reformat the data to ensure that each column and its respective data matched up properly. From there we re-named each column using the names() function, rounded all values to 2 decimal places and replaced empty values with NA using the as.numeric() function and the round function, completing the cleaning part of our Nutrition Dataset.
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 1bc8df9c4660b9ec1298aaf61eda38a3661ade66
 ## Part 3: The Limitations of our Data
+
+
 
 ## Part 4: Additional Dataset(s)
 
-### What they are, where they are from and the variables
-
-### How we combined them
-
-## Part 5: Cleaning our New Full Dataset
-
-## Part 6: Code for how we combined our files
+For our project we added two additional data sets. One contains the mortality rates of children under the age of 5 for each country over the years from 1950 to 2021 and the other contains the income per capita for each country  over the years from 1950 to 2021. Combining these two data sets took quite a bit of work. We first had to design a function that removed the k's from the numerical values representing thousand and then multiplied by 1000 to get a numerical representation of the numbers. From there we used the pivot_longer() and inner_join() functions to combine the data sets for use in our interactive and modeling.  
 
 ### Your [load_and_clean_data.R]file is how you will load and clean your data. Here is a an example of a very simple one.
 
