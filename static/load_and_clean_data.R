@@ -8,7 +8,7 @@ nd <- readxl::read_xlsx("dataset/Table-7-and-8-Nutrition-EN.xlsx", range="A8:Z22
 loan_data_clean <- nd
  
 
-
+ 
 #Removing Empty Columns
 nd <- nd[-c(1,4,6,8,10,12,14,16,18,20,22,24,26)]
 
@@ -222,3 +222,40 @@ names(U5Mortality)[1] = "Country"
 
 save(U5Mortality, file = "dataset/U5Mortality.RData")
 
+#Cleaning income_per_capita_ppp data set
+library(tidyverse)
+income_per_capita_ppp <- read_csv("dataset/income_per_person_gdppercapita_ppp_inflation_adjusted.csv")
+income_per_capita_ppp <- income_per_capita_ppp[c(1,153:224)] 
+income_per_capita_ppp <- income_per_capita_ppp[,1:72]
+
+
+# Function to detect and remove K from dataset
+fun1 <- 
+function(x){
+  k <- str_detect(x, "k") 
+  for(i in 1:length(k)){
+    if(k[i]){x[i] <- as.numeric(substr(x[i],1,nchar(x[i])-1))*1000}
+    if(!k[i]){x[i] <- as.numeric(x[i])}
+  }
+  return(x)
+}
+
+#Joining Datasets
+income_per_capita_ppp <- cbind(income_per_capita_ppp$country,apply(income_per_capita_ppp[,2:72],2,fun1))
+
+income_per_capita_ppp <-as.data.frame(income_per_capita_ppp)%>%pivot_longer(-V1)
+U5Mortality <- as.data.frame(U5Mortality)%>%pivot_longer(-Country)
+
+colnames(income_per_capita_ppp)[1] ="Country"
+colnames(income_per_capita_ppp)[2] ="YEAR"
+colnames(income_per_capita_ppp)[3] ="INCOME"
+
+colnames(U5Mortality)[1] ="Country"
+colnames(U5Mortality)[2] ="Year"
+colnames(U5Mortality)[3] ="Mortality"
+
+income_mortality <- inner_join(U5Mortality, income_per_capita_ppp,by=c("Country"="Country","Year"="YEAR"))
+?inner_join
+
+#problem: some character values are listed as, e.g., 10.8k instead of 10800. 
+#How to convert them to comparable numbers without going one by one?
