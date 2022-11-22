@@ -1,5 +1,5 @@
 ---
-title: 'Blogpost 3 '
+title: Data Equity
 author: Team
 date: '2022-10-21'
 slug: []
