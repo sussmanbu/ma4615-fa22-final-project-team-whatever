@@ -45,7 +45,6 @@ In order to clean our Nutrition Data set we first had to deal with the issue of 
 
 ## Part 5: Cleaning our New Full Dataset
 
-## Part 6: Code for how we combined our files
 
 ### Your [load_and_clean_data.R]file is how you will load and clean your data. Here is a an example of a very simple one.
 
