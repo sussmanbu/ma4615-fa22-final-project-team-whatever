@@ -9,9 +9,7 @@ draft: false
 
 As the world continues to face adversities that threaten our future, we hope that our project can provide some insight for an important factor - the health and survival of future generations around the world. Our project takes a global perspective, which is reflected in the data we discovered. Below we will discuss the process of obtaining and cleaning, as well as the contents, of the data. Inspired by UNICEF's mission for data collection, we have created a project that holds an influential and timeless analysis of the progress of children mortality rates around the globe.
 
-
 ## Part 1: The Original Dataset
-
 
 Our original data set is a Nutrition data report from UNICEF, which can be found here: https://data.unicef.org/resources/dataset/sowc-2019-statistical-tables/
 (scroll down to “Tables 7 and 8- Nutrition” to view the tables.)
@@ -37,14 +35,14 @@ In order to clean our Nutrition Data set we first had to deal with the issue of 
 
 ## Part 3: The Limitations of our Data
 
+
+
 ## Part 4: Additional Dataset(s)
 
-### What they are, where they are from and the variables
-
-### How we combined them
-
-## Part 5: Cleaning our New Full Dataset
-
+<<<<<<< HEAD
+=======
+For our project we added two additional data sets. One contains the mortality rates of children under the age of 5 for each country over the years from 1950 to 2021 and the other contains the income per capita for each country  over the years from 1950 to 2021. Combining these two data sets took quite a bit of work. We first had to design a function that removed the k's from the numerical values representing thousand and then multiplied by 1000 to get a numerical representation of the numbers. From there we used the pivot_longer() and inner_join() functions to combine the data sets for use in our interactive and modeling.  
+>>>>>>> 0d92e6eafaa14debd4b78c56007f2504d3854ffa
 
 ### Your [load_and_clean_data.R]file is how you will load and clean your data. Here is a an example of a very simple one.
 
