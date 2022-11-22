@@ -1,5 +1,5 @@
 ---
-title: 'Blog 6 '
+title: Interactive Element Ideas and Process
 author: Team
 date: '2022-11-14'
 slug: []
