@@ -45,6 +45,25 @@ Is it clear what can be explored using your interactive components?
 Does it enhance and reinforce your conclusions from the Big Picture?
 Plotly with default hover text will get no credit. Be creative!
 
+```{r}
+#need to set up working directory perhaps? --> setwd()
+load("dataset/income_mortality.RData")
+suppressPackageStartupMessages(library(tidyverse))
+#run this chunck if not previously installed: install.packages("gapminder")
+suppressPackageStartupMessages(library(gapminder))
+
+data(income_mortality.RData, package = "gapminder")
+gg <- ggplot(income_mortality.RData,
+  aes(x = Income, y = Mortality)) +
+  geom_point(alpha = 0.1) +
+  geom_point(aes(frame = Year)) +
+  scale_x_log10()
+ggplotly(gg)
+
+#color = continent, size = pop
+```
+
+
 
 ### Video Recording
 
