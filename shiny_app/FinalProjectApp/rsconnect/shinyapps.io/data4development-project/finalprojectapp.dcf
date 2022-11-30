@@ -1,0 +1,13 @@
+name: FinalProjectApp
+title: FinalProjectApp
+username:
+account: data4development-project
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 7777378
+bundleId: 6574502
+url: https://data4development-project.shinyapps.io/finalprojectapp/
+when: 1669845767.91439
+lastSyncTime: 1669845767.9144
+asMultiple: FALSE
+asStatic: FALSE

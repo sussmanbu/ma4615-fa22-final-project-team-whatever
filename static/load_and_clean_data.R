@@ -271,7 +271,9 @@ pop_size <- pop_size[c(1,153:223)]
 
 # Function to detect and remove M from dataset
 
-#how to include both "k" and "M" in the function?
+#how to include both "k" and "M" in the function? 
+#--> Need to create a single function with if k and if M, using str_detect
+# we then replace fun1 with fun2 only 
 fun2 <- 
   function(x){
     M <- str_detect(x, "M") 
@@ -283,7 +285,7 @@ fun2 <-
   }
 
 
-#Joining Datasets
-pop_size <- cbind(pop_size$country,apply(pop_size[,2:72],2,fun2))
+#Joining Datasets - not ready yet
+#pop_size <- cbind(pop_size$country,apply(pop_size[,2:72],2,fun2))
 
-pop_size <-as.data.frame(pop_size)%>%pivot_longer(-V1)
+#pop_size <-as.data.frame(pop_size)%>%pivot_longer(-V1)
