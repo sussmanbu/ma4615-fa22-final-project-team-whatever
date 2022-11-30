@@ -15,8 +15,8 @@ We describe here our detailed data analysis.
 ```{r}
 library(tidyverse)
 print(getwd())
-data <- read_csv(here::here("dataset/loan_refusal_clean.csv"))
-load(here::here("dataset/loan_refusal.RData"))
+data <- read_csv(here::here("dataset/income_mortality.RData"))
+load(here::here("dataset/income_mortality.RData"))
 print(ls())
 ```
 
@@ -33,6 +33,24 @@ If you are directly quoting from a source, please make that clear. You can show 
 Also, make sure to provide a link or citation to where you are quoting from.
 
 -------
+
+## Motivation for Our Data Analysis
+
+
+## Initial Questions for Data Analysis
+
+
+## Modeling and Inference
+
+
+```{r}
+
+```
+
+
+## Clarity Figures
+
+
 
 
 ## Rubric: On this page

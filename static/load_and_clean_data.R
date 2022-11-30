@@ -255,9 +255,10 @@ colnames(U5Mortality)[2] ="Year"
 colnames(U5Mortality)[3] ="Mortality"
 
 income_mortality <- inner_join(U5Mortality, income_per_capita_ppp,by=c("Country"="Country","Year"="YEAR"))
-?inner_join
+
 
 income_mortality$`Year` <- round(as.numeric(income_mortality$`Year`), 2)
 income_mortality$`Income` <- round(as.numeric(income_mortality$`Income`), 2)
 
 save(income_mortality, file = "dataset/income_mortality.RData")
+
