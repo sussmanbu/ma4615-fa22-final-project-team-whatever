@@ -15,8 +15,8 @@ We describe here our detailed data analysis.
 ```{r}
 library(tidyverse)
 print(getwd())
-data <- read_csv(here::here("dataset/loan_refusal_clean.csv"))
-load(here::here("dataset/loan_refusal.RData"))
+data <- read_csv(here::here("dataset/income_mortality.RData"))
+load(here::here("dataset/income_mortality.RData"))
 print(ls())
 ```
 
@@ -38,6 +38,26 @@ edison testing commit
 Also, make sure to provide a link or citation to where you are quoting from.
 
 -------
+
+## Motivation for Our Data Analysis
+
+
+
+## Initial Questions for Data Analysis
+
+
+
+## Modeling and Inference
+
+
+```{r}
+
+```
+
+
+## Clarity Figures
+
+
 
 
 ## Rubric: On this page
@@ -72,3 +92,19 @@ you will
   
   
 **NOTE**: Your Data Analysis can be broken up into multiple pages if that helps with your organization.
+
+```{r}
+
+load(here::here("dataset/income_mortality.RData"))
+#load(here::here("static/load_and_clean_data.R"))
+suppressPackageStartupMessages(library(tidyverse))
+
+#maybe need to include different regions and color them with "color = " under ggplot aes (instead of Income)
+
+income_mortality %>% filter(Year == "1950" | Year == "1975" | Year == "2000" | Year == "2020") %>% ggplot(aes(x = Income, y = Mortality, color = Income)) + geom_point(size = 0.3) +
+  facet_wrap(~as.factor(Year)) +
+  stat_smooth(aes(group = Year), color='black', alpha = 0.4, geom = "line") +
+  scale_x_log10() +
+  labs(x = "Income Per Capita (PPP)", y = "Under 5 Mortality Rate", title = "Disparity across Under 5 Mortality Rates has decreased over time")
+```
+

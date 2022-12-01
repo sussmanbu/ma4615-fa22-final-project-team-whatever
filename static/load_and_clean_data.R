@@ -248,7 +248,7 @@ U5Mortality <- as.data.frame(U5Mortality)%>%pivot_longer(-Country)
 
 colnames(income_per_capita_ppp)[1] ="Country"
 colnames(income_per_capita_ppp)[2] ="YEAR"
-colnames(income_per_capita_ppp)[3] ="INCOME"
+colnames(income_per_capita_ppp)[3] ="Income"
 
 colnames(U5Mortality)[1] ="Country"
 colnames(U5Mortality)[2] ="Year"
@@ -257,5 +257,35 @@ colnames(U5Mortality)[3] ="Mortality"
 income_mortality <- inner_join(U5Mortality, income_per_capita_ppp,by=c("Country"="Country","Year"="YEAR"))
 ?inner_join
 
-#problem: some character values are listed as, e.g., 10.8k instead of 10800. 
-#How to convert them to comparable numbers without going one by one?
+income_mortality$`Year` <- round(as.numeric(income_mortality$`Year`), 2)
+income_mortality$`Income` <- round(as.numeric(income_mortality$`Income`), 2)
+
+save(income_mortality, file = "dataset/income_mortality.RData")
+
+# Including countries' population size
+
+suppressPackageStartupMessages(library(tidyverse))
+pop_size <- read_csv("dataset/population_total.csv")
+pop_size <- pop_size[c(1,153:223)]
+
+
+# Function to detect and remove M from dataset
+
+#how to include both "k" and "M" in the function? 
+#--> Need to create a single function with if k and if M, using str_detect
+# we then replace fun1 with fun2 only 
+fun2 <- 
+  function(x){
+    M <- str_detect(x, "M") 
+    for(i in 1:length(M)){
+      if(M[i]){x[i] <- as.numeric(substr(x[i],1,nchar(x[i])-1))*1000000}
+      if(!M[i]){x[i] <- as.numeric(x[i])}
+    }
+    return(x)
+  }
+
+
+#Joining Datasets - not ready yet
+#pop_size <- cbind(pop_size$country,apply(pop_size[,2:72],2,fun2))
+
+#pop_size <-as.data.frame(pop_size)%>%pivot_longer(-V1)
