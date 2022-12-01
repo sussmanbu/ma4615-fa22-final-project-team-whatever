@@ -24,6 +24,11 @@ print(ls())
 
 If you are directly quoting from a source, please make that clear. You can show quotes using `>` like this
 
+
+edison testing commit  
+
+
+
 ```
 > To be or not to be.
 ```
@@ -40,7 +45,9 @@ Our data is mainly driven by investigating
 
 
 
+
 ## Initial Questions for Data Analysis
+
 
 
 ## Modeling and Inference
