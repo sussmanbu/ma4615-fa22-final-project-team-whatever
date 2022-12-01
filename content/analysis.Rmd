@@ -37,7 +37,9 @@ Also, make sure to provide a link or citation to where you are quoting from.
 ## Motivation for Our Data Analysis
 
 
+
 ## Initial Questions for Data Analysis
+
 
 
 ## Modeling and Inference
