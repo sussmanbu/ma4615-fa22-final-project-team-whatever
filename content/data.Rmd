@@ -35,7 +35,7 @@ In order to clean our Nutrition Data set we first had to deal with the issue of 
 
 ## Part 3: The Limitations of our Data
 
-
+We have a timeline of more than 70 years and too many countries for our data, which will make processing it quite challenging. Additionally, since what we receive is the mean of each country annually, the data may be subject to some restrictions. For instance, when the wealth difference between rich and poor is too wide across many nations, our mean GDP may not accurately reflect this nation's unique circumstances. Additionally, many nations do not contribute data to the UN, therefore there may be data gaps for particular time periods and geographical areas. When performing time series and geographical analysis, this will put us in a lot of difficulties.
 
 ## Part 4: Additional Dataset(s)
 
