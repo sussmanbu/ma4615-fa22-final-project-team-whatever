@@ -11,6 +11,7 @@ We describe here our detailed data analysis.
 
 
 ```{r}
+
 library(tidyverse)
 library(ggplot2)
 print(getwd())
@@ -18,9 +19,10 @@ load(here::here("dataset/income_mortality.RData"))
 load(here::here("dataset/nd_regions.RData"))
 load(here::here("dataset/nd_inc_mort_avg.RData"))
 print(ls())
+
 ```
 
-## Note on Attribution
+## Note on Attribution 
 
 If you are directly quoting from a source, please make that clear. You can show quotes using `>` like this
 
@@ -92,6 +94,8 @@ ggplot(nd_inc_mort_avg, aes(x = Income_avg, y = ExclusiveBreastFeeding)) + geom_
   scale_x_log10() +
   labs(x = "Average Income Per Capita (PPP)", y = "Exclusive Breast Feeding Rate", title = "As income increases, exclusive breast feeding for children's nutrition decreases")
 ```
+
+
 ```{r}
 load(here::here("dataset/nd_inc_mort_avg.RData"))
 ggplot(nd_inc_mort_avg, aes(x = Income_avg, y = DietDiversity)) + geom_point(size = 0.4) +
