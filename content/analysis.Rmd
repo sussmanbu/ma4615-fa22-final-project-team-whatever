@@ -3,7 +3,7 @@ title: Analysis
 description: 
 toc: true
 featuredVideo:
-featuredImage: 
+featuredImage: images/globe.png
 draft: false
 ---
 
@@ -34,7 +34,7 @@ If you are directly quoting from a source, please make that clear. You can show 
 
 Also, make sure to provide a link or citation to where you are quoting from.
 
--------
+
 
 ## Motivation for Our Data Analysis
 
@@ -83,8 +83,6 @@ income_mortality %>% filter(Year == "1950" | Year == "1975" | Year == "2000" | Y
 *explain your plots here  
 
 ```{r}
-<<<<<<< HEAD
-=======
 
 load(here::here("dataset/income_mortality.RData"))
 #load(here::here("static/load_and_clean_data.R"))
@@ -115,7 +113,6 @@ ggplot(nd_regions) +
 
 
 ```{r}
->>>>>>> c80de0e868068143d6dcc2e42ccee6ea3792f79c
 # Interesting structure for visualizing mortality rates by world regions when we'll have the world regions variable in the income_mortality data set
 
  #ggplot(nd_regions, aes(x=Country, y=LowBirthWT, color=Country)) +
@@ -124,16 +121,14 @@ ggplot(nd_regions) +
      #labs(title="% of Low Birth Weights by World Region", x="", y="", color ="Country" )
 ```
 
-<<<<<<< HEAD
 
-=======
 ```{r}
 #need to place region names in the x axis vertically
  nd_regions%>%ggplot() +
    geom_bar(aes(x = reorder(Country, -LowBirthWT), y = LowBirthWT, fill = Country), stat = 'identity') +
    labs(title = '% of Low Birth Weights by World Region', x = 'World Region', y = '% of Low Birth Weights')
 ```
->>>>>>> c80de0e868068143d6dcc2e42ccee6ea3792f79c
+
 
 
 
