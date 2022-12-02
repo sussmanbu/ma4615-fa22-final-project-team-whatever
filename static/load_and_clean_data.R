@@ -293,3 +293,8 @@ fun2 <-
 #pop_size <- cbind(pop_size$country,apply(pop_size[,2:72],2,fun2))
 
 #pop_size <-as.data.frame(pop_size)%>%pivot_longer(-V1)
+
+
+
+
+
