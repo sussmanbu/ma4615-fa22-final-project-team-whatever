@@ -74,7 +74,6 @@ income_mortality %>% filter(Year == "1950" | Year == "1975" | Year == "2000" | Y
 ```
 
 ```{r}
-<<<<<<< HEAD
 
 load(here::here("dataset/income_mortality.RData"))
 #load(here::here("static/load_and_clean_data.R"))
@@ -85,11 +84,11 @@ suppressPackageStartupMessages(library(tidyverse))
 income_mortality %>% filter(Year == "1950" | Year == "1975" | Year == "2000" | Year == "2020") %>% ggplot(aes(x = Income, y = Mortality, color = Income)) + geom_point(size = 0.3) +
   facet_wrap(~as.factor(Year)) +
   stat_smooth(aes(group = Year), color='black', alpha = 0.4, geom = "line") +
-=======
+
 load(here::here("dataset/nd_inc_mort_avg.RData"))
 ggplot(nd_inc_mort_avg, aes(x = Income_avg, y = ExclusiveBreastFeeding)) + geom_point(size = 0.4) +
   stat_smooth(color='black', alpha = 0.2) +
->>>>>>> 964c8f5e01909f1da86ea29b35ad9aab8a37ea4c
+
   scale_x_log10() +
   labs(x = "Average Income Per Capita (PPP)", y = "Exclusive Breast Feeding Rate", title = "As income increases, exclusive breast feeding for children's nutrition decreases")
 ```
@@ -116,7 +115,7 @@ ggplot(nd_inc_mort_avg, aes(x = Income_avg, y = DietDiversity)) + geom_point(siz
 ```
 
 
-<<<<<<< HEAD
+
 ```{r}
 #need to place region names in the x axis vertically
  nd_regions%>%ggplot() +
@@ -124,8 +123,6 @@ ggplot(nd_inc_mort_avg, aes(x = Income_avg, y = DietDiversity)) + geom_point(siz
    labs(title = '% of Low Birth Weights by World Region', x = 'World Region', y = '% of Low Birth Weights')
 ```
 
-=======
->>>>>>> 964c8f5e01909f1da86ea29b35ad9aab8a37ea4c
 
 
 
