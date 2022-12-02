@@ -14,6 +14,7 @@ We describe here our detailed data analysis.
 
 ```{r}
 library(tidyverse)
+library(ggplot2)
 print(getwd())
 data <- read_csv(here::here("dataset/income_mortality.RData"))
 load(here::here("dataset/income_mortality.RData"))
@@ -44,10 +45,19 @@ Also, make sure to provide a link or citation to where you are quoting from.
 
 ## Modeling and Inference
 
-
 ```{r}
+region_nd <- nd[205:215,]
 
+ggplot(region_nd, aes(Country , `LowBirthWT%`,  fill=Country)) + 
+    coord_flip() +
+    geom_bar(stat="identity", width=.90) + 
+    xlab("Region") + 
+    ylab("Low Birth Weight Percentage") + 
+    guides(fill=FALSE) +
+    ggtitle("Percentage of Children Underweight in World Regions") + 
+    theme_minimal()
 ```
+
 
 
 ## Clarity Figures
