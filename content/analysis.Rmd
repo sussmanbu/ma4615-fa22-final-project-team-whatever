@@ -80,7 +80,7 @@ income_mortality %>% filter(Year == "1950" | Year == "1975" | Year == "2000" | Y
 
   
   
-*explain your plots here 
+*explain your plots here  
 
 ```{r}
 # Interesting structure for visualizing mortality rates by world regions when we'll have the world regions variable in the income_mortality data set
