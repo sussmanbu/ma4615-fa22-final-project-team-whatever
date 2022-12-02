@@ -1,13 +1,11 @@
 ---
 title: Analysis
-description:
+description: 
 toc: true
 featuredVideo:
-featuredImage: https://upload.wikimedia.org/wikipedia/commons/7/77/Pebbleswithquarzite.jpg
+featuredImage: 
 draft: false
 ---
-
-This comes from the file `content/analysis.Rmd`.
 
 We describe here our detailed data analysis.
 
@@ -80,43 +78,44 @@ income_mortality %>% filter(Year == "1950" | Year == "1975" | Year == "2000" | Y
 
 ## Clarity Figures
 
-
-
-
-## Rubric: On this page
-
-you will
-
-
-* Introduce what motivates your Data Analysis (DA)
-  * Which variables and relationships are you most interested in?
-  * What questions are you interested in answering?
-* Breadth of the DA
-  * Make sure that you ask enough initial questions to explore the different variables in your data.
-  * i.e. Do you explore more than just one or two variables? Do you explore a few different relationships or many?
-* Depth of the DA
-  * When you answer one question, usually more questions arise as well. 
-  * The depth of the DA is about coming up with and exploring the answers to these questions, often iterating the process a few times.
-* Modeling and Inference 
-  * You should also include some kind of formal statistical model and/or inference. This could be a linear regression, logistic regression, hypothesis testing etc.
-  * Explain the techniques you used for validating your results.
-  * Describe the results of your modelling and make sure to give a sense of the uncertainty in your estimates and conclusions.
-* Explain the flaws and limitations of your analysis
-  * Are there some assumptions that you needed to make that might not hold? Is there other data that would help to answer your questions? ...
-* Clarity Figures
-  * Are your figures/tables/results easy to read, informative, without problems like overplotting, hard-to-read labels, etc?
-  * Each figure should provide a key insight. Too many figures or other data summaries can detract from this.
-* Clarity of Explanations
-  * Do you introduce why you are doing each analysis?
-  * How well do you explain each figure/result?
-  * Do you provide interpretations that suggest further analysis or explanations for observed phenomenon?
-* Organization and cleanliness.
-  * Make sure to remove excessive warnings, use clean easy-to-read code, organize with sections or multiple pages, use bullets, etc.
   
   
-**NOTE**: Your Data Analysis can be broken up into multiple pages if that helps with your organization.
+*explain your plots here 
 
 ```{r}
+<<<<<<< HEAD
+=======
+
+load(here::here("dataset/income_mortality.RData"))
+#load(here::here("static/load_and_clean_data.R"))
+suppressPackageStartupMessages(library(tidyverse))
+
+#maybe need to include different regions and color them with "color = " under ggplot aes (instead of Income)
+
+income_mortality %>% filter(Year == "1950" | Year == "1975" | Year == "2000" | Year == "2020") %>% ggplot(aes(x = Income, y = Mortality, color = Income)) + geom_point(size = 0.3) +
+  facet_wrap(~as.factor(Year)) +
+  stat_smooth(aes(group = Year), color='black', alpha = 0.4, geom = "line") +
+  scale_x_log10() +
+  labs(x = "Income Per Capita (PPP)", y = "Under 5 Mortality Rate", title = "Disparity across Under 5 Mortality Rates has decreased over time")
+```
+
+```{r}
+load(here::here("dataset/nd_regions.RData"))
+
+#needs to separate bars by country...how to do it?
+
+ggplot(nd_regions) +
+  geom_bar(
+    mapping = aes(x=LowBirthWT, fill=Country), 
+    width = 4) + 
+  theme(aspect.ratio = 1) +
+  labs(title="% of Low Birth Weights by World Region" ) + coord_polar()
+  
+```
+
+
+```{r}
+>>>>>>> c80de0e868068143d6dcc2e42ccee6ea3792f79c
 # Interesting structure for visualizing mortality rates by world regions when we'll have the world regions variable in the income_mortality data set
 
  #ggplot(nd_regions, aes(x=Country, y=LowBirthWT, color=Country)) +
@@ -125,7 +124,16 @@ you will
      #labs(title="% of Low Birth Weights by World Region", x="", y="", color ="Country" )
 ```
 
+<<<<<<< HEAD
 
+=======
+```{r}
+#need to place region names in the x axis vertically
+ nd_regions%>%ggplot() +
+   geom_bar(aes(x = reorder(Country, -LowBirthWT), y = LowBirthWT, fill = Country), stat = 'identity') +
+   labs(title = '% of Low Birth Weights by World Region', x = 'World Region', y = '% of Low Birth Weights')
+```
+>>>>>>> c80de0e868068143d6dcc2e42ccee6ea3792f79c
 
 
 
