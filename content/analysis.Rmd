@@ -11,10 +11,12 @@ We describe here our detailed data analysis.
 
 
 ```{r}
-suppressPackageStartupMessages(library(tidyverse))
-suppressPackageStartupMessages(library(ggplot2))
+library(tidyverse)
+library(ggplot2)
 print(getwd())
-load(here::here("income_mortality.RData"))
+load(here::here("dataset/income_mortality.RData"))
+load(here::here("dataset/nd_regions.RData"))
+load(here::here("dataset/nd_inc_mort_avg.RData"))
 print(ls())
 ```
 
@@ -49,7 +51,6 @@ Our data is mainly driven by investigating
 ## Modeling and Inference
 
 ```{r}
-
 ggplot(nd_regions, aes(Country , LowBirthWT,  fill=Country)) + 
     coord_flip() +
     geom_bar(stat="identity", width=.90) + 
@@ -73,14 +74,14 @@ income_mortality %>% filter(Year == "1950" | Year == "1975" | Year == "2000" | Y
 ```
 
 ```{r}
-load(here::here("nd_inc_mort_avg.RData"))
+load(here::here("dataset/nd_inc_mort_avg.RData"))
 ggplot(nd_inc_mort_avg, aes(x = Income_avg, y = ExclusiveBreastFeeding)) + geom_point(size = 0.4) +
   stat_smooth(color='black', alpha = 0.2) +
   scale_x_log10() +
   labs(x = "Average Income Per Capita (PPP)", y = "Exclusive Breast Feeding Rate", title = "As income increases, exclusive breast feeding for children's nutrition decreases")
 ```
 ```{r}
-load(here::here("nd_inc_mort_avg.RData"))
+load(here::here("dataset/nd_inc_mort_avg.RData"))
 ggplot(nd_inc_mort_avg, aes(x = Income_avg, y = DietDiversity)) + geom_point(size = 0.4) +
   stat_smooth(color='black', alpha = 0.2) +
   scale_x_log10() +
