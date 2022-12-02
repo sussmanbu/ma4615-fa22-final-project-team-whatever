@@ -17,7 +17,6 @@ print(getwd())
 data <- read_csv(here::here("dataset/income_mortality.RData"))
 load(here::here("dataset/income_mortality.RData"))
 print(ls())
-view(income_mortality)
 ```
 
 ## Note on Attribution
@@ -38,26 +37,22 @@ Also, make sure to provide a link or citation to where you are quoting from.
 -------
 
 ## Motivation for Our Data Analysis
-<<<<<<< HEAD
-We focused on a lot of child-related data on the United Nations website when we originally decided to undertake data analysis. In order to study the connection between low fertility and nutrition, we first wanted to complete the data on children's nutrition in various nations. However, we later discovered that the data was incomplete and of insufficient quality. As a result, we have determined each nation's GDP as well as its five-year child mortality rate. Thus, we can discover a connection between economics, nutrition, and child mortality. We try to comprehend why the child mortality rate is so high in those nations with high child mortality.As a result, it might be possible to pinpoint improvements that could be made to the children's living circumstances as well as the areas where making changes would have the greatest potential to save young lives.
-=======
 
 Our data is mainly driven by investigating 
 
 
->>>>>>> e59aebd3dd98c2b2de07af1410e98df04afd235d
 
 
 ## Initial Questions for Data Analysis
-The initial issue we ran into was that it was extremely difficult to combine all the data and still leave us with relevant data because the three tables included more than 150 countries, and the data with the longest time period exceeded 80 years. We combined data from more than 150 countries across the three tables after first cleaning each table to leave usable information. Later, we discovered that the letter "K" stands for numerous 1000s in the GDP table, while the letter "M" stands for one million. The next task is to figure out how to convert K to the number 1000.
-We tried numerous approaches and discovered that it is very challenging to choose all K and M and replace them with 1000. Numerous issues will arise during the data cleaning and processing process, but we have worked through them one at a time.
+
+
 
 ## Modeling and Inference
 
 ```{r}
-region_nd <- nd[205:215,]
+nd_regions <- nd[205:215,]
 
-ggplot(region_nd, aes(Country , `LowBirthWT%`,  fill=Country)) + 
+ggplot(nd_regions, aes(Country , LowBirthWT,  fill=Country)) + 
     coord_flip() +
     geom_bar(stat="identity", width=.90) + 
     xlab("Region") + 
@@ -66,47 +61,6 @@ ggplot(region_nd, aes(Country , `LowBirthWT%`,  fill=Country)) +
     ggtitle("Percentage of Children Underweight in World Regions") + 
     theme_minimal()
 ```
-
-
-
-## Clarity Figures
-
-
-
-
-## Rubric: On this page
-
-you will
-
-
-* Introduce what motivates your Data Analysis (DA)
-  * Which variables and relationships are you most interested in?
-  * What questions are you interested in answering?
-* Breadth of the DA
-  * Make sure that you ask enough initial questions to explore the different variables in your data.
-  * i.e. Do you explore more than just one or two variables? Do you explore a few different relationships or many?
-* Depth of the DA
-  * When you answer one question, usually more questions arise as well. 
-  * The depth of the DA is about coming up with and exploring the answers to these questions, often iterating the process a few times.
-* Modeling and Inference 
-  * You should also include some kind of formal statistical model and/or inference. This could be a linear regression, logistic regression, hypothesis testing etc.
-  * Explain the techniques you used for validating your results.
-  * Describe the results of your modelling and make sure to give a sense of the uncertainty in your estimates and conclusions.
-* Explain the flaws and limitations of your analysis
-  * Are there some assumptions that you needed to make that might not hold? Is there other data that would help to answer your questions? ...
-* Clarity Figures
-  * Are your figures/tables/results easy to read, informative, without problems like overplotting, hard-to-read labels, etc?
-  * Each figure should provide a key insight. Too many figures or other data summaries can detract from this.
-* Clarity of Explanations
-  * Do you introduce why you are doing each analysis?
-  * How well do you explain each figure/result?
-  * Do you provide interpretations that suggest further analysis or explanations for observed phenomenon?
-* Organization and cleanliness.
-  * Make sure to remove excessive warnings, use clean easy-to-read code, organize with sections or multiple pages, use bullets, etc.
-  
-  
-*explain your plots here 
-
 ```{r}
 
 load(here::here("dataset/income_mortality.RData"))
@@ -122,20 +76,11 @@ income_mortality %>% filter(Year == "1950" | Year == "1975" | Year == "2000" | Y
   labs(x = "Income Per Capita (PPP)", y = "Under 5 Mortality Rate", title = "Disparity across Under 5 Mortality Rates has decreased over time")
 ```
 
-```{r}
-load(here::here("dataset/nd_regions.RData"))
+## Clarity Figures
 
-#needs to separate bars by country...how to do it?
-
-ggplot(nd_regions) +
-  geom_bar(
-    mapping = aes(x=LowBirthWT, fill=Country), 
-    width = 4) + 
-  theme(aspect.ratio = 1) +
-  labs(title="% of Low Birth Weights by World Region" ) + coord_polar()
   
-```
-
+  
+*explain your plots here  
 
 ```{r}
 # Interesting structure for visualizing mortality rates by world regions when we'll have the world regions variable in the income_mortality data set
@@ -146,12 +91,7 @@ ggplot(nd_regions) +
      #labs(title="% of Low Birth Weights by World Region", x="", y="", color ="Country" )
 ```
 
-```{r}
-#need to place region names in the x axis vertically
- nd_regions%>%ggplot() +
-   geom_bar(aes(x = reorder(Country, -LowBirthWT), y = LowBirthWT, fill = Country), stat = 'identity') +
-   labs(title = '% of Low Birth Weights by World Region', x = 'World Region', y = '% of Low Birth Weights')
-```
+
 
 ```{r}
 data(income_mortality)
