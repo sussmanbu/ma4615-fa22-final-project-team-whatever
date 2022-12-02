@@ -11,11 +11,10 @@ We describe here our detailed data analysis.
 
 
 ```{r}
-library(tidyverse)
-library(ggplot2)
+suppressPackageStartupMessages(library(tidyverse))
+suppressPackageStartupMessages(library(ggplot2))
 print(getwd())
-data <- read_csv(here::here("dataset/income_mortality.RData"))
-load(here::here("dataset/income_mortality.RData"))
+load(here::here("income_mortality.RData"))
 print(ls())
 ```
 
@@ -50,7 +49,6 @@ Our data is mainly driven by investigating
 ## Modeling and Inference
 
 ```{r}
-nd_regions <- nd[205:215,]
 
 ggplot(nd_regions, aes(Country , LowBirthWT,  fill=Country)) + 
     coord_flip() +
@@ -63,9 +61,7 @@ ggplot(nd_regions, aes(Country , LowBirthWT,  fill=Country)) +
 ```
 ```{r}
 
-load(here::here("dataset/income_mortality.RData"))
-#load(here::here("static/load_and_clean_data.R"))
-suppressPackageStartupMessages(library(tidyverse))
+load(here::here("income_mortality.RData"))
 
 #maybe need to include different regions and color them with "color = " under ggplot aes (instead of Income)
 
@@ -76,6 +72,20 @@ income_mortality %>% filter(Year == "1950" | Year == "1975" | Year == "2000" | Y
   labs(x = "Income Per Capita (PPP)", y = "Under 5 Mortality Rate", title = "Disparity across Under 5 Mortality Rates has decreased over time")
 ```
 
+```{r}
+load(here::here("nd_inc_mort_avg.RData"))
+ggplot(nd_inc_mort_avg, aes(x = Income_avg, y = ExclusiveBreastFeeding)) + geom_point(size = 0.4) +
+  stat_smooth(color='black', alpha = 0.2) +
+  scale_x_log10() +
+  labs(x = "Average Income Per Capita (PPP)", y = "Exclusive Breast Feeding Rate", title = "As income increases, exclusive breast feeding for children's nutrition decreases")
+```
+```{r}
+load(here::here("nd_inc_mort_avg.RData"))
+ggplot(nd_inc_mort_avg, aes(x = Income_avg, y = DietDiversity)) + geom_point(size = 0.4) +
+  stat_smooth(color='black', alpha = 0.2) +
+  scale_x_log10() +
+  labs(x = "Average Income Per Capita (PPP)", y = "Diet Diversity", title = "As income increases, diet diversity for children's nutrition increases")
+```
 ## Clarity Figures
 
   
