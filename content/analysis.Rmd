@@ -14,6 +14,7 @@ We describe here our detailed data analysis.
 
 ```{r}
 library(tidyverse)
+library(ggplot2)
 print(getwd())
 data <- read_csv(here::here("dataset/income_mortality.RData"))
 load(here::here("dataset/income_mortality.RData"))
@@ -23,6 +24,9 @@ print(ls())
 ## Note on Attribution
 
 If you are directly quoting from a source, please make that clear. You can show quotes using `>` like this
+
+
+
 
 ```
 > To be or not to be.
@@ -36,6 +40,9 @@ Also, make sure to provide a link or citation to where you are quoting from.
 
 ## Motivation for Our Data Analysis
 
+Our data is mainly driven by investigating 
+
+
 
 
 ## Initial Questions for Data Analysis
@@ -44,10 +51,19 @@ Also, make sure to provide a link or citation to where you are quoting from.
 
 ## Modeling and Inference
 
-
 ```{r}
+region_nd <- nd[205:215,]
 
+ggplot(region_nd, aes(Country , `LowBirthWT%`,  fill=Country)) + 
+    coord_flip() +
+    geom_bar(stat="identity", width=.90) + 
+    xlab("Region") + 
+    ylab("Low Birth Weight Percentage") + 
+    guides(fill=FALSE) +
+    ggtitle("Percentage of Children Underweight in World Regions") + 
+    theme_minimal()
 ```
+
 
 
 ## Clarity Figures
@@ -102,4 +118,40 @@ income_mortality %>% filter(Year == "1950" | Year == "1975" | Year == "2000" | Y
   scale_x_log10() +
   labs(x = "Income Per Capita (PPP)", y = "Under 5 Mortality Rate", title = "Disparity across Under 5 Mortality Rates has decreased over time")
 ```
+
+<<<<<<< HEAD
+
+
+=======
+```{r}
+load(here::here("dataset/nd_regions.RData"))
+
+#needs to separate bars by country...how to do it?
+
+ggplot(nd_regions) +
+  geom_bar(
+    mapping = aes(x=LowBirthWT, fill=Country), 
+    width = 4) + 
+  theme(aspect.ratio = 1) +
+  labs(title="% of Low Birth Weights by World Region" ) + coord_polar()
+  
+```
+
+
+```{r}
+# Interesting structure for visualizing mortality rates by world regions when we'll have the world regions variable in the income_mortality data set
+
+ #ggplot(nd_regions, aes(x=Country, y=LowBirthWT, color=Country)) +
+     #geom_point(position="jitter") +
+     #coord_polar("x") +
+     #labs(title="% of Low Birth Weights by World Region", x="", y="", color ="Country" )
+```
+
+```{r}
+#need to place region names in the x axis vertically
+ nd_regions%>%ggplot() +
+   geom_bar(aes(x = reorder(Country, -LowBirthWT), y = LowBirthWT, fill = Country), stat = 'identity') +
+   labs(title = '% of Low Birth Weights by World Region', x = 'World Region', y = '% of Low Birth Weights')
+```
+>>>>>>> 9de17a375fb40217dc2f05161fbb24423331fbca
 

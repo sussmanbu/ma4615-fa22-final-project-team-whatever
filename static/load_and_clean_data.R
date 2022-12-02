@@ -12,42 +12,46 @@ loan_data_clean <- nd
 #Removing Empty Columns
 nd <- nd[-c(1,4,6,8,10,12,14,16,18,20,22,24,26)]
 
-#Renaming Columns
+#Renaming Columns - all values are percentages (%)
 colnames(nd)
 names(nd)[1] = "Country"
-names(nd)[2] = "LowBirthWT%"
-names(nd)[3] = "UnWeighted%"
-names(nd)[4] = "EarlyBreastFeeding%"
-names(nd)[5] = "ExclusiveBreastFeeding%"
-names(nd)[6] = "IntroSolidFood%"
-names(nd)[7] = "AllChildrenBF%"
-names(nd)[8] = "Poorest20%BF%"
-names(nd)[9] = "Richest20%BF%"
-names(nd)[10] = "DietDiversity%"
-names(nd)[11] = "MinMealFreq%"
-names(nd)[12] = "MinAcceptDiet%"
-names(nd)[13] = "ZeroVegtable%"
+names(nd)[2] = "LowBirthWT"
+names(nd)[3] = "UnWeighted"
+names(nd)[4] = "EarlyBreastFeeding"
+names(nd)[5] = "ExclusiveBreastFeeding"
+names(nd)[6] = "IntroSolidFood"
+names(nd)[7] = "AllChildrenBF"
+names(nd)[8] = "Poorest20percentBF"
+names(nd)[9] = "Richest20percentBF"
+names(nd)[10] = "DietDiversity"
+names(nd)[11] = "MinMealFreq"
+names(nd)[12] = "MinAcceptDiet"
+names(nd)[13] = "ZeroVegtable"
 
 
  
 #Changing Chr Values to Numeric and adding NA values
-nd$`LowBirthWT%` <- round(as.numeric(nd$`LowBirthWT%`), 2)
-nd$`UnWeighted%` <- round(as.numeric(nd$`UnWeighted%`), 2)
-nd$`EarlyBreastFeeding%` <- round(as.numeric(nd$`EarlyBreastFeeding%`), 2)
-nd$`ExclusiveBreastFeeding%` <- round(as.numeric(nd$`ExclusiveBreastFeeding%`), 2)
-nd$`IntroSolidFood%` <- round(as.numeric(nd$`IntroSolidFood%`), 2)
-nd$`AllChildrenBF%` <-round(as.numeric(nd$`AllChildrenBF%`),2)
-nd$`Poorest20%BF%`<-round(as.numeric(nd$`Poorest20%BF%`),2)
-nd$`Richest20%BF%`<-round(as.numeric(nd$`Richest20%BF%`),2)
-nd$`DietDiversity%`<-round(as.numeric(nd$`DietDiversity%`),2)
-nd$`MinMealFreq%`<-round(as.numeric(nd$`MinMealFreq%`),2)
-nd$`MinAcceptDiet%`<-round(as.numeric(nd$`MinAcceptDiet%`),2)
-nd$`ZeroVegtable%`<-round(as.numeric(nd$`ZeroVegtable%`),2)
+nd$`LowBirthWT` <- round(as.numeric(nd$`LowBirthWT`), 2)
+nd$`UnWeighted` <- round(as.numeric(nd$`UnWeighted`), 2)
+nd$`EarlyBreastFeeding` <- round(as.numeric(nd$`EarlyBreastFeeding`), 2)
+nd$`ExclusiveBreastFeeding` <- round(as.numeric(nd$`ExclusiveBreastFeeding`), 2)
+nd$`IntroSolidFood` <- round(as.numeric(nd$`IntroSolidFood`), 2)
+nd$`AllChildrenBF` <-round(as.numeric(nd$`AllChildrenBF`),2)
+nd$`Poorest20percentBF`<-round(as.numeric(nd$`Poorest20percentBF`),2)
+nd$`Richest20percentBF`<-round(as.numeric(nd$`Richest20percentBF`),2)
+nd$`DietDiversity`<-round(as.numeric(nd$`DietDiversity`),2)
+nd$`MinMealFreq`<-round(as.numeric(nd$`MinMealFreq`),2)
+nd$`MinAcceptDiet`<-round(as.numeric(nd$`MinAcceptDiet`),2)
+nd$`ZeroVegtable`<-round(as.numeric(nd$`ZeroVegtable`),2)
 
 
 
 
 save(nd, file = "dataset/data_file.RData")
+
+nd_regions <- nd[205:215,]
+
+save(nd_regions, file = "dataset/nd_regions.RData")
 
 library(tidyverse)
 U5Mortality <- readxl::read_xlsx("dataset/Mortality-rate-under-five_2021 (1).xlsx", 
@@ -289,3 +293,8 @@ fun2 <-
 #pop_size <- cbind(pop_size$country,apply(pop_size[,2:72],2,fun2))
 
 #pop_size <-as.data.frame(pop_size)%>%pivot_longer(-V1)
+
+
+
+
+
