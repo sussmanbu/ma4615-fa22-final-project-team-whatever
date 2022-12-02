@@ -68,7 +68,7 @@ ggplot(region_nd, aes(Country , `LowBirthWT%`,  fill=Country)) +
 
   
   
-*explain your plots here 
+*explain your plots here  
 
 ```{r}
 
