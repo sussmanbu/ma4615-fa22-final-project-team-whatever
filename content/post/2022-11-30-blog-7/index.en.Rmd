@@ -1,5 +1,5 @@
 ---
-title: 'Blog 7 '
+title: 'EDA Continued and Tentative Thesis' 
 author: Team
 date: '2022-11-30'
 slug: []
@@ -13,3 +13,32 @@ lastmod: '2022-11-30T09:53:27-05:00'
 featuredVideo: ~
 featuredImage: ~
 ---
+
+How are you continuing your exploratory data analysis? 
+
+This week we focused on continuing our EDA by coming up with a variety of different ideas incorporating all of our data and variables. 
+Our first step was to average the years in our income/mortality rate data set to match the year average of our 
+nutrition data set so we could create plots that represent the data in the same time period, which is 2013 - 2018. Using the nutrition data set we will begin by creating a few uni variate graphs to present the variables. These variables will include low birth weight ("LowBirthWT%"), minimum meal frequency (""MinMealFreq%"), and zero vegetable consumption ("ZeroVegtable%"), and minimum diet diversity ("DietDiversity%"). 
+
+
+Next, we will transition into a bivariate analysis using our additional data sets. 
+Our combined income/mortality rate data sets will we plan to explore a few relationships such as: 
+
+We are using different styles to show our data such as, 
+
+We plan to also implement the population data set as an additional factor, as we believe that this could also potentially impact the mortality rates, as well as the access to our nutrition variables. This will also help create a more comprehensive profile of each country.  
+
+Based on our initial findings, we will create a linear regression to predict mortality rates based on nutrition variables, income, and population. This will help us show how 
+
+
+
+What is your tentative thesis? 
+
+Our tentative thesis is that as factors such as _______ increase/decrease ______ so will the overall nutritional health of children under 5, thus pointing to the trend in mortality rates of recent and future years. 
+
+
+
+
+
+
+
