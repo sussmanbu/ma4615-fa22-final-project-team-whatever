@@ -49,6 +49,10 @@ nd$`ZeroVegtable%`<-round(as.numeric(nd$`ZeroVegtable%`),2)
 
 save(nd, file = "dataset/data_file.RData")
 
+nd_regions <- nd[205:215,]
+
+save(nd_regions, file = "dataset/nd_regions.RData")
+
 library(tidyverse)
 U5Mortality <- readxl::read_xlsx("dataset/Mortality-rate-under-five_2021 (1).xlsx", 
                         sheet = "U5MR Country estimates", range="B14:BV600")
