@@ -50,9 +50,9 @@ Our data is mainly driven by investigating
 ## Modeling and Inference
 
 ```{r}
-region_nd <- nd[205:215,]
+nd_regions <- nd[205:215,]
 
-ggplot(region_nd, aes(Country , `LowBirthWT%`,  fill=Country)) + 
+ggplot(nd_regions, aes(Country , LowBirthWT,  fill=Country)) + 
     coord_flip() +
     geom_bar(stat="identity", width=.90) + 
     xlab("Region") + 
@@ -61,8 +61,20 @@ ggplot(region_nd, aes(Country , `LowBirthWT%`,  fill=Country)) +
     ggtitle("Percentage of Children Underweight in World Regions") + 
     theme_minimal()
 ```
+```{r}
 
+load(here::here("dataset/income_mortality.RData"))
+#load(here::here("static/load_and_clean_data.R"))
+suppressPackageStartupMessages(library(tidyverse))
 
+#maybe need to include different regions and color them with "color = " under ggplot aes (instead of Income)
+
+income_mortality %>% filter(Year == "1950" | Year == "1975" | Year == "2000" | Year == "2020") %>% ggplot(aes(x = Income, y = Mortality, color = Income)) + geom_point(size = 0.3) +
+  facet_wrap(~as.factor(Year)) +
+  stat_smooth(aes(group = Year), color='black', alpha = 0.4, geom = "line") +
+  scale_x_log10() +
+  labs(x = "Income Per Capita (PPP)", y = "Under 5 Mortality Rate", title = "Disparity across Under 5 Mortality Rates has decreased over time")
+```
 
 ## Clarity Figures
 
@@ -71,6 +83,8 @@ ggplot(region_nd, aes(Country , `LowBirthWT%`,  fill=Country)) +
 *explain your plots here  
 
 ```{r}
+<<<<<<< HEAD
+=======
 
 load(here::here("dataset/income_mortality.RData"))
 #load(here::here("static/load_and_clean_data.R"))
@@ -101,6 +115,7 @@ ggplot(nd_regions) +
 
 
 ```{r}
+>>>>>>> c80de0e868068143d6dcc2e42ccee6ea3792f79c
 # Interesting structure for visualizing mortality rates by world regions when we'll have the world regions variable in the income_mortality data set
 
  #ggplot(nd_regions, aes(x=Country, y=LowBirthWT, color=Country)) +
@@ -109,12 +124,16 @@ ggplot(nd_regions) +
      #labs(title="% of Low Birth Weights by World Region", x="", y="", color ="Country" )
 ```
 
+<<<<<<< HEAD
+
+=======
 ```{r}
 #need to place region names in the x axis vertically
  nd_regions%>%ggplot() +
    geom_bar(aes(x = reorder(Country, -LowBirthWT), y = LowBirthWT, fill = Country), stat = 'identity') +
    labs(title = '% of Low Birth Weights by World Region', x = 'World Region', y = '% of Low Birth Weights')
 ```
+>>>>>>> c80de0e868068143d6dcc2e42ccee6ea3792f79c
 
 
 
