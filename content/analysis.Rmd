@@ -153,5 +153,19 @@ ggplot(nd_regions) +
    labs(title = '% of Low Birth Weights by World Region', x = 'World Region', y = '% of Low Birth Weights')
 ```
 
+```{r}
+data(income_mortality)
+corr <- round(cor(income_mortality$Income), 1)
+#not sure how to show the mortality
+# Plot
+ggcorrplot(corr, hc.order = TRUE, 
+           type = "lower", 
+           lab = TRUE, 
+           lab_size = 3, 
+           method="circle", 
+           colors = c("tomato2", "white", "springgreen3"), 
+           title="Correlogram of mortality", 
+           ggtheme=theme_bw)
 
+```
 
