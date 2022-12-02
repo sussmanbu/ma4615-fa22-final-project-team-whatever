@@ -14,8 +14,9 @@ We describe here our detailed data analysis.
 library(tidyverse)
 library(ggplot2)
 print(getwd())
-data <- read_csv(here::here("dataset/income_mortality.RData"))
 load(here::here("dataset/income_mortality.RData"))
+load(here::here("dataset/nd_regions.RData"))
+load(here::here("dataset/nd_inc_mort_avg.RData"))
 print(ls())
 ```
 
@@ -50,8 +51,6 @@ Our data is mainly driven by investigating
 ## Modeling and Inference
 
 ```{r}
-nd_regions <- nd[205:215,]
-
 ggplot(nd_regions, aes(Country , LowBirthWT,  fill=Country)) + 
     coord_flip() +
     geom_bar(stat="identity", width=.90) + 
@@ -63,9 +62,7 @@ ggplot(nd_regions, aes(Country , LowBirthWT,  fill=Country)) +
 ```
 ```{r}
 
-load(here::here("dataset/income_mortality.RData"))
-#load(here::here("static/load_and_clean_data.R"))
-suppressPackageStartupMessages(library(tidyverse))
+load(here::here("income_mortality.RData"))
 
 #maybe need to include different regions and color them with "color = " under ggplot aes (instead of Income)
 
@@ -76,41 +73,38 @@ income_mortality %>% filter(Year == "1950" | Year == "1975" | Year == "2000" | Y
   labs(x = "Income Per Capita (PPP)", y = "Under 5 Mortality Rate", title = "Disparity across Under 5 Mortality Rates has decreased over time")
 ```
 
+```{r}
+<<<<<<< HEAD
+
+load(here::here("dataset/income_mortality.RData"))
+#load(here::here("static/load_and_clean_data.R"))
+suppressPackageStartupMessages(library(tidyverse))
+
+#maybe need to include different regions and color them with "color = " under ggplot aes (instead of Income)
+
+income_mortality %>% filter(Year == "1950" | Year == "1975" | Year == "2000" | Year == "2020") %>% ggplot(aes(x = Income, y = Mortality, color = Income)) + geom_point(size = 0.3) +
+  facet_wrap(~as.factor(Year)) +
+  stat_smooth(aes(group = Year), color='black', alpha = 0.4, geom = "line") +
+=======
+load(here::here("dataset/nd_inc_mort_avg.RData"))
+ggplot(nd_inc_mort_avg, aes(x = Income_avg, y = ExclusiveBreastFeeding)) + geom_point(size = 0.4) +
+  stat_smooth(color='black', alpha = 0.2) +
+>>>>>>> 964c8f5e01909f1da86ea29b35ad9aab8a37ea4c
+  scale_x_log10() +
+  labs(x = "Average Income Per Capita (PPP)", y = "Exclusive Breast Feeding Rate", title = "As income increases, exclusive breast feeding for children's nutrition decreases")
+```
+```{r}
+load(here::here("dataset/nd_inc_mort_avg.RData"))
+ggplot(nd_inc_mort_avg, aes(x = Income_avg, y = DietDiversity)) + geom_point(size = 0.4) +
+  stat_smooth(color='black', alpha = 0.2) +
+  scale_x_log10() +
+  labs(x = "Average Income Per Capita (PPP)", y = "Diet Diversity", title = "As income increases, diet diversity for children's nutrition increases")
+```
 ## Clarity Figures
 
   
   
 *explain your plots here  
-
-```{r}
-
-load(here::here("dataset/income_mortality.RData"))
-#load(here::here("static/load_and_clean_data.R"))
-suppressPackageStartupMessages(library(tidyverse))
-
-#maybe need to include different regions and color them with "color = " under ggplot aes (instead of Income)
-
-income_mortality %>% filter(Year == "1950" | Year == "1975" | Year == "2000" | Year == "2020") %>% ggplot(aes(x = Income, y = Mortality, color = Income)) + geom_point(size = 0.3) +
-  facet_wrap(~as.factor(Year)) +
-  stat_smooth(aes(group = Year), color='black', alpha = 0.4, geom = "line") +
-  scale_x_log10() +
-  labs(x = "Income Per Capita (PPP)", y = "Under 5 Mortality Rate", title = "Disparity across Under 5 Mortality Rates has decreased over time")
-```
-
-```{r}
-load(here::here("dataset/nd_regions.RData"))
-
-#needs to separate bars by country...how to do it?
-
-ggplot(nd_regions) +
-  geom_bar(
-    mapping = aes(x=LowBirthWT, fill=Country), 
-    width = 4) + 
-  theme(aspect.ratio = 1) +
-  labs(title="% of Low Birth Weights by World Region" ) + coord_polar()
-  
-```
-
 
 ```{r}
 # Interesting structure for visualizing mortality rates by world regions when we'll have the world regions variable in the income_mortality data set
@@ -122,6 +116,7 @@ ggplot(nd_regions) +
 ```
 
 
+<<<<<<< HEAD
 ```{r}
 #need to place region names in the x axis vertically
  nd_regions%>%ggplot() +
@@ -129,6 +124,8 @@ ggplot(nd_regions) +
    labs(title = '% of Low Birth Weights by World Region', x = 'World Region', y = '% of Low Birth Weights')
 ```
 
+=======
+>>>>>>> 964c8f5e01909f1da86ea29b35ad9aab8a37ea4c
 
 
 
