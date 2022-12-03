@@ -12,7 +12,7 @@ draft: false
 
 </div>
 
-<p>We describe here our detailed data analysis.</p>
+<p>We describe here our detailed data analysis. Most of our data for analysis is accredited to UNICEF database.</p>
 <pre class="r"><code>library(tidyverse)</code></pre>
 <pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
 ## ✔ ggplot2 3.3.6      ✔ purrr   0.3.4 
@@ -30,24 +30,37 @@ load(here::here(&quot;dataset/nd_regions.RData&quot;))
 load(here::here(&quot;dataset/nd_inc_mort_avg.RData&quot;))
 print(ls())</code></pre>
 <pre><code>## [1] &quot;income_mortality&quot; &quot;nd_inc_mort_avg&quot;  &quot;nd_regions&quot;</code></pre>
-<div id="note-on-attribution" class="section level2">
-<h2>Note on Attribution</h2>
-<p>If you are directly quoting from a source, please make that clear. You can show quotes using <code>&gt;</code> like this</p>
-<pre><code>&gt; To be or not to be.</code></pre>
-<blockquote>
-<p>To be or not to be.</p>
-</blockquote>
-<p>Also, make sure to provide a link or citation to where you are quoting from.</p>
+<div id="our-motivation-for-analysis" class="section level2">
+<h2>Our Motivation for Analysis</h2>
+<p>Our data is mainly driven by investigating the state of the world’s children under the age of 5. Through our analysis, we will have a better idea of how influential our chosen variables are to the survival and health of children around the world.</p>
+<p>Some variables we are most interested in include:</p>
+<pre><code>* Nutrition
+* Low birth weight 
+* Minimum diet diversity(6-23months)
+* Minimum meal frequency(6-23months)
+* Zero vegetable or fruit consumption (6-23months)
++ Mortality Rate 
+        * Includes years 1950 - 2020
++ Income per capita</code></pre>
+<p>With these variables, we hope to learn more about the connection between economics, nutrition, and child mortality across regions. We can also try to get some idea as to what triggers a higher child mortality rate in particular nations with respect to the variables above. Then, we could compare the differences with countries with a lower rate. As a result, it might be possible to pinpoint improvements that could be made to the children’s living circumstances as well as the areas where making changes would have the greatest potential to save young lives.</p>
 </div>
-<div id="motivation-for-our-data-analysis" class="section level2">
-<h2>Motivation for Our Data Analysis</h2>
-<p>Our data is mainly driven by investigating</p>
+<div id="initial-questions" class="section level2">
+<h2>Initial Questions</h2>
+<ol style="list-style-type: decimal">
+<li>What are the differences in low birthweight between each world region?</li>
+<li>What is the relationship over time between mortality rates for children under the age of 5?</li>
+<li>Does income have a significant contribution to the characteristics of a country with lower mortality rates?</li>
+<li>What are some relationships between nutrition variables, such as exclusive breast feeding rate and the average income per capita per region?</li>
+<li>As the income increases, does diet diversity also increase for the children’s nutrition?</li>
+</ol>
 </div>
-<div id="initial-questions-for-data-analysis" class="section level2">
-<h2>Initial Questions for Data Analysis</h2>
+<div id="flaws-and-limitations-of-analysis" class="section level2">
+<h2>Flaws and Limitations of Analysis</h2>
+<p>One unfortunate limitation is that the Nutrition data set does not have an extensive time series like the Mortality rates data set. So, if our combined data set for nutrition/income/mortality, we are unable to have a variable for years. We combined data from more than 150 countries across the three tables that left us with some usable information.</p>
+<p>Not having an appropriate amount of values in the nutrition data for some variables also limits us to have an equitable representation of these variables.</p>
 </div>
-<div id="modeling-and-inference" class="section level2">
-<h2>Modeling and Inference</h2>
+<div id="figure-one" class="section level2">
+<h2>Figure one:</h2>
 <pre class="r"><code>ggplot(nd_regions, aes(Country , LowBirthWT,  fill=Country)) + 
     coord_flip() +
     geom_bar(stat=&quot;identity&quot;, width=.90) + 
@@ -59,6 +72,9 @@ print(ls())</code></pre>
 <pre><code>## Warning: `guides(&lt;scale&gt; = FALSE)` is deprecated. Please use `guides(&lt;scale&gt; =
 ## &quot;none&quot;)` instead.</code></pre>
 <p><img src="/analysis_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+</div>
+<div id="figure-two" class="section level2">
+<h2>Figure Two</h2>
 <pre class="r"><code>#maybe need to include different regions and color them with &quot;color = &quot; under ggplot aes (instead of Income)
 
 income_mortality %&gt;% filter(Year == &quot;1950&quot; | Year == &quot;1975&quot; | Year == &quot;2000&quot; | Year == &quot;2020&quot;) %&gt;% ggplot(aes(x = Income, y = Mortality, color = Income)) + geom_point(size = 0.3) +
@@ -70,6 +86,9 @@ income_mortality %&gt;% filter(Year == &quot;1950&quot; | Year == &quot;1975&quo
 <pre><code>## Warning: Removed 140 rows containing non-finite values (stat_smooth).</code></pre>
 <pre><code>## Warning: Removed 140 rows containing missing values (geom_point).</code></pre>
 <p><img src="/analysis_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+</div>
+<div id="figure-three" class="section level2">
+<h2>Figure Three</h2>
 <pre class="r"><code>load(here::here(&quot;dataset/income_mortality.RData&quot;))
 
 #load(here::here(&quot;static/load_and_clean_data.R&quot;))
@@ -84,6 +103,9 @@ income_mortality %&gt;% filter(Year == &quot;1950&quot; | Year == &quot;1975&quo
 <pre><code>## Warning: Removed 140 rows containing non-finite values (stat_smooth).</code></pre>
 <pre><code>## Warning: Removed 140 rows containing missing values (geom_point).</code></pre>
 <p><img src="/analysis_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+</div>
+<div id="figure-four" class="section level2">
+<h2>Figure Four</h2>
 <pre class="r"><code>load(here::here(&quot;dataset/nd_inc_mort_avg.RData&quot;))
 ggplot(nd_inc_mort_avg, aes(x = Income_avg, y = ExclusiveBreastFeeding)) + geom_point(size = 0.4) +
   stat_smooth(color=&#39;black&#39;, alpha = 0.2) +
@@ -94,6 +116,7 @@ ggplot(nd_inc_mort_avg, aes(x = Income_avg, y = ExclusiveBreastFeeding)) + geom_
 <pre><code>## Warning: Removed 53 rows containing non-finite values (stat_smooth).</code></pre>
 <pre><code>## Warning: Removed 53 rows containing missing values (geom_point).</code></pre>
 <p><img src="/analysis_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>##Figure Five</p>
 <pre class="r"><code>load(here::here(&quot;dataset/nd_inc_mort_avg.RData&quot;))
 ggplot(nd_inc_mort_avg, aes(x = Income_avg, y = DietDiversity)) + geom_point(size = 0.4) +
   stat_smooth(color=&#39;black&#39;, alpha = 0.2) +
@@ -111,9 +134,21 @@ ggplot(nd_inc_mort_avg, aes(x = Income_avg, y = DietDiversity)) + geom_point(siz
      #geom_point(position=&quot;jitter&quot;) +
      #coord_polar(&quot;x&quot;) +
      #labs(title=&quot;% of Low Birth Weights by World Region&quot;, x=&quot;&quot;, y=&quot;&quot;, color =&quot;Country&quot; )</code></pre>
+</div>
+<div id="figure-six" class="section level2">
+<h2>Figure Six</h2>
 <pre class="r"><code>#need to place region names in the x axis vertically
  nd_regions%&gt;%ggplot() +
    geom_bar(aes(x = reorder(Country, -LowBirthWT), y = LowBirthWT, fill = Country), stat = &#39;identity&#39;) +
    labs(title = &#39;% of Low Birth Weights by World Region&#39;, x = &#39;World Region&#39;, y = &#39;% of Low Birth Weights&#39;)</code></pre>
 <p><img src="/analysis_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+</div>
+<div id="modeling-and-inference" class="section level2">
+<h2>Modeling and Inference</h2>
+<p>Here is where we will show our process for the linear model.</p>
+<p>Rubric:
+You should also include some kind of formal statistical model and/or inference.</p>
+<p>This could be a linear regression, logistic regression, hypothesis testing etc.</p>
+<p>Explain the techniques you used for validating your results.</p>
+<p>Describe the results of your modelling and make sure to give a sense of the uncertainty in your estimates and conclusions.”</p>
 </div>
