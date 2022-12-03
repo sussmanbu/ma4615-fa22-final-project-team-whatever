@@ -62,7 +62,16 @@ One unfortunate limitation is that the Nutrition data set does not have an exten
 Not having an appropriate amount of values in the nutrition data for some variables also limits us to have an equitable representation of these variables. 
 
 
-## Figure one: 
+We are also limited in saying that certain factors are what "cause" lower nutritional values in countries, because since we are looking at country-wide data, there will inevitably be many factors that are potential contributers. But for our project, we hope to be able to create a profile using the variables we chose and be able to predict the nutritional or mortality status of a country based on these chosen factors. 
+
+
+*Add more here
+
+
+## Figure one: Low Birthweight in each Region
+
+Here, we wanted to give a visual to represent the percentage variability in low birthweight among these regions. Based on the bar chart, South Asia has a visible larger percentage of children that fall in this category. Moving forward, we will keep an eye on South Asia and the relationships that may have impacted this one. 
+
 
 ```{r}
 ggplot(nd_regions, aes(Country , LowBirthWT,  fill=Country)) + 
@@ -76,7 +85,9 @@ ggplot(nd_regions, aes(Country , LowBirthWT,  fill=Country)) +
 ```
 
 
-## Figure Two
+## Figure Two: Mortality Rates and Income per Capita 
+
+This figure shows that over time, mortality rates have decreased. (We realize that the colors for income may be difficult to decipher, so we may edit the color to regions.)
 
 ```{r}
 
@@ -105,7 +116,13 @@ income_mortality %>% filter(Year == "1950" | Year == "1975" | Year == "2000" | Y
   stat_smooth(aes(group = Year), color='black', alpha = 0.4, geom = "line") 
 ```
 
-## Figure Four
+## Figure Four: Relationship between Income and Infant's that are exclusively breastfed
+
+This is our first attempt at exploring a variable from the nutrition data set with income per capita. Here we are able to see that as income increases, exclusive breast feeding for children's nutrition decreases. Exclusive breast feeding, according to this data, is described as the
+
+    > Percentage of infants 0-5 months of age who were fed exclusively with breastmilk during the previous day.
+
+This relationship with income could signify that higher income regions are more likely to have alternatives to breastfeeding for infants. Of course this is just a hypothesis, but a question to keep in mind. 
 
 ```{r}
 load(here::here("dataset/nd_inc_mort_avg.RData"))
@@ -116,7 +133,14 @@ ggplot(nd_inc_mort_avg, aes(x = Income_avg, y = ExclusiveBreastFeeding)) + geom_
   labs(x = "Average Income Per Capita (PPP)", y = "Exclusive Breast Feeding Rate", title = "As income increases, exclusive breast feeding for children's nutrition decreases")
 ```
 
-##Figure Five
+## Figure Five: Relationship between Income per capita and Chil Diet Diveristy 
+
+Below is a figure that suggets that the diet diversity variable steadily increases as the average income per capita increases. 
+Minimum diet diversity, according to the data, is defined as: 
+
+    >Percentage of children who received foods from at least 5 out of 8 defined food groups during the previos day. 
+    
+With this in mind, a possible synthesis is that higher averages of income provide more opportunities to fulfill the diet for all 8 defined food groups. 
 
 ```{r}
 load(here::here("dataset/nd_inc_mort_avg.RData"))
@@ -125,13 +149,10 @@ ggplot(nd_inc_mort_avg, aes(x = Income_avg, y = DietDiversity)) + geom_point(siz
   scale_x_log10() +
   labs(x = "Average Income Per Capita (PPP)", y = "Diet Diversity", title = "As income increases, diet diversity for children's nutrition increases")
 ```
-## Clarity Figures
 
+ 
 
-  
-*explain your plots here  
-
-
+*delete below?
 ```{r}
 # Interesting structure for visualizing mortality rates by world regions when we'll have the world regions variable in the income_mortality data set
 
@@ -142,6 +163,8 @@ ggplot(nd_inc_mort_avg, aes(x = Income_avg, y = DietDiversity)) + geom_point(siz
 ```
 
 ## Figure Six
+
+*same as Figure one? delete?
 
 ```{r}
 #need to place region names in the x axis vertically

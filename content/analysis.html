@@ -58,9 +58,12 @@ print(ls())</code></pre>
 <h2>Flaws and Limitations of Analysis</h2>
 <p>One unfortunate limitation is that the Nutrition data set does not have an extensive time series like the Mortality rates data set. So, if our combined data set for nutrition/income/mortality, we are unable to have a variable for years. We combined data from more than 150 countries across the three tables that left us with some usable information.</p>
 <p>Not having an appropriate amount of values in the nutrition data for some variables also limits us to have an equitable representation of these variables.</p>
+<p>We are also limited in saying that certain factors are what “cause” lower nutritional values in countries, because since we are looking at country-wide data, there will inevitably be many factors that are potential contributers. But for our project, we hope to be able to create a profile using the variables we chose and be able to predict the nutritional or mortality status of a country based on these chosen factors.</p>
+<p>*Add more here</p>
 </div>
-<div id="figure-one" class="section level2">
-<h2>Figure one:</h2>
+<div id="figure-one-low-birthweight-in-each-region" class="section level2">
+<h2>Figure one: Low Birthweight in each Region</h2>
+<p>Here, we wanted to give a visual to represent the percentage variability in low birthweight among these regions. Based on the bar chart, South Asia has a visible larger percentage of children that fall in this category. Moving forward, we will keep an eye on South Asia and the relationships that may have impacted this one.</p>
 <pre class="r"><code>ggplot(nd_regions, aes(Country , LowBirthWT,  fill=Country)) + 
     coord_flip() +
     geom_bar(stat=&quot;identity&quot;, width=.90) + 
@@ -73,8 +76,9 @@ print(ls())</code></pre>
 ## &quot;none&quot;)` instead.</code></pre>
 <p><img src="/analysis_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 </div>
-<div id="figure-two" class="section level2">
-<h2>Figure Two</h2>
+<div id="figure-two-mortality-rates-and-income-per-capita" class="section level2">
+<h2>Figure Two: Mortality Rates and Income per Capita</h2>
+<p>This figure shows that over time, mortality rates have decreased. (We realize that the colors for income may be difficult to decipher, so we may edit the color to regions.)</p>
 <pre class="r"><code>#maybe need to include different regions and color them with &quot;color = &quot; under ggplot aes (instead of Income)
 
 income_mortality %&gt;% filter(Year == &quot;1950&quot; | Year == &quot;1975&quot; | Year == &quot;2000&quot; | Year == &quot;2020&quot;) %&gt;% ggplot(aes(x = Income, y = Mortality, color = Income)) + geom_point(size = 0.3) +
@@ -104,8 +108,11 @@ income_mortality %&gt;% filter(Year == &quot;1950&quot; | Year == &quot;1975&quo
 <pre><code>## Warning: Removed 140 rows containing missing values (geom_point).</code></pre>
 <p><img src="/analysis_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 </div>
-<div id="figure-four" class="section level2">
-<h2>Figure Four</h2>
+<div id="figure-four-relationship-between-income-and-infants-that-are-exclusively-breastfed" class="section level2">
+<h2>Figure Four: Relationship between Income and Infant’s that are exclusively breastfed</h2>
+<p>This is our first attempt at exploring a variable from the nutrition data set with income per capita. Here we are able to see that as income increases, exclusive breast feeding for children’s nutrition decreases. Exclusive breast feeding, according to this data, is described as the</p>
+<pre><code>&gt; Percentage of infants 0-5 months of age who were fed exclusively with breastmilk during the previous day.</code></pre>
+<p>This relationship with income could signify that higher income regions are more likely to have alternatives to breastfeeding for infants. Of course this is just a hypothesis, but a question to keep in mind.</p>
 <pre class="r"><code>load(here::here(&quot;dataset/nd_inc_mort_avg.RData&quot;))
 ggplot(nd_inc_mort_avg, aes(x = Income_avg, y = ExclusiveBreastFeeding)) + geom_point(size = 0.4) +
   stat_smooth(color=&#39;black&#39;, alpha = 0.2) +
@@ -116,7 +123,13 @@ ggplot(nd_inc_mort_avg, aes(x = Income_avg, y = ExclusiveBreastFeeding)) + geom_
 <pre><code>## Warning: Removed 53 rows containing non-finite values (stat_smooth).</code></pre>
 <pre><code>## Warning: Removed 53 rows containing missing values (geom_point).</code></pre>
 <p><img src="/analysis_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
-<p>##Figure Five</p>
+</div>
+<div id="figure-five-relationship-between-income-per-capita-and-chil-diet-diveristy" class="section level2">
+<h2>Figure Five: Relationship between Income per capita and Chil Diet Diveristy</h2>
+<p>Below is a figure that suggets that the diet diversity variable steadily increases as the average income per capita increases.
+Minimum diet diversity, according to the data, is defined as:</p>
+<pre><code>&gt;Percentage of children who received foods from at least 5 out of 8 defined food groups during the previos day. </code></pre>
+<p>With this in mind, a possible synthesis is that higher averages of income provide more opportunities to fulfill the diet for all 8 defined food groups.</p>
 <pre class="r"><code>load(here::here(&quot;dataset/nd_inc_mort_avg.RData&quot;))
 ggplot(nd_inc_mort_avg, aes(x = Income_avg, y = DietDiversity)) + geom_point(size = 0.4) +
   stat_smooth(color=&#39;black&#39;, alpha = 0.2) +
@@ -125,9 +138,8 @@ ggplot(nd_inc_mort_avg, aes(x = Income_avg, y = DietDiversity)) + geom_point(siz
 <pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
 <pre><code>## Warning: Removed 93 rows containing non-finite values (stat_smooth).</code></pre>
 <pre><code>## Warning: Removed 93 rows containing missing values (geom_point).</code></pre>
-<p><img src="/analysis_files/figure-html/unnamed-chunk-6-1.png" width="672" />
-## Clarity Figures</p>
-<p>*explain your plots here</p>
+<p><img src="/analysis_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>*delete below?</p>
 <pre class="r"><code># Interesting structure for visualizing mortality rates by world regions when we&#39;ll have the world regions variable in the income_mortality data set
 
  #ggplot(nd_regions, aes(x=Country, y=LowBirthWT, color=Country)) +
@@ -137,6 +149,7 @@ ggplot(nd_inc_mort_avg, aes(x = Income_avg, y = DietDiversity)) + geom_point(siz
 </div>
 <div id="figure-six" class="section level2">
 <h2>Figure Six</h2>
+<p>*same as Figure one? delete?</p>
 <pre class="r"><code>#need to place region names in the x axis vertically
  nd_regions%&gt;%ggplot() +
    geom_bar(aes(x = reorder(Country, -LowBirthWT), y = LowBirthWT, fill = Country), stat = &#39;identity&#39;) +
