@@ -7,7 +7,7 @@ featuredImage: images/globe.png
 draft: false
 --- 
 
-We describe here our detailed data analysis. Most of our data for analysis is accredited to UNICEF database. 
+We describe here our detailed data analysis. Most of our data for analysis is accredited to UNICEF database.  
 
 
 ```{r}
@@ -89,6 +89,7 @@ ggplot(nd_regions, aes(Country , LowBirthWT,  fill=Country)) +
 
 This figure shows that over time, mortality rates have decreased. (We realize that the colors for income may be difficult to decipher, so we may edit the color to regions.)
 
+
 ```{r}
 
 #maybe need to include different regions and color them with "color = " under ggplot aes (instead of Income)
@@ -116,6 +117,7 @@ income_mortality %>% filter(Year == "1950" | Year == "1975" | Year == "2000" | Y
   stat_smooth(aes(group = Year), color='black', alpha = 0.4, geom = "line") 
 ```
 
+
 ## Figure Four: Relationship between Income and Infant's that are exclusively breastfed
 
 This is our first attempt at exploring a variable from the nutrition data set with income per capita. Here we are able to see that as income increases, exclusive breast feeding for children's nutrition decreases. Exclusive breast feeding, according to this data, is described as the
@@ -123,6 +125,7 @@ This is our first attempt at exploring a variable from the nutrition data set wi
     > Percentage of infants 0-5 months of age who were fed exclusively with breastmilk during the previous day.
 
 This relationship with income could signify that higher income regions are more likely to have alternatives to breastfeeding for infants. Of course this is just a hypothesis, but a question to keep in mind. 
+
 
 ```{r}
 load(here::here("dataset/nd_inc_mort_avg.RData"))
@@ -133,7 +136,7 @@ ggplot(nd_inc_mort_avg, aes(x = Income_avg, y = ExclusiveBreastFeeding)) + geom_
   labs(x = "Average Income Per Capita (PPP)", y = "Exclusive Breast Feeding Rate", title = "As income increases, exclusive breast feeding for children's nutrition decreases")
 ```
 
-## Figure Five: Relationship between Income per capita and Chil Diet Diveristy 
+## Figure Five: Relationship between Income per capita and Child Diet Diversity 
 
 Below is a figure that suggets that the diet diversity variable steadily increases as the average income per capita increases. 
 Minimum diet diversity, according to the data, is defined as: 
@@ -141,6 +144,8 @@ Minimum diet diversity, according to the data, is defined as:
     >Percentage of children who received foods from at least 5 out of 8 defined food groups during the previos day. 
     
 With this in mind, a possible synthesis is that higher averages of income provide more opportunities to fulfill the diet for all 8 defined food groups. 
+
+
 
 ```{r}
 load(here::here("dataset/nd_inc_mort_avg.RData"))
