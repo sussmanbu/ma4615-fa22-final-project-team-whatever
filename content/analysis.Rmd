@@ -180,9 +180,7 @@ ggplot(nd_inc_mort_avg, aes(x = Income_avg, y = DietDiversity)) + geom_point(siz
 ## Figure Seven
 
 ```{r}
-#install.packages("corrplot")
-library(corrplot)
-data(nd_regions)
+data(income_mortality)
 a <- cbind(income_mortality$'Mortality', income_mortality$'Income')
 a2<-na.omit(a)
 cor = cor(a2[,1],a2[,2])
