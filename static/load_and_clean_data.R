@@ -49,11 +49,9 @@ nd$`ZeroVegtable`<-round(as.numeric(nd$`ZeroVegtable`),2)
 
 save(nd, file = "dataset/data_file.RData")
 
-#creating nutrition dataset only for world regions 
 nd_regions <- nd[205:215,]
 
 save(nd_regions, file = "dataset/nd_regions.RData")
-
 
 library(tidyverse)
 U5Mortality <- readxl::read_xlsx("dataset/Mortality-rate-under-five_2021 (1).xlsx", 
@@ -268,20 +266,6 @@ income_mortality$`Income` <- round(as.numeric(income_mortality$`Income`), 2)
 
 save(income_mortality, file = "dataset/income_mortality.RData")
 
-#creating new dataset for nutrition analysis: adding income&mortality averages from 2013 to 2018
-inc_mort_for_nutrition_avg <- income_mortality %>% 
-  filter(Year == "2013" | Year == "1975" | Year == "2014" | Year == "2015" | Year == "2016" | Year == "2017"| Year == "2018") %>%
-  group_by(Country) %>% mutate(Mortality_avg = mean(Mortality, na.rm=TRUE)) %>% mutate(Income_avg = mean(Income, na.rm=TRUE))
-
-inc_mort_nutrition_avg <- inc_mort_for_nutrition_avg %>% group_by(Country) %>% summarise(mean(Mortality_avg), mean(Income_avg))
-
-colnames(inc_mort_for_nutrition_avg)[2] ="Mortality_avg"
-colnames(inc_mort_for_nutrition_avg)[3] ="Income_avg"
-
-nd_inc_mort_avg <- inner_join(nd, inc_mort_for_nutrition_avg,by=c("Country"="Country"))
-
-save(nd_inc_mort_avg, file = "dataset/nd_inc_mort_avg.RData")
-
 # Including countries' population size
 
 suppressPackageStartupMessages(library(tidyverse))
@@ -310,6 +294,8 @@ fun2 <-
 
 #pop_size <-as.data.frame(pop_size)%>%pivot_longer(-V1)
 
+
+Europe <- c()
 
 
 
