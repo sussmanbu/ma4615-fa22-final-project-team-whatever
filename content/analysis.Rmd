@@ -3,14 +3,15 @@ title: Analysis
 description: 
 toc: true
 featuredVideo:
-featuredImage: 
+featuredImage: images/globe.png
 draft: false
----
+--- 
 
-We describe here our detailed data analysis.
+We describe here our detailed data analysis. Most of our data for analysis is accredited to UNICEF database.  
 
 
 ```{r}
+
 library(tidyverse)
 library(ggplot2)
 print(getwd())
@@ -18,37 +19,59 @@ load(here::here("dataset/income_mortality.RData"))
 load(here::here("dataset/nd_regions.RData"))
 load(here::here("dataset/nd_inc_mort_avg.RData"))
 print(ls())
-```
-
-## Note on Attribution
-
-If you are directly quoting from a source, please make that clear. You can show quotes using `>` like this
-
-
-
 
 ```
-> To be or not to be.
-```
-
-> To be or not to be.
-
-Also, make sure to provide a link or citation to where you are quoting from.
-
--------
-
-## Motivation for Our Data Analysis
-
-Our data is mainly driven by investigating 
 
 
 
+## Our Motivation for Analysis
 
-## Initial Questions for Data Analysis
+Our data is mainly driven by investigating the state of the world’s children under the age of 5. Through our analysis, we will have a better idea of how influential our chosen variables are to the survival and health of children around the world. 
 
 
 
-## Modeling and Inference
+Some variables we are most interested in include:
+   
+   
+    * Nutrition
+    * Low birth weight 
+    * Minimum diet diversity(6-23months)
+    * Minimum meal frequency(6-23months)
+    * Zero vegetable or fruit consumption (6-23months)
+    + Mortality Rate 
+	        * Includes years 1950 - 2020
+    + Income per capita
+
+
+
+With these variables, we hope to learn more about the connection between economics, nutrition, and child mortality across regions. We can also try to get some idea as to what triggers a higher child mortality rate in particular nations with respect to the variables above. Then, we could compare the differences with countries with a lower rate. As a result, it might be possible to pinpoint improvements that could be made to the children's living circumstances as well as the areas where making changes would have the greatest potential to save young lives. 
+
+## Initial Questions 
+
+1. What are the differences in low birthweight between each world region?
+2. What is the relationship over time between mortality rates for children under the age of 5?
+3. Does income have a significant contribution to the characteristics of a country with lower mortality rates?
+4. What are some relationships between nutrition variables, such as exclusive breast feeding rate and the average income per capita per region?
+5. As the income increases, does diet diversity also increase for the children's nutrition?
+
+
+## Flaws and Limitations of Analysis
+
+One unfortunate limitation is that the Nutrition data set does not have an extensive time series like the Mortality rates data set. So, if our combined data set for nutrition/income/mortality, we are unable to have a variable for years. We combined data from more than 150 countries across the three tables that left us with some usable information. 
+
+Not having an appropriate amount of values in the nutrition data for some variables also limits us to have an equitable representation of these variables. 
+
+
+We are also limited in saying that certain factors are what "cause" lower nutritional values in countries, because since we are looking at country-wide data, there will inevitably be many factors that are potential contributers. But for our project, we hope to be able to create a profile using the variables we chose and be able to predict the nutritional or mortality status of a country based on these chosen factors. 
+
+
+*Add more here
+
+
+## Figure one: Low Birthweight in each Region
+
+Here, we wanted to give a visual to represent the percentage variability in low birthweight among these regions. Based on the bar chart, South Asia has a visible larger percentage of children that fall in this category. Moving forward, we will keep an eye on South Asia and the relationships that may have impacted this one. 
+
 
 ```{r}
 ggplot(nd_regions, aes(Country , LowBirthWT,  fill=Country)) + 
@@ -60,9 +83,14 @@ ggplot(nd_regions, aes(Country , LowBirthWT,  fill=Country)) +
     ggtitle("Percentage of Children Underweight in World Regions") + 
     theme_minimal()
 ```
-```{r}
 
-load(here::here("income_mortality.RData"))
+
+## Figure Two: Mortality Rates and Income per Capita 
+
+This figure shows that over time, mortality rates have decreased. (We realize that the colors for income may be difficult to decipher, so we may edit the color to regions.)
+
+
+```{r}
 
 #maybe need to include different regions and color them with "color = " under ggplot aes (instead of Income)
 
@@ -73,13 +101,52 @@ income_mortality %>% filter(Year == "1950" | Year == "1975" | Year == "2000" | Y
   labs(x = "Income Per Capita (PPP)", y = "Under 5 Mortality Rate", title = "Disparity across Under 5 Mortality Rates has decreased over time")
 ```
 
+
+## Figure Three
+
+```{r}
+load(here::here("dataset/income_mortality.RData"))
+
+#load(here::here("static/load_and_clean_data.R"))
+suppressPackageStartupMessages(library(tidyverse))
+
+#maybe need to include different regions and color them with "color = " under ggplot aes (instead of Income)
+
+income_mortality %>% filter(Year == "1950" | Year == "1975" | Year == "2000" | Year == "2020") %>% ggplot(aes(x = Income, y = Mortality, color = Income)) + geom_point(size = 0.3) +
+  facet_wrap(~as.factor(Year)) +
+  stat_smooth(aes(group = Year), color='black', alpha = 0.4, geom = "line") 
+```
+
+
+## Figure Four: Relationship between Income and Infant's that are exclusively breastfed
+
+This is our first attempt at exploring a variable from the nutrition data set with income per capita. Here we are able to see that as income increases, exclusive breast feeding for children's nutrition decreases. Exclusive breast feeding, according to this data, is described as the
+
+    > Percentage of infants 0-5 months of age who were fed exclusively with breastmilk during the previous day.
+
+This relationship with income could signify that higher income regions are more likely to have alternatives to breastfeeding for infants. Of course this is just a hypothesis, but a question to keep in mind. 
+
+
 ```{r}
 load(here::here("dataset/nd_inc_mort_avg.RData"))
 ggplot(nd_inc_mort_avg, aes(x = Income_avg, y = ExclusiveBreastFeeding)) + geom_point(size = 0.4) +
   stat_smooth(color='black', alpha = 0.2) +
+
   scale_x_log10() +
   labs(x = "Average Income Per Capita (PPP)", y = "Exclusive Breast Feeding Rate", title = "As income increases, exclusive breast feeding for children's nutrition decreases")
 ```
+
+## Figure Five: Relationship between Income per capita and Child Diet Diversity 
+
+Below is a figure that suggets that the diet diversity variable steadily increases as the average income per capita increases. 
+Minimum diet diversity, according to the data, is defined as: 
+
+    >Percentage of children who received foods from at least 5 out of 8 defined food groups during the previos day. 
+    
+With this in mind, a possible synthesis is that higher averages of income provide more opportunities to fulfill the diet for all 8 defined food groups. 
+
+
+
 ```{r}
 load(here::here("dataset/nd_inc_mort_avg.RData"))
 ggplot(nd_inc_mort_avg, aes(x = Income_avg, y = DietDiversity)) + geom_point(size = 0.4) +
@@ -87,6 +154,7 @@ ggplot(nd_inc_mort_avg, aes(x = Income_avg, y = DietDiversity)) + geom_point(siz
   scale_x_log10() +
   labs(x = "Average Income Per Capita (PPP)", y = "Diet Diversity", title = "As income increases, diet diversity for children's nutrition increases")
 ```
+<<<<<<< HEAD
 ```{r}
 library(maps)
 library(ggplot2)
@@ -154,11 +222,12 @@ ggplot(act_world_map2000,aes(x = long, y = lat, group = group))+
 
 
 ## Clarity Figures
+=======
+>>>>>>> 5a647acd846eccfd7f5f23c6494c90ca810c60e5
 
-  
-  
-*explain your plots here  
+ 
 
+*delete below?
 ```{r}
 # Interesting structure for visualizing mortality rates by world regions when we'll have the world regions variable in the income_mortality data set
 
@@ -168,6 +237,32 @@ ggplot(act_world_map2000,aes(x = long, y = lat, group = group))+
      #labs(title="% of Low Birth Weights by World Region", x="", y="", color ="Country" )
 ```
 
+## Figure Six
+
+*same as Figure one? delete?
+
+```{r}
+#need to place region names in the x axis vertically
+ nd_regions%>%ggplot() +
+   geom_bar(aes(x = reorder(Country, -LowBirthWT), y = LowBirthWT, fill = Country), stat = 'identity') +
+   labs(title = '% of Low Birth Weights by World Region', x = 'World Region', y = '% of Low Birth Weights')
+```
+
+## Modeling and Inference
+
+Here is where we will show our process for the linear model. 
+
+Rubric: 
+You should also include some kind of formal statistical model and/or inference. 
+
+
+This could be a linear regression, logistic regression, hypothesis testing etc.
+
+
+Explain the techniques you used for validating your results.
+
+
+Describe the results of your modelling and make sure to give a sense of the uncertainty in your estimates and conclusions."
 
 
 
