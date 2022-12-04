@@ -154,7 +154,9 @@ ggplot(nd_inc_mort_avg, aes(x = Income_avg, y = DietDiversity)) + geom_point(siz
   scale_x_log10() +
   labs(x = "Average Income Per Capita (PPP)", y = "Diet Diversity", title = "As income increases, diet diversity for children's nutrition increases")
 ```
-<<<<<<< HEAD
+
+
+
 ```{r}
 library(maps)
 library(ggplot2)
@@ -222,10 +224,6 @@ ggplot(act_world_map2000,aes(x = long, y = lat, group = group))+
 
 
 ## Clarity Figures
-=======
->>>>>>> 5a647acd846eccfd7f5f23c6494c90ca810c60e5
-
- 
 
 *delete below?
 ```{r}
@@ -238,16 +236,6 @@ ggplot(act_world_map2000,aes(x = long, y = lat, group = group))+
 ```
 
 ## Figure Six
-
-*same as Figure one? delete?
-
-```{r}
-#need to place region names in the x axis vertically
- nd_regions%>%ggplot() +
-   geom_bar(aes(x = reorder(Country, -LowBirthWT), y = LowBirthWT, fill = Country), stat = 'identity') +
-   labs(title = '% of Low Birth Weights by World Region', x = 'World Region', y = '% of Low Birth Weights')
-```
-## Figure Seven
 
 ```{r}
 data(income_mortality)
