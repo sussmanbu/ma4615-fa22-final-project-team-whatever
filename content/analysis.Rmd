@@ -247,7 +247,26 @@ ggplot(act_world_map2000,aes(x = long, y = lat, group = group))+
    geom_bar(aes(x = reorder(Country, -LowBirthWT), y = LowBirthWT, fill = Country), stat = 'identity') +
    labs(title = '% of Low Birth Weights by World Region', x = 'World Region', y = '% of Low Birth Weights')
 ```
+## Figure Seven
 
+```{r}
+data(income_mortality)
+a <- cbind(income_mortality$'Mortality', income_mortality$'Income')
+a2<-na.omit(a)
+cor = cor(a2[,1],a2[,2])
+#the correlationship between the mortality and income 
+print(cor)
+
+ggplot(data = income_mortality, mapping = aes(x = income_mortality$'Year', y = income_mortality$'Mortality')) +
+    geom_point(alpha = 0.1, aes(color = 'azure'))
+
+ggplot(data = income_mortality, mapping = aes(x = income_mortality$'Year', y = income_mortality$'Income')) +
+    geom_point(alpha = 0.1, aes(color = 'Red'))
+
+ggplot(data = income_mortality, mapping = aes(x = income_mortality$'Mortality', y = income_mortality$'Income')) +
+    geom_point(alpha = 0.1, aes(color = 'Red'))
+
+```
 ## Modeling and Inference
 
 Here is where we will show our process for the linear model. 
@@ -263,7 +282,6 @@ Explain the techniques you used for validating your results.
 
 
 Describe the results of your modelling and make sure to give a sense of the uncertainty in your estimates and conclusions."
-
 
 
 
