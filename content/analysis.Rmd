@@ -91,6 +91,7 @@ This figure shows that over time, mortality rates have decreased. (We realize th
 
 
 ```{r}
+load(here::here("dataset/income_mortality.RData"))
 
 #maybe need to include different regions and color them with "color = " under ggplot aes (instead of Income)
 
@@ -256,6 +257,20 @@ ggplot(data = income_mortality, mapping = aes(x = income_mortality$'Mortality', 
     geom_point(alpha = 0.1, aes(color = 'Red'))
 
 ```
+
+## Figure Seven
+```{r}
+load(here::here("dataset/inc_mort_vax.RData"))
+ggplot(inc_mort_vax, aes(x = Vax_Rate, y = Mortality)) + geom_point(size = 0.4) +
+  stat_smooth(color='black', alpha = 0.2) +
+  labs(x = "Vax Rate for at least one disease, 1 y/o children", y = "Under 5 Mortality", title = "Vaccination Rates are negatively correlated with Under 5 Mortality Rates")
+
+inc_mort_vax %>% filter(Year == "1980" | Year == "1990" | Year == "2000" | Year == "2019") %>% ggplot(aes(x = Vax_Rate, y = Mortality, color = Income)) + geom_point(size = 0.3) +
+  facet_wrap(~as.factor(Year)) +
+  stat_smooth(aes(group = Year), color='black', alpha = 0.4, geom = "line") +
+  labs(x = "Vax Rate for at least one disease, 1 y/o children", y = "Under 5 Mortality Rate", title = "Vaccination Rates have increased over time, while Under 5 Mortality Rates fell")
+```
+
 ## Modeling and Inference
 
 Here is where we will show our process for the linear model. 
