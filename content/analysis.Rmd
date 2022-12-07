@@ -7,7 +7,7 @@ featuredImage: images/globe.png
 draft: false
 --- 
 
-We describe here our detailed data analysis. Most of our data for analysis is accredited to UNICEF database.  
+We describe here our detailed data analysis. Most of our data for analysis is accredited to UNICEF database.   
 
 
 ```{r}
