@@ -141,7 +141,7 @@ ggplot(nd_inc_mort_avg, aes(x = Income_avg, y = ExclusiveBreastFeeding)) + geom_
   scale_x_log10() +
   labs(x = "Average Income Per Capita (PPP)", y = "Exclusive Breast Feeding Rate", title = "As income increases, exclusive breast feeding for children's nutrition decreases")
 ```
-\newpage
+
 
 ## Figure Five: Relationship between Income per capita and Child Diet Diversity 
 
@@ -250,12 +250,6 @@ a2<-na.omit(a)
 cor = cor(a2[,1],a2[,2])
 #the correlationship between the mortality and income 
 print(cor)
-
-ggplot(data = income_mortality, mapping = aes(x = income_mortality$'Year', y = income_mortality$'Mortality')) +
-    geom_point(alpha = 0.1, aes(color = 'azure'))
-
-ggplot(data = income_mortality, mapping = aes(x = income_mortality$'Year', y = income_mortality$'Income')) +
-    geom_point(alpha = 0.1, aes(color = 'Red'))
 
 ggplot(data = income_mortality, mapping = aes(x = income_mortality$'Mortality', y = income_mortality$'Income')) +
     geom_point(alpha = 0.1, aes(color = 'Red'))
