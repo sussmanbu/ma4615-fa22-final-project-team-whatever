@@ -263,12 +263,6 @@ cor = cor(a2[,1],a2[,2])
 #the correlationship between the mortality and income 
 print(cor)
 
-ggplot(data = income_mortality, mapping = aes(x = income_mortality$'Year', y = income_mortality$'Mortality')) +
-    geom_point(alpha = 0.1, aes(color = 'azure'))
-
-ggplot(data = income_mortality, mapping = aes(x = income_mortality$'Year', y = income_mortality$'Income')) +
-    geom_point(alpha = 0.1, aes(color = 'Red'))
-
 ggplot(data = income_mortality, mapping = aes(x = income_mortality$'Mortality', y = income_mortality$'Income')) +
     geom_point(alpha = 0.1, aes(color = 'Red'))
 
