@@ -14,7 +14,7 @@ We describe here our detailed data analysis. Most of our data for analysis is ac
 library(ggplot2)
 library(hrbrthemes)
 library(GGally)
-instlibrary(gridExtra)
+library(gridExtra)
 library(stringr)
 library(dplyr)
 library(tidyverse)
