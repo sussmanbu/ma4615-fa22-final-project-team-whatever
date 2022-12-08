@@ -135,7 +135,7 @@ ggplot(nd_inc_mort_avg, aes(x = Income_avg, y = ExclusiveBreastFeeding)) + geom_
   scale_x_log10() +
   labs(x = "Average Income Per Capita (PPP)", y = "Exclusive Breast Feeding Rate", title = "As income increases, exclusive breast feeding for children's nutrition decreases")
 ```
-\newpage
+
 
 ## Figure Five: Relationship between Income per capita and Child Diet Diversity 
 
