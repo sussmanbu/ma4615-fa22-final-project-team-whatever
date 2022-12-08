@@ -18,7 +18,7 @@ library(plotly)
 #need to set up working directory perhaps? --> setwd()
 load("income_mortality.RData")
 
-# need to include: color = continent, size = pop
+# need to include: color = continent, 
 
 
 ui <- fluidPage(
@@ -33,7 +33,7 @@ server <- function(input, output) {
       #head(10) %>% 
       ggplot(aes(x = Income, y = Mortality)) +
       # geom_point(alpha = 0.1) +
-      geom_point(aes(frame = Year)) +
+      geom_point(aes(frame = Year, size = Pop_size)) +
       scale_x_log10()
     plotly::ggplotly(gg)
   }) }
