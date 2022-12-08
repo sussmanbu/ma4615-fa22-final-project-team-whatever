@@ -6,7 +6,7 @@ nd <- readxl::read_xlsx("dataset/Table-7-and-8-Nutrition-EN.xlsx", range="A8:Z22
 
 #gets rid of NA columns 
 loan_data_clean <- nd
- 
+
 
  
 #Removing Empty Columns
@@ -272,30 +272,45 @@ suppressPackageStartupMessages(library(tidyverse))
 pop_size <- read_csv("dataset/population_total.csv")
 pop_size <- pop_size[c(1,153:223)]
 
+Country <- pop_size$country
+
 
 # Function to detect and remove M from dataset
 
 #how to include both "k" and "M" in the function? 
 #--> Need to create a single function with if k and if M, using str_detect
 # we then replace fun1 with fun2 only 
+
+fun12 <- 
+  function(x){
+    k <- str_detect(x, "k") 
+    for(i in 1:length(k)){
+      if(k[i]){x[i] <- as.numeric(substr(x[i],1,nchar(x[i])-1))*1000}
+      if(!k[i]){x[i] <- (x[i])}
+    }
+    return(x)
+  }
+
+
 fun2 <- 
   function(x){
     M <- str_detect(x, "M") 
     for(i in 1:length(M)){
       if(M[i]){x[i] <- as.numeric(substr(x[i],1,nchar(x[i])-1))*1000000}
-      if(!M[i]){x[i] <- as.numeric(x[i])}
+      if(!M[i]){x[i] <- (x[i])}
     }
     return(x)
   }
+
+pop_size1 <- cbind(pop_size$country,apply(pop_size[,2:72],2,fun12))
+pop_size_new <- apply(pop_size1[,2:72],2,fun2)
+pop_size <- cbind(Country, pop_size_new)
 
 
 #Joining Datasets - not ready yet
 #pop_size <- cbind(pop_size$country,apply(pop_size[,2:72],2,fun2))
 
 #pop_size <-as.data.frame(pop_size)%>%pivot_longer(-V1)
-
-
-Europe <- c()
 
 
 
