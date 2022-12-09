@@ -258,8 +258,23 @@ colnames(U5Mortality)[1] ="Country"
 colnames(U5Mortality)[2] ="Year"
 colnames(U5Mortality)[3] ="Mortality"
 
+U5Mortality$Country[U5Mortality$Country == 'Russian Federation'] <- 'Russia'
+income_per_capita_ppp$Country[income_per_capita_ppp$Country == 'United States'] <- 'USA'
+U5Mortality$Country[U5Mortality$Country == 'United States of America'] <- 'USA'
+income_per_capita_ppp$Country[income_per_capita_ppp$Country == 'Hong Kong, China'] <- 'China'
+U5Mortality$Country[U5Mortality$Country == 'Iran (Islamic Republic of)'] <- 'Iran'
+U5Mortality$Country[U5Mortality$Country == 'Bolivia (Plurinational State of)'] <- 'Bolivia'
+U5Mortality$Country[U5Mortality$Country == 'United Republic of Tanzania'] <- 'Tanzania'
+income_per_capita_ppp$Country[income_per_capita_ppp$Country == 'Congo, Dem. Rep.'] <- 'Democratic Republic of the Congo'
+U5Mortality$Country[U5Mortality$Country == 'Congo'] <- 'Democratic Republic of the Congo'
+U5Mortality$Country[U5Mortality$Country == 'Venezuela (Bolivarian Republic of)'] <- 'Venezuela'
+U5Mortality$Country[U5Mortality$Country == "Democratic People's Republic of Korea"] <- 'North Korea'
+U5Mortality$Country[U5Mortality$Country == "Republic of Korea"] <- 'South Korea'
+income_per_capita_ppp$Country[income_per_capita_ppp$Country == 'Kyrgyz Republic'] <- 'Kyrgyzstan'
+
+
 income_mortality <- inner_join(U5Mortality, income_per_capita_ppp,by=c("Country"="Country","Year"="YEAR"))
-?inner_join
+
 
 income_mortality$`Year` <- round(as.numeric(income_mortality$`Year`), 2)
 income_mortality$`Income` <- round(as.numeric(income_mortality$`Income`), 2)
@@ -277,6 +292,10 @@ Country <- pop_size$country
 
 # Function to detect and remove M from dataset
 
+#how to include both "k" and "M" in the function? 
+#--> Need to create a single function with if k and if M, using str_detect
+# we then replace fun1 with fun2 only 
+
 fun12 <- 
   function(x){
     k <- str_detect(x, "k") 
@@ -286,6 +305,7 @@ fun12 <-
     }
     return(x)
   }
+
 
 fun2 <- 
   function(x){
@@ -302,30 +322,15 @@ pop_size_new <- apply(pop_size1[,2:72],2,fun2)
 pop_size <- cbind(Country, pop_size_new)
 
 
-#Joining Datasets with population size
+#Joining Datasets - not ready yet
+#pop_size <- cbind(pop_size$country,apply(pop_size[,2:72],2,fun2))
 
-pop_size <-as.data.frame(pop_size)%>%pivot_longer(-Country)
+#pop_size <-as.data.frame(pop_size)%>%pivot_longer(-V1)
 
-colnames(pop_size)[2] ="Year"
-colnames(pop_size)[3] ="Pop_size"
 
-pop_size$`Year` <- round(as.numeric(pop_size$`Year`), 2)
-pop_size$`Pop_size` <- round(as.numeric(pop_size$`Pop_size`), 2)
 
-income_mortality <- inner_join(income_mortality, pop_size,by=c("Country"="Country","Year"="Year"))
 
-save(income_mortality, file = "dataset/income_mortality.RData")
 
-#Including pop averages in the nd_inc_mort_avg.RData
-
-pop_size_avg <- pop_size %>% 
-  filter(Year == "2013" | Year == "2014" | Year == "2015" | Year == "2016" | Year == "2017" | Year == "2018") %>%
-  group_by(Country) %>%
-  summarise(Pop_avg = mean(Pop_size))
-
-nd_inc_mort_avg <- inner_join(nd_inc_mort_avg, pop_size_avg,by=c("Country"="Country"))
-
-#Including world's region
 
 # Including Vax Rate of 1-y/o children against at least one disease (gapminder website for more info)
 
