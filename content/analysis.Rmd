@@ -226,11 +226,6 @@ ggplot(act_world_map2000,aes(x = long, y = lat, group = group))+
 
 
 ## Clarity Figures
-<<<<<<< HEAD
-
- 
-=======
->>>>>>> dd881c9acb716583c3b4ad9191a432bffb4f17dc
 
 *delete below?
 ```{r}
@@ -254,7 +249,7 @@ ggplot(act_world_map2000,aes(x = long, y = lat, group = group))+
    labs(title = '% of Low Birth Weights by World Region', x = 'World Region', y = '% of Low Birth Weights')
 ```
 
-=======
+
 ```{r}
 data(income_mortality)
 a <- cbind(income_mortality$'Mortality', income_mortality$'Income')
@@ -287,7 +282,7 @@ inc_mort_vax %>% filter(Year == "1980" | Year == "1990" | Year == "2000" | Year 
   labs(x = "Vax Rate for at least one disease, 1 y/o children", y = "Under 5 Mortality Rate", title = "Vaccination Rates have increased over time, while Under 5 Mortality Rates fell")
 ```
 
->>>>>>> dd881c9acb716583c3b4ad9191a432bffb4f17dc
+
 ## Modeling and Inference
 
 Here is where we will show our process for the linear model. 
@@ -310,7 +305,7 @@ Describe the results of your modelling and make sure to give a sense of the unce
 
 ```{r}
 #Scatter Plot and Correlation Matrix of all Variables
-model_data <- select(nd_inc_mort_avg, c(2,6,7,10,11,12,13,14,15))
+model_data <- select(nd_inc_mort_avg, c(14,2,6,7,10,11,12,13,15))
 ggpairs(model_data, upper = list(continuous = wrap("points", alpha = 0.3, size=0.1)),
         lower = list(continuous = wrap('cor', size = 4)))
 ```
