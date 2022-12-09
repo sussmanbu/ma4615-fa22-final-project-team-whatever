@@ -11,14 +11,14 @@ We describe here our detailed data analysis. Most of our data for analysis is ac
 
 
 ```{r echo=FALSE}
-library(ggplot2)
+suppressPackageStartupMessages(library(ggplot2)) 
 #library(olsrr)
-library(hrbrthemes)
-library(GGally)
-library(gridExtra)
-library(stringr)
-library(dplyr)
-library(tidyverse)
+suppressPackageStartupMessages(library(hrbrthemes))
+suppressPackageStartupMessages(library(GGally))
+suppressPackageStartupMessages(library(gridExtra))
+suppressPackageStartupMessages(library(stringr))
+suppressPackageStartupMessages(library(dplyr))
+suppressPackageStartupMessages(library(tidyverse))
 
 print(getwd())
 load(here::here("dataset/income_mortality.RData"))
