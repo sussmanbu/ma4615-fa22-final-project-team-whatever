@@ -122,7 +122,6 @@ This relationship with income could signify that higher income regions are more 
 load(here::here("dataset/nd_inc_mort_avg.RData"))
 ggplot(nd_inc_mort_avg, aes(x = Income_avg, y = ExclusiveBreastFeeding)) + geom_point(size = 0.4) +
   stat_smooth(color='black', alpha = 0.2) +
-
   scale_x_log10() +
   labs(x = "Average Income Per Capita (PPP)", y = "Exclusive Breast Feeding Rate", title = "As income increases, exclusive breast feeding for children's nutrition decreases")
 ```
@@ -203,18 +202,20 @@ act_world_map2000 <- act_world_map %>% filter(Year == c("2000"))
 ```
 
 
-## Clarity Figures
+## Figure Six: Visualizing mortality by world region
 
 ```{r echo=FALSE}
 # Interesting structure for visualizing mortality rates by world regions when we'll have the world regions variable in the income_mortality data set
 
- #ggplot(nd_regions, aes(x=Country, y=LowBirthWT, color=Country)) +
-     #geom_point(position="jitter") +
-     #coord_polar("x") +
-     #labs(title="% of Low Birth Weights by World Region", x="", y="", color ="Country" )
+load(here::here("dataset/income_mortality.RData"))
+
+ ggplot(income_mortality, aes(x=Continent, y=Mortality, color=Continent)) +
+     geom_point(position="jitter", size = 0.3) +
+     coord_polar("x") +
+     labs(title="Relative Under 5 Mortality Rates by World Region", x="", y="", color ="Country" )
 ```
 
-## Figure Six: correlation between under 5 mortality rates and income per capito
+## Figure Seven: correlation between under 5 mortality rates and income per capito
 
 ```{r}
 data(income_mortality)
@@ -230,7 +231,7 @@ ggplot(data = income_mortality, mapping = aes(x = income_mortality$'Income', y =
 
 ```
 
-## Figures Seven and Eight: Vaccines and Mortality Rates
+## Figures Eight and Nine: Vaccines and Mortality Rates
 
 ```{r echo=FALSE}
 load(here::here("dataset/inc_mort_vax.RData"))
