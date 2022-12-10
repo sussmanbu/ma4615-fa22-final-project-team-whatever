@@ -204,8 +204,6 @@ act_world_map2000 <- act_world_map %>% filter(Year == c("2000"))
 
 ## Figure Six: Visualizing mortality by world region
 
-<<<<<<< HEAD
-
 
 ```{r}
 # Interesting structure for visualizing mortality rates by world regions when we'll have the world regions variable in the income_mortality data set
@@ -219,13 +217,11 @@ act_world_map2000 <- act_world_map %>% filter(Year == c("2000"))
 ## Figure Six
 
 
-*same as Figure one? delete?
-=======
 ```{r echo=FALSE}
 # Interesting structure for visualizing mortality rates by world regions when we'll have the world regions variable in the income_mortality data set
 
 load(here::here("dataset/income_mortality.RData"))
->>>>>>> 7c386d2c4dc217670029c31322da55e4423d7d21
+
 
  ggplot(income_mortality, aes(x=Continent, y=Mortality, color=Continent)) +
      geom_point(position="jitter", size = 0.3) +
@@ -233,10 +229,8 @@ load(here::here("dataset/income_mortality.RData"))
      labs(title="Relative Under 5 Mortality Rates by World Region", x="", y="", color ="Country" )
 ```
 
-<<<<<<< HEAD
-=======
 ## Figure Seven: correlation between under 5 mortality rates and income per capito
->>>>>>> 7c386d2c4dc217670029c31322da55e4423d7d21
+
 
 ```{r}
 data(income_mortality)
@@ -266,29 +260,11 @@ inc_mort_vax %>% filter(Year == "1980" | Year == "1990" | Year == "2000" | Year 
   labs(x = "Vax Rate for at least one disease, 1 y/o children", y = "Under 5 Mortality Rate", title = "Vaccination Rates have increased over time, while Under 5 Mortality Rates fell")
 ```
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 7c386d2c4dc217670029c31322da55e4423d7d21
 ## Modeling and Inference
 
-Here is where we will show our process for the linear model. 
 
-Rubric: 
-You should also include some kind of formal statistical model and/or inference. 
-
-
-This could be a linear regression, logistic regression, hypothesis testing etc.
-
-
-Explain the techniques you used for validating your results.
-
-
-Describe the results of your modelling and make sure to give a sense of the uncertainty in your estimates and conclusions."
-
-
-
-## Linear Model 
+### Linear Model 
 
 ```{r}
 #Scatter Plot and Correlation Matrix of all Variables
