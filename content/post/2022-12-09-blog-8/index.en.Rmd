@@ -1,0 +1,28 @@
+---
+title: Designing our visualizations
+author: Team
+date: '2022-12-09'
+slug: []
+categories: []
+tags: []
+description: ~
+toc: yes
+authors: []
+series: []
+lastmod: '2022-12-09T21:07:28-05:00'
+featuredVideo: ~
+featuredImage: ~
+---
+
+This week, after receiving feedback for our analysis, we decided to take a closer look at how we could add variation to our visualizations. We want our visuals to be representative of our data, but we also want them to be engaging and, most importantly, informative. Right now, we we have a variety of different tables and graphs such as bar charts, line plots and points (mostly using ggplot features), as well as a world map. 
+Our original world map was missing a few notable countries, so upon further investigation we discovered that when combing our two data sets (income and mortality), we found that countries that were listed under a different name were removed completely from the data. Without the world map visual, we probably would not have realized it so obviously. But now that we have fixed that, the world map (using the tmap function) is now more accurately representative of the data. 
+
+Moving forward, we also got rid of a few redundant visuals, and kept only the ones that contribute the most to our story. We also organized a few of our visuals to make them clearer using methods like facet_wrap, as well as creating a new variable for "regions" that groups all the countries into their respective world region. Playing with coloring has also been a focus for us as we think that it is a creative and informative feature that adds an extra layer of meaning to what we are trying to discover. We also have a few captions that need to be written to better explain the meaning of our plots. This will also include the creation of a page that explains our variables, as we realized that the viewer of our presentation is not as familair with our data as we have become. 
+
+
+As we complete this project, we will continue to find ways to design our visuals that will showcases our data in an organized manner for the average viewer to be able to understand the key takeaways. This is especially become our goal as we create our Big Picture page. Right now, we have developed the foundations of an interactive element that presents "bubbles" that change size as population increases and colored by region. They move across the screen in accordance to the mortality rate and their income through the years of 1950 to 2020. Next week we will make polishing up our interactive a priority. 
+
+Overall, we will continue to mend our visuals until we believe their role is satisfied for the storytelling of our data as we finalize this project. 
+
+
+
