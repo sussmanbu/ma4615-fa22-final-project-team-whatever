@@ -33,7 +33,7 @@ server <- function(input, output) {
       #head(10) %>% 
       ggplot(aes(x = Income, y = Mortality)) +
       # geom_point(alpha = 0.1) +
-      geom_point(aes(frame = Year, size = Pop_size)) +
+      geom_point(aes(frame = Year, size = Pop_size, color = Continent)) +
       scale_x_log10()
     plotly::ggplotly(gg)
   }) }
