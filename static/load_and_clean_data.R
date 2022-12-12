@@ -313,9 +313,21 @@ fun2 <-
     return(x)
   }
 
+fun3 <- 
+  function(x){
+    B <- str_detect(x, "B") 
+    for(i in 1:length(B)){
+      if(B[i]){x[i] <- as.numeric(substr(x[i],1,nchar(x[i])-1))*1000000000}
+      if(!B[i]){x[i] <- (x[i])}
+    }
+    return(x)
+  }
+
 pop_size1 <- cbind(pop_size$country,apply(pop_size[,2:72],2,fun12))
-pop_size_new <- apply(pop_size1[,2:72],2,fun2)
-pop_size <- cbind(Country, pop_size_new)
+#pop_size_new <- apply(pop_size1[,2:72],2,fun2)
+pop_size_new <- cbind(pop_size$country,apply(pop_size1[,2:72],2,fun2))
+pop_size_new2 <- apply(pop_size_new[,2:72],2,fun3)
+pop_size <- cbind(Country, pop_size_new2)
 
 
 #Joining Datasets
