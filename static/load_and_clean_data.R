@@ -289,13 +289,6 @@ pop_size <- pop_size[c(1,153:223)]
 
 Country <- pop_size$country
 
-
-# Function to detect and remove M from dataset
-
-#how to include both "k" and "M" in the function? 
-#--> Need to create a single function with if k and if M, using str_detect
-# we then replace fun1 with fun2 only 
-
 fun12 <- 
   function(x){
     k <- str_detect(x, "k") 
@@ -322,14 +315,28 @@ pop_size_new <- apply(pop_size1[,2:72],2,fun2)
 pop_size <- cbind(Country, pop_size_new)
 
 
-#Joining Datasets - not ready yet
-#pop_size <- cbind(pop_size$country,apply(pop_size[,2:72],2,fun2))
+#Joining Datasets
 
-#pop_size <-as.data.frame(pop_size)%>%pivot_longer(-V1)
+pop_size <-as.data.frame(pop_size)%>%pivot_longer(-Country)
 
+colnames(pop_size)[2] ="Year"
+colnames(pop_size)[3] ="Pop_size"
 
+pop_size$`Year` <- round(as.numeric(pop_size$`Year`), 2)
+pop_size$`Pop_size` <- round(as.numeric(pop_size$`Pop_size`), 2)
 
+income_mortality <- inner_join(income_mortality, pop_size,by=c("Country"="Country","Year"="Year"))
+save(income_mortality, file = "dataset/income_mortality.RData")
+save(income_mortality, file = "shiny_app/FinalProjectApp/income_mortality.RData")
 
+# Including World's regions
+continents <- read_csv("dataset/continents-according-to-our-world-in-data.csv")
+continents <- continents[ -c(2,3) ]
+colnames(continents)[1] ="Country"
+income_mortality <- inner_join(income_mortality, continents,by=c("Country"="Country"))
+
+save(income_mortality, file = "dataset/income_mortality.RData")
+save(income_mortality, file = "shiny_app/FinalProjectApp/income_mortality.RData")
 
 
 # Including Vax Rate of 1-y/o children against at least one disease (gapminder website for more info)

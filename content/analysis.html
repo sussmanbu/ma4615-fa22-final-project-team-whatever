@@ -13,46 +13,7 @@ draft: false
 </div>
 
 <p>We describe here our detailed data analysis. Most of our data for analysis is accredited to UNICEF database.</p>
-<pre class="r"><code>library(ggplot2)
-library(hrbrthemes)</code></pre>
-<pre><code>## NOTE: Either Arial Narrow or Roboto Condensed fonts are required to use these themes.</code></pre>
-<pre><code>##       Please use hrbrthemes::import_roboto_condensed() to install Roboto Condensed and</code></pre>
-<pre><code>##       if Arial Narrow is not on your system, please see https://bit.ly/arialnarrow</code></pre>
-<pre class="r"><code>library(GGally)</code></pre>
-<pre><code>## Registered S3 method overwritten by &#39;GGally&#39;:
-##   method from   
-##   +.gg   ggplot2</code></pre>
-<pre class="r"><code>library(gridExtra)
-library(stringr)
-library(dplyr)</code></pre>
-<pre><code>## 
-## Attaching package: &#39;dplyr&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:gridExtra&#39;:
-## 
-##     combine</code></pre>
-<pre><code>## The following objects are masked from &#39;package:stats&#39;:
-## 
-##     filter, lag</code></pre>
-<pre><code>## The following objects are masked from &#39;package:base&#39;:
-## 
-##     intersect, setdiff, setequal, union</code></pre>
-<pre class="r"><code>library(tidyverse)</code></pre>
-<pre><code>## ── Attaching packages
-## ───────────────────────────────────────
-## tidyverse 1.3.2 ──</code></pre>
-<pre><code>## ✔ tibble  3.1.8     ✔ purrr   0.3.4
-## ✔ tidyr   1.2.1     ✔ forcats 0.5.2
-## ✔ readr   2.1.3     
-## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-## ✖ dplyr::combine() masks gridExtra::combine()
-## ✖ dplyr::filter()  masks stats::filter()
-## ✖ dplyr::lag()     masks stats::lag()</code></pre>
-<pre class="r"><code>print(getwd())</code></pre>
-<pre><code>## [1] &quot;/Users/lukediiorio/Desktop/MA415/ma4615-fa22-final-project-team-whatever/content&quot;</code></pre>
-<pre class="r"><code>load(here::here(&quot;dataset/income_mortality.RData&quot;))
-load(here::here(&quot;dataset/nd_regions.RData&quot;))
-load(here::here(&quot;dataset/nd_inc_mort_avg.RData&quot;))
-print(ls())</code></pre>
+<pre><code>## [1] &quot;/Users/anamariapananas/Data Science/ma4615-fa22-final-project-team-whatever/content&quot;</code></pre>
 <pre><code>## [1] &quot;income_mortality&quot; &quot;nd_inc_mort_avg&quot;  &quot;nd_regions&quot;</code></pre>
 <div id="our-motivation-for-analysis" class="section level2">
 <h2>Our Motivation for Analysis</h2>
@@ -88,14 +49,6 @@ print(ls())</code></pre>
 <div id="figure-one-low-birthweight-in-each-region" class="section level2">
 <h2>Figure one: Low Birthweight in each Region</h2>
 <p>Here, we wanted to give a visual to represent the percentage variability in low birthweight among these regions. Based on the bar chart, South Asia has a visible larger percentage of children that fall in this category. Moving forward, we will keep an eye on South Asia and the relationships that may have impacted this one.</p>
-<pre class="r"><code>ggplot(nd_regions, aes(Country , LowBirthWT,  fill=Country)) + 
-    coord_flip() +
-    geom_bar(stat=&quot;identity&quot;, width=.90) + 
-    xlab(&quot;Region&quot;) + 
-    ylab(&quot;Low Birth Weight Percentage&quot;) + 
-    guides(fill=FALSE) +
-    ggtitle(&quot;Percentage of Children Underweight in World Regions&quot;) + 
-    theme_minimal()</code></pre>
 <pre><code>## Warning: `guides(&lt;scale&gt; = FALSE)` is deprecated. Please use `guides(&lt;scale&gt; =
 ## &quot;none&quot;)` instead.</code></pre>
 <p><img src="/analysis_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
@@ -103,122 +56,43 @@ print(ls())</code></pre>
 <div id="figure-two-mortality-rates-and-income-per-capita" class="section level2">
 <h2>Figure Two: Mortality Rates and Income per Capita</h2>
 <p>This figure shows that over time, mortality rates have decreased. (We realize that the colors for income may be difficult to decipher, so we may edit the color to regions.)</p>
-<pre class="r"><code>load(here::here(&quot;dataset/income_mortality.RData&quot;))
-
-#maybe need to include different regions and color them with &quot;color = &quot; under ggplot aes (instead of Income)
-
-income_mortality %&gt;% filter(Year == &quot;1950&quot; | Year == &quot;1975&quot; | Year == &quot;2000&quot; | Year == &quot;2020&quot;) %&gt;% ggplot(aes(x = Income, y = Mortality, color = Income)) + geom_point(size = 0.3) +
-  facet_wrap(~as.factor(Year)) +
-  stat_smooth(aes(group = Year), color=&#39;black&#39;, alpha = 0.4, geom = &quot;line&quot;) +
-  scale_x_log10() +
-  labs(x = &quot;Income Per Capita (PPP)&quot;, y = &quot;Under 5 Mortality Rate&quot;, title = &quot;Disparity across Under 5 Mortality Rates has decreased over time&quot;)</code></pre>
 <pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
-<pre><code>## Warning: Removed 150 rows containing non-finite values (stat_smooth).</code></pre>
-<pre><code>## Warning: Removed 150 rows containing missing values (geom_point).</code></pre>
+<pre><code>## Warning: Removed 146 rows containing non-finite values (stat_smooth).</code></pre>
+<pre><code>## Warning: Removed 146 rows containing missing values (geom_point).</code></pre>
 <p><img src="/analysis_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 </div>
-<div id="figure-three" class="section level2">
-<h2>Figure Three</h2>
-<pre class="r"><code>load(here::here(&quot;dataset/income_mortality.RData&quot;))
-
-#load(here::here(&quot;static/load_and_clean_data.R&quot;))
-suppressPackageStartupMessages(library(tidyverse))
-
-#maybe need to include different regions and color them with &quot;color = &quot; under ggplot aes (instead of Income)
-
-income_mortality %&gt;% filter(Year == &quot;1950&quot; | Year == &quot;1975&quot; | Year == &quot;2000&quot; | Year == &quot;2020&quot;) %&gt;% ggplot(aes(x = Income, y = Mortality, color = Income)) + geom_point(size = 0.3) +
-  facet_wrap(~as.factor(Year)) +
-  stat_smooth(aes(group = Year), color=&#39;black&#39;, alpha = 0.4, geom = &quot;line&quot;) </code></pre>
-<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
-<pre><code>## Warning: Removed 150 rows containing non-finite values (stat_smooth).</code></pre>
-<pre><code>## Warning: Removed 150 rows containing missing values (geom_point).</code></pre>
-<p><img src="/analysis_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
-</div>
-<div id="figure-four-relationship-between-income-and-infants-that-are-exclusively-breastfed" class="section level2">
-<h2>Figure Four: Relationship between Income and Infant’s that are exclusively breastfed</h2>
+<div id="figure-three-relationship-between-income-and-infants-that-are-exclusively-breastfed" class="section level2">
+<h2>Figure Three: Relationship between Income and Infant’s that are exclusively breastfed</h2>
 <p>This is our first attempt at exploring a variable from the nutrition data set with income per capita. Here we are able to see that as income increases, exclusive breast feeding for children’s nutrition decreases. Exclusive breast feeding, according to this data, is described as the</p>
 <pre><code>&gt; Percentage of infants 0-5 months of age who were fed exclusively with breastmilk during the previous day.</code></pre>
 <p>This relationship with income could signify that higher income regions are more likely to have alternatives to breastfeeding for infants. Of course this is just a hypothesis, but a question to keep in mind.</p>
-<pre class="r"><code>load(here::here(&quot;dataset/nd_inc_mort_avg.RData&quot;))
-ggplot(nd_inc_mort_avg, aes(x = Income_avg, y = ExclusiveBreastFeeding)) + geom_point(size = 0.4) +
-  stat_smooth(color=&#39;black&#39;, alpha = 0.2) +
-
-  scale_x_log10() +
-  labs(x = &quot;Average Income Per Capita (PPP)&quot;, y = &quot;Exclusive Breast Feeding Rate&quot;, title = &quot;As income increases, exclusive breast feeding for children&#39;s nutrition decreases&quot;)</code></pre>
 <pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
 <pre><code>## Warning: Removed 53 rows containing non-finite values (stat_smooth).</code></pre>
 <pre><code>## Warning: Removed 53 rows containing missing values (geom_point).</code></pre>
-<p><img src="/analysis_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="/analysis_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 </div>
-<div id="figure-five-relationship-between-income-per-capita-and-child-diet-diversity" class="section level2">
-<h2>Figure Five: Relationship between Income per capita and Child Diet Diversity</h2>
+<div id="figure-four-relationship-between-income-per-capita-and-child-diet-diversity" class="section level2">
+<h2>Figure Four: Relationship between Income per capita and Child Diet Diversity</h2>
 <p>Below is a figure that suggets that the diet diversity variable steadily increases as the average income per capita increases.
 Minimum diet diversity, according to the data, is defined as:</p>
 <pre><code>&gt;Percentage of children who received foods from at least 5 out of 8 defined food groups during the previos day. </code></pre>
 <p>With this in mind, a possible synthesis is that higher averages of income provide more opportunities to fulfill the diet for all 8 defined food groups.</p>
-<pre class="r"><code>load(here::here(&quot;dataset/nd_inc_mort_avg.RData&quot;))
-ggplot(nd_inc_mort_avg, aes(x = Income_avg, y = DietDiversity)) + geom_point(size = 0.4) +
-  stat_smooth(color=&#39;black&#39;, alpha = 0.2) +
-  scale_x_log10() +
-  labs(x = &quot;Average Income Per Capita (PPP)&quot;, y = &quot;Diet Diversity&quot;, title = &quot;As income increases, diet diversity for children&#39;s nutrition increases&quot;)</code></pre>
 <pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
 <pre><code>## Warning: Removed 93 rows containing non-finite values (stat_smooth).</code></pre>
 <pre><code>## Warning: Removed 93 rows containing missing values (geom_point).</code></pre>
-<p><img src="/analysis_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
-<pre class="r"><code>library(maps)</code></pre>
+<p><img src="/analysis_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+</div>
+<div id="figure-five-world-map-under-5-mortality-rates-across-countries" class="section level2">
+<h2>Figure Five: World Map: Under 5 Mortality Rates across countries</h2>
 <pre><code>## 
 ## Attaching package: &#39;maps&#39;</code></pre>
 <pre><code>## The following object is masked from &#39;package:purrr&#39;:
 ## 
 ##     map</code></pre>
-<pre class="r"><code>library(ggplot2)
-library(RColorBrewer)
-library(tidyverse)
-
-world_map &lt;- map_data(&quot;world&quot;)
-
-ggplot(world_map, aes(x = long, y = lat, group = group)) +
-  geom_polygon(fill=&quot;white&quot;, colour = &quot;gray50&quot;) +
-  theme_classic()</code></pre>
-<p><img src="/analysis_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
-<pre class="r"><code>world_map %&gt;%
-  left_join(income_mortality, by = c(&quot;region&quot; = &quot;Country&quot;)) -&gt; act_world_map
-
-act_world_map1970 &lt;- act_world_map %&gt;% filter(Year == c(&quot;1970&quot;))
-
-ggplot(act_world_map1970,aes(x = long, y = lat, group = group))+
-  geom_polygon(aes(fill = Mortality),color = &quot;black&quot;)+
-  scale_x_continuous(breaks = seq(-180,210,45),labels = function(x){paste0(x,&quot;°&quot;)})+
-  scale_y_continuous(breaks = seq(-60, 100, 30), labels = function(x){paste0(x, &quot;°&quot;)})+
-  scale_fill_gradient(low = &quot;lightblue&quot;, high=&quot;dark blue&quot;) +
-  theme_light()</code></pre>
-<p><img src="/analysis_files/figure-html/unnamed-chunk-7-2.png" width="672" /></p>
-<pre class="r"><code>act_world_map1990 &lt;- act_world_map %&gt;% filter(Year == c(&quot;1990&quot;))
-
-
-
-ggplot(act_world_map1990,aes(x = long, y = lat, group = group))+
-  geom_polygon(aes(fill = Mortality),color = &quot;black&quot;)+
-  scale_x_continuous(breaks = seq(-180,210,45),labels = function(x){paste0(x,&quot;°&quot;)})+
-  scale_y_continuous(breaks = seq(-60, 100, 30), labels = function(x){paste0(x, &quot;°&quot;)})+
-  scale_fill_gradient(low = &quot;lightblue&quot;, high=&quot;dark blue&quot;) +
-  theme_light()</code></pre>
-<p><img src="/analysis_files/figure-html/unnamed-chunk-7-3.png" width="672" /></p>
-<pre class="r"><code>act_world_map2000 &lt;- act_world_map %&gt;% filter(Year == c(&quot;2000&quot;))
-
-
-
-ggplot(act_world_map2000,aes(x = long, y = lat, group = group))+
-  geom_polygon(aes(fill = Mortality),color = &quot;black&quot;)+
-  scale_x_continuous(breaks = seq(-180,210,45),labels = function(x){paste0(x,&quot;°&quot;)})+
-  scale_y_continuous(breaks = seq(-60, 100, 30), labels = function(x){paste0(x, &quot;°&quot;)})+
-  scale_fill_gradient(low = &quot;lightblue&quot;, high=&quot;dark blue&quot;) +
-  theme_light()</code></pre>
-<p><img src="/analysis_files/figure-html/unnamed-chunk-7-4.png" width="672" /></p>
+<p><img src="/analysis_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 </div>
-<div id="clarity-figures" class="section level2">
-<h2>Clarity Figures</h2>
-<p>*delete below?</p>
+<div id="figure-six-visualizing-mortality-by-world-region" class="section level2">
+<h2>Figure Six: Visualizing mortality by world region</h2>
 <pre class="r"><code># Interesting structure for visualizing mortality rates by world regions when we&#39;ll have the world regions variable in the income_mortality data set
 
  #ggplot(nd_regions, aes(x=Country, y=LowBirthWT, color=Country)) +
@@ -228,72 +102,47 @@ ggplot(act_world_map2000,aes(x = long, y = lat, group = group))+
 </div>
 <div id="figure-six" class="section level2">
 <h2>Figure Six</h2>
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-*same as Figure one? delete?</p>
-<pre class="r"><code>#need to place region names in the x axis vertically
- nd_regions%&gt;%ggplot() +
-   geom_bar(aes(x = reorder(Country, -LowBirthWT), y = LowBirthWT, fill = Country), stat = &#39;identity&#39;) +
-   labs(title = &#39;% of Low Birth Weights by World Region&#39;, x = &#39;World Region&#39;, y = &#39;% of Low Birth Weights&#39;)</code></pre>
-<p><img src="/analysis_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<pre><code>## Warning: Removed 1776 rows containing missing values (geom_point).</code></pre>
+<p><img src="/analysis_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+</div>
+<div id="figure-seven-correlation-between-under-5-mortality-rates-and-income-per-capito" class="section level2">
+<h2>Figure Seven: correlation between under 5 mortality rates and income per capito</h2>
 <pre class="r"><code>data(income_mortality)</code></pre>
 <pre><code>## Warning in data(income_mortality): data set &#39;income_mortality&#39; not found</code></pre>
 <pre class="r"><code>a &lt;- cbind(income_mortality$&#39;Mortality&#39;, income_mortality$&#39;Income&#39;)
 a2&lt;-na.omit(a)
 cor = cor(a2[,1],a2[,2])
-#the correlationship between the mortality and income 
+#the correlation between the mortality and income 
 print(cor)</code></pre>
-<pre><code>## [1] -0.4812302</code></pre>
-<pre class="r"><code>ggplot(data = income_mortality, mapping = aes(x = income_mortality$&#39;Mortality&#39;, y = income_mortality$&#39;Income&#39;)) +
+<pre><code>## [1] -0.4785735</code></pre>
+<pre class="r"><code>ggplot(data = income_mortality, mapping = aes(x = income_mortality$&#39;Income&#39;, y = income_mortality$&#39;Mortality&#39;)) +
+  scale_x_log10() +
     geom_point(alpha = 0.1, aes(color = &#39;Red&#39;))</code></pre>
+<pre><code>## Warning: Use of `income_mortality$Income` is discouraged. Use `Income` instead.</code></pre>
 <pre><code>## Warning: Use of `income_mortality$Mortality` is discouraged. Use `Mortality`
 ## instead.</code></pre>
-<pre><code>## Warning: Use of `income_mortality$Income` is discouraged. Use `Income` instead.</code></pre>
-<pre><code>## Warning: Removed 1855 rows containing missing values (geom_point).</code></pre>
-<p><img src="/analysis_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<pre><code>## Warning: Removed 1776 rows containing missing values (geom_point).</code></pre>
+<p><img src="/analysis_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 </div>
-<div id="figure-seven" class="section level2">
-<h2>Figure Seven</h2>
-<pre class="r"><code>load(here::here(&quot;dataset/inc_mort_vax.RData&quot;))
-ggplot(inc_mort_vax, aes(x = Vax_Rate, y = Mortality)) + geom_point(size = 0.4) +
-  stat_smooth(color=&#39;black&#39;, alpha = 0.2) +
-  labs(x = &quot;Vax Rate for at least one disease, 1 y/o children&quot;, y = &quot;Under 5 Mortality&quot;, title = &quot;Vaccination Rates are negatively correlated with Under 5 Mortality Rates&quot;)</code></pre>
+<div id="figures-eight-and-nine-vaccines-and-mortality-rates" class="section level2">
+<h2>Figures Eight and Nine: Vaccines and Mortality Rates</h2>
 <pre><code>## `geom_smooth()` using method = &#39;gam&#39; and formula &#39;y ~ s(x, bs = &quot;cs&quot;)&#39;</code></pre>
-<pre><code>## Warning: Removed 556 rows containing non-finite values (stat_smooth).</code></pre>
-<pre><code>## Warning: Removed 556 rows containing missing values (geom_point).</code></pre>
-<p><img src="/analysis_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
-<pre class="r"><code>inc_mort_vax %&gt;% filter(Year == &quot;1980&quot; | Year == &quot;1990&quot; | Year == &quot;2000&quot; | Year == &quot;2019&quot;) %&gt;% ggplot(aes(x = Vax_Rate, y = Mortality, color = Income)) + geom_point(size = 0.3) +
-  facet_wrap(~as.factor(Year)) +
-  stat_smooth(aes(group = Year), color=&#39;black&#39;, alpha = 0.4, geom = &quot;line&quot;) +
-  labs(x = &quot;Vax Rate for at least one disease, 1 y/o children&quot;, y = &quot;Under 5 Mortality Rate&quot;, title = &quot;Vaccination Rates have increased over time, while Under 5 Mortality Rates fell&quot;)</code></pre>
+<pre><code>## Warning: Removed 544 rows containing non-finite values (stat_smooth).</code></pre>
+<pre><code>## Warning: Removed 544 rows containing missing values (geom_point).</code></pre>
+<p><img src="/analysis_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 <pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
-<pre><code>## Warning: Removed 115 rows containing non-finite values (stat_smooth).</code></pre>
-<pre><code>## Warning: Removed 115 rows containing missing values (geom_point).</code></pre>
-<p><img src="/analysis_files/figure-html/unnamed-chunk-11-2.png" width="672" /></p>
+<pre><code>## Warning: Removed 113 rows containing non-finite values (stat_smooth).</code></pre>
+<pre><code>## Warning: Removed 113 rows containing missing values (geom_point).</code></pre>
+<p><img src="/analysis_files/figure-html/unnamed-chunk-10-2.png" width="672" /></p>
 </div>
 <div id="modeling-and-inference" class="section level2">
 <h2>Modeling and Inference</h2>
-<p>Here is where we will show our process for the linear model.</p>
-<p>Rubric:
-You should also include some kind of formal statistical model and/or inference.</p>
-<p>This could be a linear regression, logistic regression, hypothesis testing etc.</p>
-<p>Explain the techniques you used for validating your results.</p>
-<p>Describe the results of your modelling and make sure to give a sense of the uncertainty in your estimates and conclusions.”</p>
-</div>
-<div id="linear-model" class="section level2">
-<h2>Linear Model</h2>
+<div id="linear-model" class="section level3">
+<h3>Linear Model</h3>
 <pre class="r"><code>#Scatter Plot and Correlation Matrix of all Variables
-model_data &lt;- select(nd_inc_mort_avg, c(14,2,6,7,10,11,12,13,15))
+model_data &lt;- select(nd_inc_mort_avg, c(2,6,7,10,11,12,13,14,15))
 ggpairs(model_data, upper = list(continuous = wrap(&quot;points&quot;, alpha = 0.3, size=0.1)),
         lower = list(continuous = wrap(&#39;cor&#39;, size = 4)))</code></pre>
-<pre><code>## Warning: Removed 39 rows containing missing values (geom_point).</code></pre>
-<pre><code>## Warning: Removed 62 rows containing missing values (geom_point).</code></pre>
-<pre><code>## Warning: Removed 60 rows containing missing values (geom_point).</code></pre>
-<pre><code>## Warning: Removed 93 rows containing missing values (geom_point).</code></pre>
-<pre><code>## Warning: Removed 80 rows containing missing values (geom_point).</code></pre>
-<pre><code>## Warning: Removed 99 rows containing missing values (geom_point).</code></pre>
-<pre><code>## Warning: Removed 95 rows containing missing values (geom_point).</code></pre>
-<pre><code>## Warning in ggally_statistic(data = data, mapping = mapping, na.rm = na.rm, :
-## Removed 39 rows containing missing values</code></pre>
 <pre><code>## Warning: Removed 39 rows containing non-finite values (stat_density).</code></pre>
 <pre><code>## Warning: Removed 87 rows containing missing values (geom_point).</code></pre>
 <pre><code>## Warning: Removed 90 rows containing missing values (geom_point).</code></pre>
@@ -301,9 +150,8 @@ ggpairs(model_data, upper = list(continuous = wrap(&quot;points&quot;, alpha = 0
 <pre><code>## Warning: Removed 102 rows containing missing values (geom_point).</code></pre>
 <pre><code>## Warning: Removed 118 rows containing missing values (geom_point).</code></pre>
 <pre><code>## Warning: Removed 114 rows containing missing values (geom_point).</code></pre>
-<pre><code>## Warning: Removed 39 rows containing missing values (geom_point).</code></pre>
-<pre><code>## Warning in ggally_statistic(data = data, mapping = mapping, na.rm = na.rm, :
-## Removed 62 rows containing missing values</code></pre>
+<pre><code>## Warning: Removed 39 rows containing missing values (geom_point).
+## Removed 39 rows containing missing values (geom_point).</code></pre>
 <pre><code>## Warning in ggally_statistic(data = data, mapping = mapping, na.rm = na.rm, :
 ## Removed 87 rows containing missing values</code></pre>
 <pre><code>## Warning: Removed 62 rows containing non-finite values (stat_density).</code></pre>
@@ -312,9 +160,8 @@ ggpairs(model_data, upper = list(continuous = wrap(&quot;points&quot;, alpha = 0
 <pre><code>## Warning: Removed 81 rows containing missing values (geom_point).</code></pre>
 <pre><code>## Warning: Removed 99 rows containing missing values (geom_point).</code></pre>
 <pre><code>## Warning: Removed 95 rows containing missing values (geom_point).</code></pre>
-<pre><code>## Warning: Removed 62 rows containing missing values (geom_point).</code></pre>
-<pre><code>## Warning in ggally_statistic(data = data, mapping = mapping, na.rm = na.rm, :
-## Removed 60 rows containing missing values</code></pre>
+<pre><code>## Warning: Removed 62 rows containing missing values (geom_point).
+## Removed 62 rows containing missing values (geom_point).</code></pre>
 <pre><code>## Warning in ggally_statistic(data = data, mapping = mapping, na.rm = na.rm, :
 ## Removed 90 rows containing missing values</code></pre>
 <pre><code>## Warning in ggally_statistic(data = data, mapping = mapping, na.rm = na.rm, :
@@ -324,9 +171,8 @@ ggpairs(model_data, upper = list(continuous = wrap(&quot;points&quot;, alpha = 0
 <pre><code>## Warning: Removed 82 rows containing missing values (geom_point).</code></pre>
 <pre><code>## Warning: Removed 100 rows containing missing values (geom_point).</code></pre>
 <pre><code>## Warning: Removed 95 rows containing missing values (geom_point).</code></pre>
-<pre><code>## Warning: Removed 60 rows containing missing values (geom_point).</code></pre>
-<pre><code>## Warning in ggally_statistic(data = data, mapping = mapping, na.rm = na.rm, :
-## Removed 93 rows containing missing values</code></pre>
+<pre><code>## Warning: Removed 60 rows containing missing values (geom_point).
+## Removed 60 rows containing missing values (geom_point).</code></pre>
 <pre><code>## Warning in ggally_statistic(data = data, mapping = mapping, na.rm = na.rm, :
 ## Removed 113 rows containing missing values</code></pre>
 <pre><code>## Warning in ggally_statistic(data = data, mapping = mapping, na.rm = na.rm, :
@@ -337,9 +183,8 @@ ggpairs(model_data, upper = list(continuous = wrap(&quot;points&quot;, alpha = 0
 <pre><code>## Warning: Removed 99 rows containing missing values (geom_point).</code></pre>
 <pre><code>## Warning: Removed 100 rows containing missing values (geom_point).</code></pre>
 <pre><code>## Warning: Removed 96 rows containing missing values (geom_point).</code></pre>
-<pre><code>## Warning: Removed 93 rows containing missing values (geom_point).</code></pre>
-<pre><code>## Warning in ggally_statistic(data = data, mapping = mapping, na.rm = na.rm, :
-## Removed 80 rows containing missing values</code></pre>
+<pre><code>## Warning: Removed 93 rows containing missing values (geom_point).
+## Removed 93 rows containing missing values (geom_point).</code></pre>
 <pre><code>## Warning in ggally_statistic(data = data, mapping = mapping, na.rm = na.rm, :
 ## Removed 102 rows containing missing values</code></pre>
 <pre><code>## Warning in ggally_statistic(data = data, mapping = mapping, na.rm = na.rm, :
@@ -351,9 +196,8 @@ ggpairs(model_data, upper = list(continuous = wrap(&quot;points&quot;, alpha = 0
 <pre><code>## Warning: Removed 80 rows containing non-finite values (stat_density).</code></pre>
 <pre><code>## Warning: Removed 99 rows containing missing values (geom_point).</code></pre>
 <pre><code>## Warning: Removed 100 rows containing missing values (geom_point).</code></pre>
-<pre><code>## Warning: Removed 80 rows containing missing values (geom_point).</code></pre>
-<pre><code>## Warning in ggally_statistic(data = data, mapping = mapping, na.rm = na.rm, :
-## Removed 99 rows containing missing values</code></pre>
+<pre><code>## Warning: Removed 80 rows containing missing values (geom_point).
+## Removed 80 rows containing missing values (geom_point).</code></pre>
 <pre><code>## Warning in ggally_statistic(data = data, mapping = mapping, na.rm = na.rm, :
 ## Removed 118 rows containing missing values</code></pre>
 <pre><code>## Warning in ggally_statistic(data = data, mapping = mapping, na.rm = na.rm, :
@@ -367,9 +211,8 @@ ggpairs(model_data, upper = list(continuous = wrap(&quot;points&quot;, alpha = 0
 ## Removed 99 rows containing missing values</code></pre>
 <pre><code>## Warning: Removed 99 rows containing non-finite values (stat_density).</code></pre>
 <pre><code>## Warning: Removed 101 rows containing missing values (geom_point).</code></pre>
-<pre><code>## Warning: Removed 99 rows containing missing values (geom_point).</code></pre>
-<pre><code>## Warning in ggally_statistic(data = data, mapping = mapping, na.rm = na.rm, :
-## Removed 95 rows containing missing values</code></pre>
+<pre><code>## Warning: Removed 99 rows containing missing values (geom_point).
+## Removed 99 rows containing missing values (geom_point).</code></pre>
 <pre><code>## Warning in ggally_statistic(data = data, mapping = mapping, na.rm = na.rm, :
 ## Removed 114 rows containing missing values</code></pre>
 <pre><code>## Warning in ggally_statistic(data = data, mapping = mapping, na.rm = na.rm, :
@@ -384,7 +227,8 @@ ggpairs(model_data, upper = list(continuous = wrap(&quot;points&quot;, alpha = 0
 <pre><code>## Warning in ggally_statistic(data = data, mapping = mapping, na.rm = na.rm, :
 ## Removed 101 rows containing missing values</code></pre>
 <pre><code>## Warning: Removed 95 rows containing non-finite values (stat_density).</code></pre>
-<pre><code>## Warning: Removed 95 rows containing missing values (geom_point).</code></pre>
+<pre><code>## Warning: Removed 95 rows containing missing values (geom_point).
+## Removed 95 rows containing missing values (geom_point).</code></pre>
 <pre><code>## Warning in ggally_statistic(data = data, mapping = mapping, na.rm = na.rm, :
 ## Removed 39 rows containing missing values</code></pre>
 <pre><code>## Warning in ggally_statistic(data = data, mapping = mapping, na.rm = na.rm, :
@@ -399,7 +243,21 @@ ggpairs(model_data, upper = list(continuous = wrap(&quot;points&quot;, alpha = 0
 ## Removed 99 rows containing missing values</code></pre>
 <pre><code>## Warning in ggally_statistic(data = data, mapping = mapping, na.rm = na.rm, :
 ## Removed 95 rows containing missing values</code></pre>
-<p><img src="/analysis_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<pre><code>## Warning in ggally_statistic(data = data, mapping = mapping, na.rm = na.rm, :
+## Removed 39 rows containing missing values</code></pre>
+<pre><code>## Warning in ggally_statistic(data = data, mapping = mapping, na.rm = na.rm, :
+## Removed 62 rows containing missing values</code></pre>
+<pre><code>## Warning in ggally_statistic(data = data, mapping = mapping, na.rm = na.rm, :
+## Removed 60 rows containing missing values</code></pre>
+<pre><code>## Warning in ggally_statistic(data = data, mapping = mapping, na.rm = na.rm, :
+## Removed 93 rows containing missing values</code></pre>
+<pre><code>## Warning in ggally_statistic(data = data, mapping = mapping, na.rm = na.rm, :
+## Removed 80 rows containing missing values</code></pre>
+<pre><code>## Warning in ggally_statistic(data = data, mapping = mapping, na.rm = na.rm, :
+## Removed 99 rows containing missing values</code></pre>
+<pre><code>## Warning in ggally_statistic(data = data, mapping = mapping, na.rm = na.rm, :
+## Removed 95 rows containing missing values</code></pre>
+<p><img src="/analysis_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 <pre class="r"><code>model &lt;- lm(nd_inc_mort_avg$Mortality_avg ~ nd_inc_mort_avg$LowBirthWT + nd_inc_mort_avg$Income_avg + nd_inc_mort_avg$ExclusiveBreastFeeding + nd_inc_mort_avg$DietDiversity + nd_inc_mort_avg$ZeroVegtable)
 summary(model)</code></pre>
 <pre><code>## 
@@ -434,4 +292,5 @@ summary(model)</code></pre>
 ##   (115 observations deleted due to missingness)
 ## Multiple R-squared:  0.6743, Adjusted R-squared:  0.6397 
 ## F-statistic: 19.46 on 5 and 47 DF,  p-value: 1.879e-10</code></pre>
+</div>
 </div>
