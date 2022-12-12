@@ -80,7 +80,7 @@ Here, we wanted to give a visual to represent the percentage variability in low 
 
 
 ```{r echo=FALSE}
-ggplot(nd_regions, aes(Country , LowBirthWT,  fill=Country)) + 
+ggplot(nd_regions, aes(x = reorder(Country, LowBirthWT), y = LowBirthWT,  fill=Country)) + 
     coord_flip() +
     geom_bar(stat="identity", width=.90) + 
     xlab("Region") + 
