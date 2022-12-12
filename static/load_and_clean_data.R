@@ -281,6 +281,9 @@ income_mortality$`Income` <- round(as.numeric(income_mortality$`Income`), 2)
 
 save(income_mortality, file = "dataset/income_mortality.RData")
 
+
+
+
 # Including countries' population size
 
 suppressPackageStartupMessages(library(tidyverse))
@@ -334,8 +337,11 @@ pop_size <-as.data.frame(pop_size)%>%pivot_longer(-Country)
 colnames(pop_size)[2] ="Year"
 colnames(pop_size)[3] ="Pop_size"
 
-pop_size$`Year` <- round(as.numeric(pop_size$`Year`), 2)
-pop_size$`Pop_size` <- round(as.numeric(pop_size$`Pop_size`), 2)
+pop_size$`Year` <- as.numeric(pop_size$`Year`)
+pop_size$`Pop_size` <- (as.numeric(pop_size$`Pop_size`))
+
+pop_size$Country[pop_size$Country == 'United States'] <- 'USA'
+
 
 income_mortality <- inner_join(income_mortality, pop_size,by=c("Country"="Country","Year"="Year"))
 save(income_mortality, file = "dataset/income_mortality.RData")
@@ -345,7 +351,14 @@ save(income_mortality, file = "shiny_app/FinalProjectApp/income_mortality.RData"
 continents <- read_csv("dataset/continents-according-to-our-world-in-data.csv")
 continents <- continents[ -c(2,3) ]
 colnames(continents)[1] ="Country"
+
+continents$Country[continents$Country == 'United States'] <- 'USA'
+
+
 income_mortality <- inner_join(income_mortality, continents,by=c("Country"="Country"))
+
+
+
 
 save(income_mortality, file = "dataset/income_mortality.RData")
 save(income_mortality, file = "shiny_app/FinalProjectApp/income_mortality.RData")
@@ -356,6 +369,10 @@ save(income_mortality, file = "shiny_app/FinalProjectApp/income_mortality.RData"
 suppressPackageStartupMessages(library(tidyverse))
 vax_rate <- read_csv("dataset/vacc_rate.csv")
 
+vax_rate$country[vax_rate$country == 'United States'] <- 'USA'
+vax_rate$country[vax_rate$country == 'Congo, Dem. Rep.'] <- 'Democratic Republic of the Congo'
+
+
 vax_rate <-as.data.frame(vax_rate)%>%pivot_longer(-country)
 
 colnames(vax_rate)[1] ="Country"
@@ -364,9 +381,24 @@ colnames(vax_rate)[3] ="Vax_Rate"
 
 vax_rate$`Year` <- round(as.numeric(vax_rate$`Year`), 2)
 
+
 inc_mort_vax <- inner_join(income_mortality, vax_rate,by=c("Country"="Country","Year"="Year"))
 
 save(inc_mort_vax, file = "dataset/inc_mort_vax.RData")
 
 
+#creating new dataset for nutrition analysis: adding income&mortality averages from 2013 to 2018
 
+
+inc_mort_for_nutrition_avg <- income_mortality %>% 
+filter(Year == "2013" | Year == "1975" | Year == "2014" | Year == "2015" | Year == "2016" | Year == "2017"| Year == "2018") %>%
+group_by(Country) %>% mutate(Mortality_avg = mean(Mortality, na.rm=TRUE)) %>% mutate(Income_avg = mean(Income, na.rm=TRUE))
+
+inc_mort_nutrition_avg <- inc_mort_for_nutrition_avg %>% group_by(Country) %>% summarise(mean(Mortality_avg), mean(Income_avg))
+colnames(inc_mort_for_nutrition_avg)[2] ="Mortality_avg"
+
+colnames(inc_mort_for_nutrition_avg)[3] ="Income_avg"
+
+nd_inc_mort_avg <- inner_join(nd, inc_mort_for_nutrition_avg,by=c("Country"="Country"))
+
+save(nd_inc_mort_avg, file = "dataset/nd_inc_mort_avg.RData")

@@ -7,8 +7,10 @@ featuredImage: images/globe.png
 draft: false
 --- 
 
-We describe here our detailed data analysis. Most of our data for analysis is accredited to UNICEF database.   
+[link](/analysis2/)
 
+We describe here our detailed data analysis. Most of our data for analysis is accredited to UNICEF database.   
+ 
 
 ```{r echo=FALSE}
 suppressPackageStartupMessages(library(ggplot2)) 
@@ -80,7 +82,7 @@ Here, we wanted to give a visual to represent the percentage variability in low 
 
 
 ```{r echo=FALSE}
-ggplot(nd_regions, aes(x = reorder(Country, LowBirthWT), y = LowBirthWT,  fill=Country)) + 
+ggplot(nd_regions, aes(Country , LowBirthWT,  fill=Country)) + 
     coord_flip() +
     geom_bar(stat="identity", width=.90) + 
     xlab("Region") + 
@@ -88,9 +90,6 @@ ggplot(nd_regions, aes(x = reorder(Country, LowBirthWT), y = LowBirthWT,  fill=C
     guides(fill=FALSE) +
     ggtitle("Percentage of Children Underweight in World Regions") + 
     theme_minimal()
-
-#similar plot, for Low Birthweight
- #nd_regions%>%ggplot() + geom_bar(aes(x = reorder(Country, LowBirthWT), y = LowBirthWT, fill = Country), stat = 'identity') + coord_flip() + labs(title = '% of Low Birth Weights by World Region', x = 'World Region', y = '% of Low Birth Weights')
 ```
 
 
@@ -104,7 +103,7 @@ load(here::here("dataset/income_mortality.RData"))
 
 #maybe need to include different regions and color them with "color = " under ggplot aes (instead of Income)
 
-income_mortality %>% filter(Year == "1950" | Year == "1975" | Year == "2000" | Year == "2020") %>% ggplot(aes(x = Income, y = Mortality, color = Continent)) + geom_point(size = 0.3) +
+income_mortality %>% filter(Year == "1950" | Year == "1975" | Year == "2000" | Year == "2020") %>% ggplot(aes(x = Income, y = Mortality, color = Income)) + geom_point(size = 0.3) +
   facet_wrap(~as.factor(Year)) +
   stat_smooth(aes(group = Year), color='black', alpha = 0.4, geom = "line") +
   scale_x_log10() +
@@ -203,15 +202,30 @@ act_world_map2000 <- act_world_map %>% filter(Year == c("2000"))
   #scale_fill_gradient(low = "lightblue", high="dark blue") +
   #theme_light()
 ```
-
+ 
 
 ## Figure Six: Visualizing mortality by world region
 
+
+```{r}
+# Interesting structure for visualizing mortality rates by world regions when we'll have the world regions variable in the income_mortality data set
+
+ #ggplot(nd_regions, aes(x=Country, y=LowBirthWT, color=Country)) +
+     #geom_point(position="jitter") +
+     #coord_polar("x") +
+     #labs(title="% of Low Birth Weights by World Region", x="", y="", color ="Country" )
+```
+
+## Figure Six 
+
+
 ```{r echo=FALSE}
+# Interesting structure for visualizing mortality rates by world regions when we'll have the world regions variable in the income_mortality data set
 
 load(here::here("dataset/income_mortality.RData"))
 
- ggplot(income_mortality, aes(x=Continent, y=Mortality, color=Continent)) +
+
+ ggplot(income_mortality, aes(x=Continent, y=Mortality, color= Continent)) +
      geom_point(position="jitter", size = 0.3) +
      coord_polar("x") +
      labs(title="Relative Under 5 Mortality Rates by World Region", x="", y="", color ="Country" )
@@ -234,7 +248,7 @@ ggplot(data = income_mortality, mapping = aes(x = income_mortality$'Income', y =
 
 ```
 
-## Figures Eight and Nine: Vaccines and Mortality Rates
+## [Figures Eight and Nine: Vaccines and Mortality Rates]()
 
 ```{r echo=FALSE}
 load(here::here("dataset/inc_mort_vax.RData"))
