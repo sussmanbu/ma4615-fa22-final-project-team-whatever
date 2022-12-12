@@ -380,7 +380,7 @@ save(inc_mort_vax, file = "dataset/inc_mort_vax.RData")
 
 inc_mort_for_nutrition_avg <- income_mortality %>% 
 filter(Year == "2013" | Year == "1975" | Year == "2014" | Year == "2015" | Year == "2016" | Year == "2017"| Year == "2018") %>%
-group_by(Country) %>% mutate(Mortality_avg = mean(Mortality, na.rm=TRUE)) %>% mutate(Income_avg = mean(Income, na.rm=TRUE))
+group_by(Country) %>% mutate(Mortality_avg = mean(Mortality, na.rm=TRUE)) %>% mutate(Income_avg = mean(Income, na.rm=TRUE)) %>% mutate(Income_avg = mean(Pop_size, na.rm=TRUE))
 
 inc_mort_nutrition_avg <- inc_mort_for_nutrition_avg %>% group_by(Country) %>% summarise(mean(Mortality_avg), mean(Income_avg))
 colnames(inc_mort_for_nutrition_avg)[2] ="Mortality_avg"

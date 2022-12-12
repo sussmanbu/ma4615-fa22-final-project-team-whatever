@@ -9,24 +9,18 @@ draft: false
 
 This comes from the file `content/big_picture.Rmd`.
 
-Think of this page as your 538/Upshot style article. This means that you should try to tell a story through the data and your analysis. Read articles from those sites and similar sites to get a feeling for what they are like. Importantly, these should be geared towards the general public. You shouldn't assume the reader understands how to interpret a linear regression. Focus on interpretation and visualizations.
-
 ---
 
-## Rubric: On this page
+## The State of the World's Children Under the Age of 5: what countries are better equipped for a stronger, healther generation? 
 
-You will
+After all of our analysis with these data sets, we have discovered a few notable findings about the influencers of the world's child mortality rates. With this information, we can provide possible suggestions about what needs to be done to uphold the standards that countries with the lowest mortality rates. 
 
 
+As you scroll through this page, you will see us comparing the top three countries with the lowest and highest mortality rates, and what factors differ between them. 
 
-* Title
-  * Your big picture page should have a creative/click-baity title/headline that provides a hint about your thesis.
-* Clarity of Explanation
-  * You should have a clear thesis/goal for this page. What are you trying to show? Make sure that you explain your analysis in detail but don't go into top much mathematics or statistics. The audience for this page is the general public (to the extent possible).
-* Quality of Figures
-  * Each figure should be very polished and also not too complicated. There should be a clear interpretation of the figure so the figure has a clear purpose. Even something like a histogram can be difficult to interpret for non-experts.
-* Creativity
-  * Do your best to make things interesting. Think of a story. Think of how each part of your analysis supports the previous part or provides a different perspective.
+In the end, we hope that you are able to have more of an insight into the main differences between the state of children under the age of 5 in countries across the world. 
+
+
   
 **Note**: This page should have no code visible, i.e. use `echo=FALSE`.  
 
@@ -47,18 +41,19 @@ Plotly with default hover text will get no credit. Be creative!
 
 ```{r}
 #need to set up working directory perhaps? --> setwd()
-load("dataset/income_mortality.RData")
+load(here::here("dataset/income_mortality.RData"))
 suppressPackageStartupMessages(library(tidyverse))
 #run this chunck if not previously installed: install.packages("gapminder")
 suppressPackageStartupMessages(library(gapminder))
 
 data(income_mortality.RData, package = "gapminder")
-gg <- ggplot(income_mortality.RData,
+gg <- ggplot(income_mortality,
   aes(x = Income, y = Mortality)) +
   geom_point(alpha = 0.1) +
   geom_point(aes(frame = Year)) +
   scale_x_log10()
 ggplotly(gg)
+
 
 #color = continent, size = pop
 ```
@@ -74,13 +69,3 @@ Include a link to your video (and password if needed) in your README.md file on 
 This can be presented by any subset of the team members.
 
 
-### Rest of the Site
-
-Finally, here are important things to keep in mind for the rest of the site. 
-
-The main title of your page is informative.
-Each post has an author/description/informative title.
-All lab required posts are present.
-Each page (including the home page) has a nice featured image associated with it.
-Your about page is up to date and clean.
-You have removed the generic posts from the initial site template.
