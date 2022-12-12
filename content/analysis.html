@@ -12,6 +12,7 @@ draft: false
 
 </div>
 
+<p><a href="/analysis2/">link</a></p>
 <p>We describe here our detailed data analysis. Most of our data for analysis is accredited to UNICEF database.</p>
 <pre><code>## [1] &quot;/Users/anamariapananas/Data Science/ma4615-fa22-final-project-team-whatever/content&quot;</code></pre>
 <pre><code>## [1] &quot;income_mortality&quot; &quot;nd_inc_mort_avg&quot;  &quot;nd_regions&quot;</code></pre>
@@ -63,7 +64,7 @@ draft: false
 </div>
 <div id="figure-three-relationship-between-income-and-infants-that-are-exclusively-breastfed" class="section level2">
 <h2>Figure Three: Relationship between Income and Infant’s that are exclusively breastfed</h2>
-<p>This is our first attempt at exploring a variable from the nutrition data set with income per capita. Here we are able to see that as income increases, exclusive breast feeding for children’s nutrition decreases. Exclusive breast feeding, according to this data, is described as the</p>
+<p>This is our first attempt at exploring a variable from the nutrition data set with income per capita. Here we are able to see that as income increases, exclusive breast feeding for children’s nutrition decreases. Exclusive breast feeding, according to thi s data, is described as the</p>
 <pre><code>&gt; Percentage of infants 0-5 months of age who were fed exclusively with breastmilk during the previous day.</code></pre>
 <p>This relationship with income could signify that higher income regions are more likely to have alternatives to breastfeeding for infants. Of course this is just a hypothesis, but a question to keep in mind.</p>
 <pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
@@ -114,7 +115,7 @@ a2&lt;-na.omit(a)
 cor = cor(a2[,1],a2[,2])
 #the correlation between the mortality and income 
 print(cor)</code></pre>
-<pre><code>## [1] -0.4785735</code></pre>
+<pre><code>## [1] -0.4813524</code></pre>
 <pre class="r"><code>ggplot(data = income_mortality, mapping = aes(x = income_mortality$&#39;Income&#39;, y = income_mortality$&#39;Mortality&#39;)) +
   scale_x_log10() +
     geom_point(alpha = 0.1, aes(color = &#39;Red&#39;))</code></pre>
@@ -125,14 +126,14 @@ print(cor)</code></pre>
 <p><img src="/analysis_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 </div>
 <div id="figures-eight-and-nine-vaccines-and-mortality-rates" class="section level2">
-<h2>Figures Eight and Nine: Vaccines and Mortality Rates</h2>
+<h2><a href="">Figures Eight and Nine: Vaccines and Mortality Rates</a></h2>
 <pre><code>## `geom_smooth()` using method = &#39;gam&#39; and formula &#39;y ~ s(x, bs = &quot;cs&quot;)&#39;</code></pre>
-<pre><code>## Warning: Removed 544 rows containing non-finite values (stat_smooth).</code></pre>
-<pre><code>## Warning: Removed 544 rows containing missing values (geom_point).</code></pre>
+<pre><code>## Warning: Removed 543 rows containing non-finite values (stat_smooth).</code></pre>
+<pre><code>## Warning: Removed 543 rows containing missing values (geom_point).</code></pre>
 <p><img src="/analysis_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 <pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
-<pre><code>## Warning: Removed 113 rows containing non-finite values (stat_smooth).</code></pre>
-<pre><code>## Warning: Removed 113 rows containing missing values (geom_point).</code></pre>
+<pre><code>## Warning: Removed 115 rows containing non-finite values (stat_smooth).</code></pre>
+<pre><code>## Warning: Removed 115 rows containing missing values (geom_point).</code></pre>
 <p><img src="/analysis_files/figure-html/unnamed-chunk-10-2.png" width="672" /></p>
 </div>
 <div id="modeling-and-inference" class="section level2">

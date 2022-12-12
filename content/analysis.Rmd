@@ -7,8 +7,10 @@ featuredImage: images/globe.png
 draft: false
 --- 
 
-We describe here our detailed data analysis. Most of our data for analysis is accredited to UNICEF database.   
+[link](/analysis2/)
 
+We describe here our detailed data analysis. Most of our data for analysis is accredited to UNICEF database.   
+ 
 
 ```{r echo=FALSE}
 suppressPackageStartupMessages(library(ggplot2)) 
@@ -111,7 +113,7 @@ income_mortality %>% filter(Year == "1950" | Year == "1975" | Year == "2000" | Y
 
 ## Figure Three: Relationship between Income and Infant's that are exclusively breastfed
 
-This is our first attempt at exploring a variable from the nutrition data set with income per capita. Here we are able to see that as income increases, exclusive breast feeding for children's nutrition decreases. Exclusive breast feeding, according to this data, is described as the
+This is our first attempt at exploring a variable from the nutrition data set with income per capita. Here we are able to see that as income increases, exclusive breast feeding for children's nutrition decreases. Exclusive breast feeding, according to thi s data, is described as the
 
     > Percentage of infants 0-5 months of age who were fed exclusively with breastmilk during the previous day.
 
@@ -200,7 +202,7 @@ act_world_map2000 <- act_world_map %>% filter(Year == c("2000"))
   #scale_fill_gradient(low = "lightblue", high="dark blue") +
   #theme_light()
 ```
-
+ 
 
 ## Figure Six: Visualizing mortality by world region
 
@@ -214,15 +216,8 @@ act_world_map2000 <- act_world_map %>% filter(Year == c("2000"))
      #labs(title="% of Low Birth Weights by World Region", x="", y="", color ="Country" )
 ```
 
-## Figure Six
+## Figure Six 
 
-<<<<<<< HEAD
-```{r}
-#need to place region names in the x axis vertically
- nd_regions%>%ggplot() +
-   geom_bar(aes(x = reorder(Country, -LowBirthWT), y = LowBirthWT, fill = Country), stat = 'identity') +
-   labs(title = '% of Low Birth Weights by World Region', x = 'World Region', y = '% of Low Birth Weights')
-=======
 
 ```{r echo=FALSE}
 # Interesting structure for visualizing mortality rates by world regions when we'll have the world regions variable in the income_mortality data set
@@ -230,11 +225,10 @@ act_world_map2000 <- act_world_map %>% filter(Year == c("2000"))
 load(here::here("dataset/income_mortality.RData"))
 
 
- ggplot(income_mortality, aes(x=Continent, y=Mortality, color=Continent)) +
+ ggplot(income_mortality, aes(x=Continent, y=Mortality, color= Continent)) +
      geom_point(position="jitter", size = 0.3) +
      coord_polar("x") +
      labs(title="Relative Under 5 Mortality Rates by World Region", x="", y="", color ="Country" )
->>>>>>> 11141746b272c3c4dac29de5bf2a0979097a6027
 ```
 
 ## Figure Seven: correlation between under 5 mortality rates and income per capito
@@ -254,7 +248,7 @@ ggplot(data = income_mortality, mapping = aes(x = income_mortality$'Income', y =
 
 ```
 
-## Figures Eight and Nine: Vaccines and Mortality Rates
+## [Figures Eight and Nine: Vaccines and Mortality Rates]()
 
 ```{r echo=FALSE}
 load(here::here("dataset/inc_mort_vax.RData"))
