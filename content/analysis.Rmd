@@ -222,9 +222,12 @@ act_world_map2000 <- act_world_map %>% filter(Year == c("2000"))
  nd_regions%>%ggplot() +
    geom_bar(aes(x = reorder(Country, -LowBirthWT), y = LowBirthWT, fill = Country), stat = 'identity') +
    labs(title = '% of Low Birth Weights by World Region', x = 'World Region', y = '% of Low Birth Weights')
-=======
 
-```{r echo=FALSE}
+```
+
+  
+  
+```{r}
 # Interesting structure for visualizing mortality rates by world regions when we'll have the world regions variable in the income_mortality data set
 
 load(here::here("dataset/income_mortality.RData"))
@@ -234,7 +237,7 @@ load(here::here("dataset/income_mortality.RData"))
      geom_point(position="jitter", size = 0.3) +
      coord_polar("x") +
      labs(title="Relative Under 5 Mortality Rates by World Region", x="", y="", color ="Country" )
->>>>>>> 11141746b272c3c4dac29de5bf2a0979097a6027
+
 ```
 
 ## Figure Seven: correlation between under 5 mortality rates and income per capito
