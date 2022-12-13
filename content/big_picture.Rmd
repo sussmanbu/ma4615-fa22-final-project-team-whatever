@@ -2,7 +2,7 @@
 title: Big Picture
 description:
 toc: true
-featuredImage: images/unicefgroup.jpeg
+featuredImage: images/unicef_group.jpg
 featuredVideo:
 draft: false
 ---
