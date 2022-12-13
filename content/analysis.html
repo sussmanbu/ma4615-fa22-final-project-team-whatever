@@ -92,22 +92,13 @@ Minimum diet diversity, according to the data, is defined as:</p>
 ##     map</code></pre>
 <p><img src="/analysis_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 </div>
-<div id="figure-six-visualizing-mortality-by-world-region" class="section level2">
-<h2>Figure Six: Visualizing mortality by world region</h2>
-<pre class="r"><code># Interesting structure for visualizing mortality rates by world regions when we&#39;ll have the world regions variable in the income_mortality data set
-
- #ggplot(nd_regions, aes(x=Country, y=LowBirthWT, color=Country)) +
-     #geom_point(position=&quot;jitter&quot;) +
-     #coord_polar(&quot;x&quot;) +
-     #labs(title=&quot;% of Low Birth Weights by World Region&quot;, x=&quot;&quot;, y=&quot;&quot;, color =&quot;Country&quot; )</code></pre>
-</div>
-<div id="figure-six" class="section level2">
-<h2>Figure Six</h2>
+<div id="figure-six-visualizing-mortality-by-world-region-all-rates-over-1950-2020" class="section level2">
+<h2>Figure Six: Visualizing mortality by world region (all rates over 1950-2020)</h2>
 <pre><code>## Warning: Removed 1776 rows containing missing values (geom_point).</code></pre>
-<p><img src="/analysis_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p><img src="/analysis_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 </div>
-<div id="figure-seven-correlation-between-under-5-mortality-rates-and-income-per-capito" class="section level2">
-<h2>Figure Seven: correlation between under 5 mortality rates and income per capito</h2>
+<div id="figure-seven-correlation-between-under-5-mortality-rates-and-income-per-capita" class="section level2">
+<h2>Figure Seven: correlation between under 5 mortality rates and income per capita</h2>
 <pre class="r"><code>data(income_mortality)</code></pre>
 <pre><code>## Warning in data(income_mortality): data set &#39;income_mortality&#39; not found</code></pre>
 <pre class="r"><code>a &lt;- cbind(income_mortality$&#39;Mortality&#39;, income_mortality$&#39;Income&#39;)
@@ -123,18 +114,18 @@ print(cor)</code></pre>
 <pre><code>## Warning: Use of `income_mortality$Mortality` is discouraged. Use `Mortality`
 ## instead.</code></pre>
 <pre><code>## Warning: Removed 1776 rows containing missing values (geom_point).</code></pre>
-<p><img src="/analysis_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p><img src="/analysis_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 </div>
 <div id="figures-eight-and-nine-vaccines-and-mortality-rates" class="section level2">
 <h2><a href="">Figures Eight and Nine: Vaccines and Mortality Rates</a></h2>
 <pre><code>## `geom_smooth()` using method = &#39;gam&#39; and formula &#39;y ~ s(x, bs = &quot;cs&quot;)&#39;</code></pre>
 <pre><code>## Warning: Removed 543 rows containing non-finite values (stat_smooth).</code></pre>
 <pre><code>## Warning: Removed 543 rows containing missing values (geom_point).</code></pre>
-<p><img src="/analysis_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p><img src="/analysis_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 <pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
 <pre><code>## Warning: Removed 115 rows containing non-finite values (stat_smooth).</code></pre>
 <pre><code>## Warning: Removed 115 rows containing missing values (geom_point).</code></pre>
-<p><img src="/analysis_files/figure-html/unnamed-chunk-10-2.png" width="672" /></p>
+<p><img src="/analysis_files/figure-html/unnamed-chunk-9-2.png" width="672" /></p>
 </div>
 <div id="modeling-and-inference" class="section level2">
 <h2>Modeling and Inference</h2>
@@ -258,7 +249,7 @@ ggpairs(model_data, upper = list(continuous = wrap(&quot;points&quot;, alpha = 0
 ## Removed 99 rows containing missing values</code></pre>
 <pre><code>## Warning in ggally_statistic(data = data, mapping = mapping, na.rm = na.rm, :
 ## Removed 95 rows containing missing values</code></pre>
-<p><img src="/analysis_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p><img src="/analysis_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 <pre class="r"><code>model &lt;- lm(nd_inc_mort_avg$Mortality_avg ~ nd_inc_mort_avg$LowBirthWT + nd_inc_mort_avg$Income_avg + nd_inc_mort_avg$ExclusiveBreastFeeding + nd_inc_mort_avg$DietDiversity + nd_inc_mort_avg$ZeroVegtable)
 summary(model)</code></pre>
 <pre><code>## 
