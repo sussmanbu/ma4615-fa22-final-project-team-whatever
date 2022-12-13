@@ -41,7 +41,10 @@ Here we will show the relationships between the factors for the top three countr
 
 Overall, our project was inspired by the work that the UNICEF organization does in collecting data to better understand what needs to be done to better improve the lives of children across the world. With the analysis we have provided on this page, we have described a few of the many factors that are affecting the survival of children. 
 
-### The most influential factors that contribute to whether a country country would have a low or high mortality rate for children under 5.  
+### The most influential factors that contribute to whether a country would have a low or high mortality rate for children under 5 are shown below: 
+
+
+
 
 
 ## Interactive 
