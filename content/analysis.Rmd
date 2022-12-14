@@ -103,7 +103,7 @@ load(here::here("dataset/income_mortality.RData"))
 
 #maybe need to include different regions and color them with "color = " under ggplot aes (instead of Income)
 
-income_mortality %>% filter(Year == "1950" | Year == "1975" | Year == "2000" | Year == "2020") %>% ggplot(aes(x = Income, y = Mortality, color = Income)) + geom_point(size = 0.3) +
+income_mortality %>% filter(Year == "1950" | Year == "1975" | Year == "2000" | Year == "2020") %>% ggplot(aes(x = Income, y = Mortality, color = Continent)) + geom_point(size = 0.3) +
   facet_wrap(~as.factor(Year)) +
   stat_smooth(aes(group = Year), color='black', alpha = 0.4, geom = "line") +
   scale_x_log10() +
