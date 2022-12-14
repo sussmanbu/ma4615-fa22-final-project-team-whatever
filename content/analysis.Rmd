@@ -226,7 +226,23 @@ act_world_map2000 <- act_world_map %>% filter(Year == c("2000"))
 ## Figure Six: Visualizing mortality by world region (all rates over 1950-2020)
 
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+```{r}
+#need to place region names in the x axis vertically
+ nd_regions%>%ggplot() +
+   geom_bar(aes(x = reorder(Country, -LowBirthWT), y = LowBirthWT, fill = Country), stat = 'identity') +
+   labs(title = '% of Low Birth Weights by World Region', x = 'World Region', y = '% of Low Birth Weights')
 
+<<<<<<< HEAD
+
+```
+
+  
+  
+```{r}
+=======
+>>>>>>> b631ba9b6713f75464e8e70fada2b3f6f9ee8835
 # Interesting structure for visualizing mortality rates by world regions when we'll have the world regions variable in the income_mortality data set
 
 load(here::here("dataset/income_mortality.RData"))
