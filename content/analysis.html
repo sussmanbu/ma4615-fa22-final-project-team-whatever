@@ -12,7 +12,6 @@ draft: false
 
 </div>
 
-<p><a href="/analysis2/">link</a></p>
 <p>We describe here our detailed data analysis. Most of our data for analysis is accredited to UNICEF database.</p>
 <pre><code>## [1] &quot;/Users/anamariapananas/Data Science/ma4615-fa22-final-project-team-whatever/content&quot;</code></pre>
 <pre><code>## [1] &quot;income_mortality&quot; &quot;nd_inc_mort_avg&quot;  &quot;nd_regions&quot;</code></pre>
@@ -103,11 +102,29 @@ Minimum diet diversity, according to the data, is defined as:</p>
 </div>
 <div id="figure-six" class="section level2">
 <h2>Figure Six</h2>
-<pre><code>## Warning: Removed 1776 rows containing missing values (geom_point).</code></pre>
+<pre class="r"><code>#need to place region names in the x axis vertically
+ nd_regions%&gt;%ggplot() +
+   geom_bar(aes(x = reorder(Country, -LowBirthWT), y = LowBirthWT, fill = Country), stat = &#39;identity&#39;) +
+   labs(title = &#39;% of Low Birth Weights by World Region&#39;, x = &#39;World Region&#39;, y = &#39;% of Low Birth Weights&#39;)</code></pre>
 <p><img src="/analysis_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<pre class="r"><code>## Figure Six: Visualizing mortality by world region (all rates over 1950-2020)
+
+
+
+# Interesting structure for visualizing mortality rates by world regions when we&#39;ll have the world regions variable in the income_mortality data set
+
+load(here::here(&quot;dataset/income_mortality.RData&quot;))
+
+
+ ggplot(income_mortality, aes(x=Continent, y=Mortality, color=Continent)) +
+     geom_point(position=&quot;jitter&quot;, size = 0.3) +
+     coord_polar(&quot;x&quot;) +
+     labs(title=&quot;Relative Under 5 Mortality Rates by World Region&quot;, x=&quot;&quot;, y=&quot;&quot;, color =&quot;Country&quot; )</code></pre>
+<pre><code>## Warning: Removed 1776 rows containing missing values (geom_point).</code></pre>
+<p><img src="/analysis_files/figure-html/unnamed-chunk-8-2.png" width="672" /></p>
 </div>
-<div id="figure-seven-correlation-between-under-5-mortality-rates-and-income-per-capito" class="section level2">
-<h2>Figure Seven: correlation between under 5 mortality rates and income per capito</h2>
+<div id="figure-seven-correlation-between-under-5-mortality-rates-and-income-per-capita" class="section level2">
+<h2>Figure Seven: correlation between under 5 mortality rates and income per capita</h2>
 <pre class="r"><code>data(income_mortality)</code></pre>
 <pre><code>## Warning in data(income_mortality): data set &#39;income_mortality&#39; not found</code></pre>
 <pre class="r"><code>a &lt;- cbind(income_mortality$&#39;Mortality&#39;, income_mortality$&#39;Income&#39;)
@@ -126,7 +143,7 @@ print(cor)</code></pre>
 <p><img src="/analysis_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 </div>
 <div id="figures-eight-and-nine-vaccines-and-mortality-rates" class="section level2">
-<h2><a href="">Figures Eight and Nine: Vaccines and Mortality Rates</a></h2>
+<h2>Figures Eight and Nine: Vaccines and Mortality Rates</h2>
 <pre><code>## `geom_smooth()` using method = &#39;gam&#39; and formula &#39;y ~ s(x, bs = &quot;cs&quot;)&#39;</code></pre>
 <pre><code>## Warning: Removed 543 rows containing non-finite values (stat_smooth).</code></pre>
 <pre><code>## Warning: Removed 543 rows containing missing values (geom_point).</code></pre>
@@ -293,5 +310,45 @@ summary(model)</code></pre>
 ##   (115 observations deleted due to missingness)
 ## Multiple R-squared:  0.6743, Adjusted R-squared:  0.6397 
 ## F-statistic: 19.46 on 5 and 47 DF,  p-value: 1.879e-10</code></pre>
+<pre class="r"><code>ggplot(nd_inc_mort_avg, aes(x=nd_inc_mort_avg$Mortality_avg, y=nd_inc_mort_avg$Income_avg)) + geom_point()</code></pre>
+<pre><code>## Warning: Use of `nd_inc_mort_avg$Mortality_avg` is discouraged. Use
+## `Mortality_avg` instead.</code></pre>
+<pre><code>## Warning: Use of `nd_inc_mort_avg$Income_avg` is discouraged. Use `Income_avg`
+## instead.</code></pre>
+<p><img src="/analysis_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(nd_inc_mort_avg, aes(x=nd_inc_mort_avg$Mortality_avg, y=nd_inc_mort_avg$DietDiversity)) + geom_point()</code></pre>
+<pre><code>## Warning: Use of `nd_inc_mort_avg$Mortality_avg` is discouraged. Use
+## `Mortality_avg` instead.</code></pre>
+<pre><code>## Warning: Use of `nd_inc_mort_avg$DietDiversity` is discouraged. Use
+## `DietDiversity` instead.</code></pre>
+<pre><code>## Warning: Removed 93 rows containing missing values (geom_point).</code></pre>
+<p><img src="/analysis_files/figure-html/unnamed-chunk-13-2.png" width="672" /></p>
+<pre class="r"><code>model &lt;- glm(nd_inc_mort_avg$Mortality_avg ~ nd_inc_mort_avg$Income_avg + nd_inc_mort_avg$DietDiversity)
+summary(model)</code></pre>
+<pre><code>## 
+## Call:
+## glm(formula = nd_inc_mort_avg$Mortality_avg ~ nd_inc_mort_avg$Income_avg + 
+##     nd_inc_mort_avg$DietDiversity)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -4.0746  -1.3353  -0.2711   1.5711   7.0773  
+## 
+## Coefficients:
+##                                 Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)                    1.165e+01  5.371e-01  21.697  &lt; 2e-16 ***
+## nd_inc_mort_avg$Income_avg    -2.846e-04  7.024e-05  -4.051 0.000127 ***
+## nd_inc_mort_avg$DietDiversity -9.073e-02  1.887e-02  -4.809 8.08e-06 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for gaussian family taken to be 5.258207)
+## 
+##     Null deviance: 1046.35  on 74  degrees of freedom
+## Residual deviance:  378.59  on 72  degrees of freedom
+##   (93 observations deleted due to missingness)
+## AIC: 342.26
+## 
+## Number of Fisher Scoring iterations: 2</code></pre>
 </div>
 </div>

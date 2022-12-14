@@ -313,9 +313,21 @@ fun2 <-
     return(x)
   }
 
+fun3 <- 
+  function(x){
+    B <- str_detect(x, "B") 
+    for(i in 1:length(B)){
+      if(B[i]){x[i] <- as.numeric(substr(x[i],1,nchar(x[i])-1))*1000000000}
+      if(!B[i]){x[i] <- (x[i])}
+    }
+    return(x)
+  }
+
 pop_size1 <- cbind(pop_size$country,apply(pop_size[,2:72],2,fun12))
-pop_size_new <- apply(pop_size1[,2:72],2,fun2)
-pop_size <- cbind(Country, pop_size_new)
+#pop_size_new <- apply(pop_size1[,2:72],2,fun2)
+pop_size_new <- cbind(pop_size$country,apply(pop_size1[,2:72],2,fun2))
+pop_size_new2 <- apply(pop_size_new[,2:72],2,fun3)
+pop_size <- cbind(Country, pop_size_new2)
 
 
 #Joining Datasets
@@ -354,25 +366,25 @@ save(income_mortality, file = "shiny_app/FinalProjectApp/income_mortality.RData"
 
 # Including Vax Rate of 1-y/o children against at least one disease (gapminder website for more info)
 
-suppressPackageStartupMessages(library(tidyverse))
-vax_rate <- read_csv("dataset/vacc_rate.csv")
+#suppressPackageStartupMessages(library(tidyverse))
+#vax_rate <- read_csv("dataset/vacc_rate.csv")
 
-vax_rate$country[vax_rate$country == 'United States'] <- 'USA'
-vax_rate$country[vax_rate$country == 'Congo, Dem. Rep.'] <- 'Democratic Republic of the Congo'
-
-
-vax_rate <-as.data.frame(vax_rate)%>%pivot_longer(-country)
-
-colnames(vax_rate)[1] ="Country"
-colnames(vax_rate)[2] ="Year"
-colnames(vax_rate)[3] ="Vax_Rate"
-
-vax_rate$`Year` <- round(as.numeric(vax_rate$`Year`), 2)
+#vax_rate$country[vax_rate$country == 'United States'] <- 'USA'
+#vax_rate$country[vax_rate$country == 'Congo, Dem. Rep.'] <- 'Democratic Republic of the Congo'
 
 
-inc_mort_vax <- inner_join(income_mortality, vax_rate,by=c("Country"="Country","Year"="Year"))
+#vax_rate <-as.data.frame(vax_rate)%>%pivot_longer(-country)
 
-save(inc_mort_vax, file = "dataset/inc_mort_vax.RData")
+#colnames(vax_rate)[1] ="Country"
+#colnames(vax_rate)[2] ="Year"
+#colnames(vax_rate)[3] ="Vax_Rate"
+
+#vax_rate$`Year` <- round(as.numeric(vax_rate$`Year`), 2)
+
+
+#inc_mort_vax <- inner_join(income_mortality, vax_rate,by=c("Country"="Country","Year"="Year"))
+
+#save(inc_mort_vax, file = "dataset/inc_mort_vax.RData")
 
 
 #creating new dataset for nutrition analysis: adding income&mortality averages from 2013 to 2018
@@ -380,7 +392,7 @@ save(inc_mort_vax, file = "dataset/inc_mort_vax.RData")
 
 inc_mort_for_nutrition_avg <- income_mortality %>% 
 filter(Year == "2013" | Year == "1975" | Year == "2014" | Year == "2015" | Year == "2016" | Year == "2017"| Year == "2018") %>%
-group_by(Country) %>% mutate(Mortality_avg = mean(Mortality, na.rm=TRUE)) %>% mutate(Income_avg = mean(Income, na.rm=TRUE))
+group_by(Country) %>% mutate(Mortality_avg = mean(Mortality, na.rm=TRUE)) %>% mutate(Income_avg = mean(Income, na.rm=TRUE)) %>% mutate(Income_avg = mean(Pop_size, na.rm=TRUE))
 
 inc_mort_nutrition_avg <- inc_mort_for_nutrition_avg %>% group_by(Country) %>% summarise(mean(Mortality_avg), mean(Income_avg))
 colnames(inc_mort_for_nutrition_avg)[2] ="Mortality_avg"

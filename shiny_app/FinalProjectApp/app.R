@@ -23,13 +23,16 @@ load("income_mortality.RData")
 
 ui <- fluidPage(
   titlePanel("Under 5 Mortality Rates over time"),
-  selectInput(inputId = "country", label = "Pick a Country", choices = c("abc", "def")),
+  selectInput(inputId = "Continent", label = "Pick a World Region", choices = income_mortality$Continent),
+  selectInput(inputId = "Country", label = "Pick a Country", choices = income_mortality$Country),
   plotlyOutput("gg")
 )
 server <- function(input, output) {
   output$gg <- renderPlotly({
-    print(input$country)
+    print(input$Country)
     gg <- income_mortality %>% 
+      #filter(Continent == input$Continent) %>%
+      #filter(Country == input$Country) %>% 
       #head(10) %>% 
       ggplot(aes(x = Income, y = Mortality)) +
       # geom_point(alpha = 0.1) +
@@ -39,3 +42,8 @@ server <- function(input, output) {
   }) }
 shinyApp(ui = ui, server = server)
 
+
+#input$which
+
+# c("abc", "def")
+#plotOutput("distPlot")
