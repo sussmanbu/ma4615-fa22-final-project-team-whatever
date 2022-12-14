@@ -101,7 +101,7 @@ load(here::here("dataset/income_mortality.RData"))
 
 #maybe need to include different regions and color them with "color = " under ggplot aes (instead of Income)
 
-income_mortality %>% filter(Year == "1950" | Year == "1975" | Year == "2000" | Year == "2020") %>% ggplot(aes(x = Income, y = Mortality, color = Income)) + geom_point(size = 0.3) +
+income_mortality %>% filter(Year == "1950" | Year == "1975" | Year == "2000" | Year == "2020") %>% ggplot(aes(x = Income, y = Mortality, color = Continent)) + geom_point(size = 0.3) +
   facet_wrap(~as.factor(Year)) +
   stat_smooth(aes(group = Year), color='black', alpha = 0.4, geom = "line") +
   scale_x_log10() +
@@ -202,6 +202,7 @@ act_world_map2000 <- act_world_map %>% filter(Year == c("2000"))
 ```
 
 
+<<<<<<< HEAD
 ## Figure Six: Visualizing mortality by world region
 
 
@@ -223,6 +224,9 @@ act_world_map2000 <- act_world_map %>% filter(Year == c("2000"))
    geom_bar(aes(x = reorder(Country, -LowBirthWT), y = LowBirthWT, fill = Country), stat = 'identity') +
    labs(title = '% of Low Birth Weights by World Region', x = 'World Region', y = '% of Low Birth Weights')
 
+=======
+## Figure Six: Visualizing mortality by world region (all rates over 1950-2020)
+>>>>>>> 7606b8c0c0584818fd73231cc53f81f888dd1d0f
 
 
 # Interesting structure for visualizing mortality rates by world regions when we'll have the world regions variable in the income_mortality data set
@@ -237,7 +241,7 @@ load(here::here("dataset/income_mortality.RData"))
 
 ```
 
-## Figure Seven: correlation between under 5 mortality rates and income per capito
+## Figure Seven: correlation between under 5 mortality rates and income per capita
 
 
 ```{r}
@@ -262,7 +266,7 @@ ggplot(inc_mort_vax, aes(x = Vax_Rate, y = Mortality)) + geom_point(size = 0.4) 
   stat_smooth(color='black', alpha = 0.2) +
   labs(x = "Vax Rate for at least one disease, 1 y/o children", y = "Under 5 Mortality", title = "Vaccination Rates are negatively correlated with Under 5 Mortality Rates")
 
-inc_mort_vax %>% filter(Year == "1980" | Year == "1990" | Year == "2000" | Year == "2019") %>% ggplot(aes(x = Vax_Rate, y = Mortality, color = Income)) + geom_point(size = 0.3) +
+inc_mort_vax %>% filter(Year == "1980" | Year == "1990" | Year == "2000" | Year == "2019") %>% ggplot(aes(x = Vax_Rate, y = Mortality, color = Continent)) + geom_point(size = 0.3) +
   facet_wrap(~as.factor(Year)) +
   stat_smooth(aes(group = Year), color='black', alpha = 0.4, geom = "line") +
   labs(x = "Vax Rate for at least one disease, 1 y/o children", y = "Under 5 Mortality Rate", title = "Vaccination Rates have increased over time, while Under 5 Mortality Rates fell")

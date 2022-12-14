@@ -2,11 +2,12 @@
 title: Big Picture
 description:
 toc: true
-featuredImage: /images/The_Big_Picture_2.jpeg
+featuredImage: images/unicef_group.jpg
 featuredVideo:
 draft: false
 ---
 
+<<<<<<< HEAD
 #add title 
 
 #thesis/goal - what are we trying to show - for general public 
@@ -23,25 +24,42 @@ draft: false
 
 
 This comes from the file `content/big_picture.Rmd`.
+=======
+---
+>>>>>>> 7606b8c0c0584818fd73231cc53f81f888dd1d0f
 
-Think of this page as your 538/Upshot style article. This means that you should try to tell a story through the data and your analysis. Read articles from those sites and similar sites to get a feeling for what they are like. Importantly, these should be geared towards the general public. You shouldn't assume the reader understands how to interpret a linear regression. Focus on interpretation and visualizations.
+## The State of the World's Children Under the Age of 5: what countries are better equipped for a stronger, healther generation? 
 
+<<<<<<< HEAD
 ---
 ```{r}
 
 ```
+=======
+After our analysis with the institutional data, we have outlined a few notable factors that potentially influence the world's child mortality rates. With this information, we can provide possible suggestions about what can be done to uphold the standards of the countries with the lowest mortality rates for children under the age of 5. 
 
 
+As you scroll through this page, you will see us comparing the top three countries with the lowest and highest mortality rates, and what factors differ between them. 
+>>>>>>> 7606b8c0c0584818fd73231cc53f81f888dd1d0f
 
+
+In the end, we hope that you are able to have more of an insight into the main differences between the state of children in countries across the world, over a span of time. This will also provide some awareness for future patterns as well. 
+
+<<<<<<< HEAD
+=======
+  
+**Note**: This page should have no code visible, i.e. use `echo=FALSE`.  
+>>>>>>> 7606b8c0c0584818fd73231cc53f81f888dd1d0f
 
 ---
 
-## Rubric: Other components
+## Figures: 
 
-### Interactive
+Here we will show the relationships between the factors for the top three countries with both the lowest and highest mortality rates. 
 
-You will also be required to make an interactive dashboard like [this one](/flex/flex.html).
+*Note: Figures must be simple enough for the general audience to understand. 
 
+<<<<<<< HEAD
 * Quality and ease of use of the interactive components.
 Is it clear what can be explored using your interactive components?
 Does it enhance and reinforce your conclusions from the Big Picture?
@@ -61,28 +79,35 @@ gg <- ggplot(income_mortality,
   geom_point(aes(frame = Year)) +
   scale_x_log10()
 ggplotly(gg)
+=======
 
-#color = continent, size = pop
+
+
+### Explanation of Figures: 
+>>>>>>> 7606b8c0c0584818fd73231cc53f81f888dd1d0f
+
+
+
+## The Big Conclusion: 
+
+Overall, our project was inspired by the work that the UNICEF organization does in collecting data to better understand what needs to be done to better improve the lives of children across the world. With the analysis we have provided on this page, we have described a few of the many factors that are affecting the survival of children. 
+
+### The most influential factors that contribute to whether a country would have a low or high mortality rate for children under 5 are shown below: 
+
+
+
+
+
+## Interactive 
+•	Below is an interactive *add explanation of interactive here
+•	Click here to start *add link to interactive* 
+
+
+## Video 
+
+•	Here is a step-by-step demonstration of how to view our interactive
+
 ```
 
 
 
-### Video Recording
-
-Make a video recording (probably using Zoom) demonstrating your interactive components.
-You should provide a quick explanation of your data and demonstrate some of the conclusions from your EDA.
-This video should be no longer than 4 minutes.
-Include a link to your video (and password if needed) in your README.md file on your Github repository. You are not required to provide a link on the website.
-This can be presented by any subset of the team members.
-
-
-### Rest of the Site
-
-Finally, here are important things to keep in mind for the rest of the site. 
-
-The main title of your page is informative.
-Each post has an author/description/informative title.
-All lab required posts are present.
-Each page (including the home page) has a nice featured image associated with it.
-Your about page is up to date and clean.
-You have removed the generic posts from the initial site template.
