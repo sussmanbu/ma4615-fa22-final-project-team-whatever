@@ -202,7 +202,6 @@ act_world_map2000 <- act_world_map %>% filter(Year == c("2000"))
 ```
 
 
-<<<<<<< HEAD
 ## Figure Six: Visualizing mortality by world region
 
 
@@ -224,9 +223,8 @@ act_world_map2000 <- act_world_map %>% filter(Year == c("2000"))
    geom_bar(aes(x = reorder(Country, -LowBirthWT), y = LowBirthWT, fill = Country), stat = 'identity') +
    labs(title = '% of Low Birth Weights by World Region', x = 'World Region', y = '% of Low Birth Weights')
 
-=======
 ## Figure Six: Visualizing mortality by world region (all rates over 1950-2020)
->>>>>>> 7606b8c0c0584818fd73231cc53f81f888dd1d0f
+
 
 
 # Interesting structure for visualizing mortality rates by world regions when we'll have the world regions variable in the income_mortality data set
