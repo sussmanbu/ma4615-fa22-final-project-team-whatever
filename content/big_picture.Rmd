@@ -7,28 +7,32 @@ featuredVideo:
 draft: false
 ---
 
+#add title 
+
+#thesis/goal - what are we trying to show - for general public 
+
+#figure for big picture and explanations
+
+
+#creative - what is our story 
+
+#no code should be visible on this page. we must use `echo=FALSE`
+
+
+#include interactive: good interactives often provide both high-level understanding of the data while allowing a user to investigate specific scenarios, observations, subgroups, etc.
+
+
 This comes from the file `content/big_picture.Rmd`.
 
 Think of this page as your 538/Upshot style article. This means that you should try to tell a story through the data and your analysis. Read articles from those sites and similar sites to get a feeling for what they are like. Importantly, these should be geared towards the general public. You shouldn't assume the reader understands how to interpret a linear regression. Focus on interpretation and visualizations.
 
 ---
+```{r}
 
-## Rubric: On this page
-
-You will
-
+```
 
 
-* Title
-  * Your big picture page should have a creative/click-baity title/headline that provides a hint about your thesis.
-* Clarity of Explanation
-  * You should have a clear thesis/goal for this page. What are you trying to show? Make sure that you explain your analysis in detail but don't go into top much mathematics or statistics. The audience for this page is the general public (to the extent possible).
-* Quality of Figures
-  * Each figure should be very polished and also not too complicated. There should be a clear interpretation of the figure so the figure has a clear purpose. Even something like a histogram can be difficult to interpret for non-experts.
-* Creativity
-  * Do your best to make things interesting. Think of a story. Think of how each part of your analysis supports the previous part or provides a different perspective.
-  
-**Note**: This page should have no code visible, i.e. use `echo=FALSE`.  
+
 
 ---
 
@@ -38,8 +42,6 @@ You will
 
 You will also be required to make an interactive dashboard like [this one](/flex/flex.html).
 
-Your Big Data page should include a link to an interactive dashboard. The dashboard should be created either using Shiny or FlexDashboard (or another tool with professor's approval). This interactive component should in some way support your thesis from your big picture page. Good interactives often provide both high-level understanding of the data while allowing a user to investigate specific scenarios, observations, subgroups, etc.
-
 * Quality and ease of use of the interactive components.
 Is it clear what can be explored using your interactive components?
 Does it enhance and reinforce your conclusions from the Big Picture?
@@ -47,13 +49,13 @@ Plotly with default hover text will get no credit. Be creative!
 
 ```{r}
 #need to set up working directory perhaps? --> setwd()
-load("dataset/income_mortality.RData")
+load(here::here("dataset/income_mortality.RData"))
 suppressPackageStartupMessages(library(tidyverse))
 #run this chunck if not previously installed: install.packages("gapminder")
 suppressPackageStartupMessages(library(gapminder))
 
 data(income_mortality.RData, package = "gapminder")
-gg <- ggplot(income_mortality.RData,
+gg <- ggplot(income_mortality,
   aes(x = Income, y = Mortality)) +
   geom_point(alpha = 0.1) +
   geom_point(aes(frame = Year)) +

@@ -354,25 +354,25 @@ save(income_mortality, file = "shiny_app/FinalProjectApp/income_mortality.RData"
 
 # Including Vax Rate of 1-y/o children against at least one disease (gapminder website for more info)
 
-suppressPackageStartupMessages(library(tidyverse))
-vax_rate <- read_csv("dataset/vacc_rate.csv")
+#suppressPackageStartupMessages(library(tidyverse))
+#vax_rate <- read_csv("dataset/vacc_rate.csv")
 
-vax_rate$country[vax_rate$country == 'United States'] <- 'USA'
-vax_rate$country[vax_rate$country == 'Congo, Dem. Rep.'] <- 'Democratic Republic of the Congo'
-
-
-vax_rate <-as.data.frame(vax_rate)%>%pivot_longer(-country)
-
-colnames(vax_rate)[1] ="Country"
-colnames(vax_rate)[2] ="Year"
-colnames(vax_rate)[3] ="Vax_Rate"
-
-vax_rate$`Year` <- round(as.numeric(vax_rate$`Year`), 2)
+#vax_rate$country[vax_rate$country == 'United States'] <- 'USA'
+#vax_rate$country[vax_rate$country == 'Congo, Dem. Rep.'] <- 'Democratic Republic of the Congo'
 
 
-inc_mort_vax <- inner_join(income_mortality, vax_rate,by=c("Country"="Country","Year"="Year"))
+#vax_rate <-as.data.frame(vax_rate)%>%pivot_longer(-country)
 
-save(inc_mort_vax, file = "dataset/inc_mort_vax.RData")
+#colnames(vax_rate)[1] ="Country"
+#colnames(vax_rate)[2] ="Year"
+#colnames(vax_rate)[3] ="Vax_Rate"
+
+#vax_rate$`Year` <- round(as.numeric(vax_rate$`Year`), 2)
+
+
+#inc_mort_vax <- inner_join(income_mortality, vax_rate,by=c("Country"="Country","Year"="Year"))
+
+#save(inc_mort_vax, file = "dataset/inc_mort_vax.RData")
 
 
 #creating new dataset for nutrition analysis: adding income&mortality averages from 2013 to 2018
