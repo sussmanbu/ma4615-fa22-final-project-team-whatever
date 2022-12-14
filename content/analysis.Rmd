@@ -290,3 +290,20 @@ model <- lm(nd_inc_mort_avg$Mortality_avg ~ nd_inc_mort_avg$LowBirthWT + nd_inc_
 summary(model)
 ```
 
+
+```{r}
+ggplot(nd_inc_mort_avg, aes(x=nd_inc_mort_avg$Mortality_avg, y=nd_inc_mort_avg$Income_avg)) + geom_point()
+ggplot(nd_inc_mort_avg, aes(x=nd_inc_mort_avg$Mortality_avg, y=nd_inc_mort_avg$DietDiversity)) + geom_point()
+
+model <- glm(nd_inc_mort_avg$Mortality_avg ~ nd_inc_mort_avg$Income_avg + nd_inc_mort_avg$DietDiversity)
+summary(model)
+```
+
+```{r}
+
+```
+
+
+
+
+
