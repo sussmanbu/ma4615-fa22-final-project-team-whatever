@@ -22,23 +22,14 @@ In the end, we hope that you are able to have more of an insight into the main d
   
 **Note**: This page should have no code visible, i.e. use `echo=FALSE`.  
 
-
-<<<<<<< HEAD
-=======
 Here we will show the relationships between the factors for the top three countries with both the lowest and highest mortality rates. 
 
 *Note: Figures must be simple enough for the general audience to understand. 
 
-<<<<<<< HEAD
-* Quality and ease of use of the interactive components.
-Is it clear what can be explored using your interactive components?
-Does it enhance and reinforce your conclusions from the Big Picture?
-Plotly with default hover text will get no credit. Be creative!
+
 
 
 ```{r}
-#need to set up working directory perhaps? --> setwd()
-<<<<<<< HEAD
 library(maps)
 library(ggplot2)
 library(RColorBrewer)
@@ -97,22 +88,6 @@ mp+geom_text(data = best6act,aes(x = long, y = lat+3, label = Country), group = 
   geom_text(data = best6act, aes(x = long - 3, y = lat - 5, label = Mortality),col = 'red')+
   theme_light()
 ```
-### Video Recording
-=======
-load(here::here("dataset/income_mortality.RData"))
-suppressPackageStartupMessages(library(tidyverse))
-#run this chunck if not previously installed: install.packages("gapminder")
-suppressPackageStartupMessages(library(gapminder))
-
-data(income_mortality.RData, package = "gapminder")
-gg <- ggplot(income_mortality,
-  aes(x = Income, y = Mortality)) +
-  geom_point(alpha = 0.1) +
-  geom_point(aes(frame = Year)) +
-  scale_x_log10()
-ggplotly(gg)
-=======
->>>>>>> 1049d65762e4d1be4231fe63cbfca1444e3222e8
 
 
 
@@ -126,9 +101,6 @@ ggplotly(gg)
 Overall, our project was inspired by the work that the UNICEF organization does in collecting data to better understand what needs to be done to better improve the lives of children across the world. With the analysis we have provided on this page, we have described a few of the many factors that are affecting the survival of children. 
 
 ### The most influential factors that contribute to whether a country would have a low or high mortality rate for children under 5 are shown below: 
-
-
->>>>>>> b631ba9b6713f75464e8e70fada2b3f6f9ee8835
 
 
 
