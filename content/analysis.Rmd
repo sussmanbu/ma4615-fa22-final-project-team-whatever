@@ -9,6 +9,10 @@ draft: false
 
 We describe here our detailed data analysis. Most of our data for analysis is accredited to UNICEF database.   
 
+On this page we will introduce you to our analysis, provide some initial questions about the data, and present the figures we produced while exploring the different relationships within the data. 
+
+Please use the links throughout the page to direct you to more information related to our data and analyzation process. 
+
 
 ```{r echo=FALSE}
 suppressPackageStartupMessages(library(ggplot2)) 
@@ -27,8 +31,6 @@ load(here::here("dataset/nd_inc_mort_avg.RData"))
 print(ls())
 
 ```
-
-
 
 ## Our Motivation for Analysis
 
@@ -52,6 +54,8 @@ Some variables we are most interested in include:
 
 With these variables, we hope to learn more about the connection between economics, nutrition, and child mortality across regions. We can also try to get some idea as to what triggers a higher child mortality rate in particular nations with respect to the variables above. Then, we could compare the differences with countries with a lower rate. As a result, it might be possible to pinpoint improvements that could be made to the children's living circumstances as well as the areas where making changes would have the greatest potential to save young lives. 
 
+## [Summary of Variables](/analysis3)
+
 ## Initial Questions 
 
 1. What are the differences in low birthweight between each world region?
@@ -61,17 +65,9 @@ With these variables, we hope to learn more about the connection between economi
 5. As the income increases, does diet diversity also increase for the children's nutrition?
 
 
-## Flaws and Limitations of Analysis
+## [Flaws and Limitations of Analysis](/analysis2)
 
-One unfortunate limitation is that the Nutrition data set does not have an extensive time series like the Mortality rates data set. So, if our combined data set for nutrition/income/mortality, we are unable to have a variable for years. We combined data from more than 150 countries across the three tables that left us with some usable information. 
-
-Not having an appropriate amount of values in the nutrition data for some variables also limits us to have an equitable representation of these variables. 
-
-
-We are also limited in saying that certain factors are what "cause" lower nutritional values in countries, because since we are looking at country-wide data, there will inevitably be many factors that are potential contributers. But for our project, we hope to be able to create a profile using the variables we chose and be able to predict the nutritional or mortality status of a country based on these chosen factors. 
-
-
-*Add more here
+Please click on the link above to direct you to the discussion about the limitations we ran into while working with the data. 
 
 
 ## Figure one: Low Birthweight in each Region
@@ -93,8 +89,7 @@ ggplot(nd_regions, aes(Country , LowBirthWT,  fill=Country)) +
 
 ## Figure Two: Mortality Rates and Income per Capita 
 
-This figure shows that over time, mortality rates have decreased. (We realize that the colors for income may be difficult to decipher, so we may edit the color to regions.)
-
+This figure shows that over time, mortality rates have decreased. We have grouped the countries into their respective continent, so the relationships between the continents can be viewed easily through the time span here. 
 
 ```{r echo=FALSE}
 load(here::here("dataset/income_mortality.RData"))
@@ -148,6 +143,9 @@ ggplot(nd_inc_mort_avg, aes(x = Income_avg, y = DietDiversity)) + geom_point(siz
 
 
 ## Figure Five: World Map: Under 5 Mortality Rates across countries
+Below, we use the world map to give a clear representation of the how mortality rates are distributed across the world. The darker colored blue countries show a much higher rate than those with the very light color. We are also able to see the change in color across each continent, or region, which is harder to see in other figures, which is way this is a good graphical representation of our main variable. 
+
+
 ```{r echo=FALSE}
 library(maps)
 library(ggplot2)
@@ -201,34 +199,11 @@ act_world_map2000 <- act_world_map %>% filter(Year == c("2000"))
   #theme_light()
 ```
 
-
-<<<<<<< HEAD
-## Figure Six: Visualizing mortality by world region
-
-
-```{r}
-# Interesting structure for visualizing mortality rates by world regions when we'll have the world regions variable in the income_mortality data set
-
- #ggplot(nd_regions, aes(x=Country, y=LowBirthWT, color=Country)) +
-     #geom_point(position="jitter") +
-     #coord_polar("x") +
-     #labs(title="% of Low Birth Weights by World Region", x="", y="", color ="Country" )
-```
-
 ## Figure Six
+Here is a similair representation of the same data as above, however we are able to more clearly decipher the major trend in mortality rates across world region. 
 
 
-```{r}
-#need to place region names in the x axis vertically
- nd_regions%>%ggplot() +
-   geom_bar(aes(x = reorder(Country, -LowBirthWT), y = LowBirthWT, fill = Country), stat = 'identity') +
-   labs(title = '% of Low Birth Weights by World Region', x = 'World Region', y = '% of Low Birth Weights')
-
-=======
-## Figure Six: Visualizing mortality by world region (all rates over 1950-2020)
->>>>>>> 7606b8c0c0584818fd73231cc53f81f888dd1d0f
-
-
+```{r echo=FALSE}
 # Interesting structure for visualizing mortality rates by world regions when we'll have the world regions variable in the income_mortality data set
 
 load(here::here("dataset/income_mortality.RData"))
@@ -243,8 +218,11 @@ load(here::here("dataset/income_mortality.RData"))
 
 ## Figure Seven: correlation between under 5 mortality rates and income per capita
 
+This figure explores the relationship between income and mortality. As forecasted, we see that as the income increases, the mortality rates show a pattern of decline, with a few outliers. 
 
-```{r}
+
+
+```{r echo=FALSE}
 data(income_mortality)
 a <- cbind(income_mortality$'Mortality', income_mortality$'Income')
 a2<-na.omit(a)
@@ -254,11 +232,14 @@ print(cor)
 
 ggplot(data = income_mortality, mapping = aes(x = income_mortality$'Income', y = income_mortality$'Mortality')) +
   scale_x_log10() +
-    geom_point(alpha = 0.1, aes(color = 'Red'))
+    geom_point(alpha = 0.1, aes(color = 'Red')) + labs(x = "Income Per Capita", y = "Mortality rate")
 
 ```
 
 ## Figures Eight and Nine: Vaccines and Mortality Rates
+
+Both of these figures use are vaccine variables to display their relationship with mortality rates as well. The vaccine variable represent the rate that a 1 year old child has at least one vaccine for a particular disease (please refer back to the variable explanation page for more information). We see a steady decline in overall mortality rates as the vaccination rate increases. The second figure presents this relationship across the years of 1980 - 2019, with points colored by the continent. 
+
 
 ```{r echo=FALSE}
 load(here::here("dataset/inc_mort_vax.RData"))
@@ -273,39 +254,9 @@ inc_mort_vax %>% filter(Year == "1980" | Year == "1990" | Year == "2000" | Year 
 ```
 
 
-## Modeling and Inference
+## [Modeling and Inference](/analysis4)
 
 
-### Linear Model 
-
-```{r}
-#Scatter Plot and Correlation Matrix of all Variables
-model_data <- select(nd_inc_mort_avg, c(2,6,7,10,11,12,13,14,15))
-ggpairs(model_data, upper = list(continuous = wrap("points", alpha = 0.3, size=0.1)),
-        lower = list(continuous = wrap('cor', size = 4)))
-```
-
-
-
-```{r}
-model <- lm(nd_inc_mort_avg$Mortality_avg ~ nd_inc_mort_avg$LowBirthWT + nd_inc_mort_avg$Income_avg + nd_inc_mort_avg$ExclusiveBreastFeeding + nd_inc_mort_avg$DietDiversity + nd_inc_mort_avg$ZeroVegtable)
-summary(model)
-```
-
-
-```{r}
-ggplot(nd_inc_mort_avg, aes(x=nd_inc_mort_avg$Mortality_avg, y=nd_inc_mort_avg$Income_avg)) + geom_point()
-ggplot(nd_inc_mort_avg, aes(x=nd_inc_mort_avg$Mortality_avg, y=nd_inc_mort_avg$DietDiversity)) + geom_point()
-
-model <- glm(nd_inc_mort_avg$Mortality_avg ~ nd_inc_mort_avg$Income_avg + nd_inc_mort_avg$DietDiversity)
-summary(model)
-```
-
-```{r}
-
-```
-
-
-
+ 
 
 
