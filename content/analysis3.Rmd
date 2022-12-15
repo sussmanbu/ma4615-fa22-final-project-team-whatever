@@ -1,0 +1,24 @@
+---
+title: Summary of Variables
+description:
+toc: true
+authors: []
+tags: []
+categories: []
+series: []
+date: 2022-12-14T21:55:59-05:00
+lastmod: 2022-12-14T21:55:59-05:00
+featuredVideo:
+featuredImage: images/lunch.jpg
+draft: false
+---
+
+We chose many important variables to analyze. Below we have a list of what each variable means, and the short-handed cue we use to refer to each them on our main analysis page and in our blog posts. This page is meant to be a convenient spot where the reader can reference back to in order to get the full explanation of each variable in our analysis. 
+
+
+
+
+
+
+
+
