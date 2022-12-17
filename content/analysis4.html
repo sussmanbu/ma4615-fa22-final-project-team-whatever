@@ -1,0 +1,107 @@
+---
+title: Model and Inference
+description:
+toc: true
+authors: []
+tags: []
+categories: []
+series: []
+date: 2022-12-14T22:00:48-05:00
+lastmod: 2022-12-14T22:00:48-05:00
+featuredVideo:
+featuredImage: 
+draft: false
+---
+
+
+<div id="TOC">
+
+</div>
+
+<pre><code>## [1] &quot;/Users/anamariapananas/Data Science/ma4615-fa22-final-project-team-whatever/content&quot;</code></pre>
+<pre><code>## [1] &quot;income_mortality&quot; &quot;nd_inc_mort_avg&quot;  &quot;nd_regions&quot;</code></pre>
+<div id="linear-model" class="section level3">
+<h3>Linear Model</h3>
+<p><img src="/analysis4_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<pre><code>## 
+## Call:
+## lm(formula = nd_inc_mort_avg$Mortality_avg ~ nd_inc_mort_avg$LowBirthWT + 
+##     nd_inc_mort_avg$Income_avg + nd_inc_mort_avg$ExclusiveBreastFeeding + 
+##     nd_inc_mort_avg$DietDiversity + nd_inc_mort_avg$ZeroVegtable)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -3.6243 -1.4349 -0.2677  1.2464  6.4726 
+## 
+## Coefficients:
+##                                          Estimate Std. Error t value Pr(&gt;|t|)
+## (Intercept)                             1.069e+01  2.485e+00   4.301 8.52e-05
+## nd_inc_mort_avg$LowBirthWT              1.041e-01  7.251e-02   1.436  0.15773
+## nd_inc_mort_avg$Income_avg             -2.489e-04  8.257e-05  -3.014  0.00415
+## nd_inc_mort_avg$ExclusiveBreastFeeding -4.110e-03  1.917e-02  -0.214  0.83114
+## nd_inc_mort_avg$DietDiversity          -8.427e-02  2.545e-02  -3.312  0.00179
+## nd_inc_mort_avg$ZeroVegtable           -2.384e-02  2.857e-02  -0.835  0.40811
+##                                           
+## (Intercept)                            ***
+## nd_inc_mort_avg$LowBirthWT                
+## nd_inc_mort_avg$Income_avg             ** 
+## nd_inc_mort_avg$ExclusiveBreastFeeding    
+## nd_inc_mort_avg$DietDiversity          ** 
+## nd_inc_mort_avg$ZeroVegtable              
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 2.129 on 47 degrees of freedom
+##   (115 observations deleted due to missingness)
+## Multiple R-squared:  0.6743, Adjusted R-squared:  0.6397 
+## F-statistic: 19.46 on 5 and 47 DF,  p-value: 1.879e-10</code></pre>
+<p><img src="/analysis4_files/figure-html/unnamed-chunk-4-1.png" width="672" /><img src="/analysis4_files/figure-html/unnamed-chunk-4-2.png" width="672" /></p>
+<pre><code>## 
+## Call:
+## glm(formula = nd_inc_mort_avg$Mortality_avg ~ nd_inc_mort_avg$Income_avg + 
+##     nd_inc_mort_avg$DietDiversity)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -4.0746  -1.3353  -0.2711   1.5711   7.0773  
+## 
+## Coefficients:
+##                                 Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)                    1.165e+01  5.371e-01  21.697  &lt; 2e-16 ***
+## nd_inc_mort_avg$Income_avg    -2.846e-04  7.024e-05  -4.051 0.000127 ***
+## nd_inc_mort_avg$DietDiversity -9.073e-02  1.887e-02  -4.809 8.08e-06 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for gaussian family taken to be 5.258207)
+## 
+##     Null deviance: 1046.35  on 74  degrees of freedom
+## Residual deviance:  378.59  on 72  degrees of freedom
+##   (93 observations deleted due to missingness)
+## AIC: 342.26
+## 
+## Number of Fisher Scoring iterations: 2</code></pre>
+<pre class="r"><code>step(model, direction = &#39;both&#39;)</code></pre>
+<pre><code>## Start:  AIC=342.26
+## nd_inc_mort_avg$Mortality_avg ~ nd_inc_mort_avg$Income_avg + 
+##     nd_inc_mort_avg$DietDiversity
+## 
+##                                 Df Deviance    AIC
+## &lt;none&gt;                               378.59 342.26
+## - nd_inc_mort_avg$Income_avg     1   464.88 355.66
+## - nd_inc_mort_avg$DietDiversity  1   500.19 361.15</code></pre>
+<pre><code>## 
+## Call:  glm(formula = nd_inc_mort_avg$Mortality_avg ~ nd_inc_mort_avg$Income_avg + 
+##     nd_inc_mort_avg$DietDiversity)
+## 
+## Coefficients:
+##                   (Intercept)     nd_inc_mort_avg$Income_avg  
+##                    11.6533472                     -0.0002846  
+## nd_inc_mort_avg$DietDiversity  
+##                    -0.0907254  
+## 
+## Degrees of Freedom: 74 Total (i.e. Null);  72 Residual
+##   (93 observations deleted due to missingness)
+## Null Deviance:       1046 
+## Residual Deviance: 378.6     AIC: 342.3</code></pre>
+</div>

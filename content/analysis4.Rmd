@@ -1,0 +1,66 @@
+---
+title: Model and Inference
+description:
+toc: true
+authors: []
+tags: []
+categories: []
+series: []
+date: 2022-12-14T22:00:48-05:00
+lastmod: 2022-12-14T22:00:48-05:00
+featuredVideo:
+featuredImage: 
+draft: false
+---
+
+```{r echo=FALSE}
+suppressPackageStartupMessages(library(ggplot2)) 
+#library(olsrr)
+suppressPackageStartupMessages(library(hrbrthemes))
+suppressPackageStartupMessages(library(GGally))
+suppressPackageStartupMessages(library(gridExtra))
+suppressPackageStartupMessages(library(stringr))
+suppressPackageStartupMessages(library(dplyr))
+suppressPackageStartupMessages(library(tidyverse))
+
+print(getwd())
+load(here::here("dataset/income_mortality.RData"))
+load(here::here("dataset/nd_regions.RData"))
+load(here::here("dataset/nd_inc_mort_avg.RData"))
+print(ls())
+```
+
+
+
+### Linear Model 
+
+```{r echo=FALSE, warning = FALSE}
+#Scatter Plot and Correlation Matrix of all Variables
+model_data <- select(nd_inc_mort_avg, c(2,6,7,10,11,12,13,14,15))
+ggpairs(model_data, upper = list(continuous = wrap("points", alpha = 0.3, size=0.1)),
+        lower = list(continuous = wrap('cor', size = 4)))
+```
+
+
+
+```{r echo=FALSE, warning = FALSE}
+model <- lm(nd_inc_mort_avg$Mortality_avg ~ nd_inc_mort_avg$LowBirthWT + nd_inc_mort_avg$Income_avg + nd_inc_mort_avg$ExclusiveBreastFeeding + nd_inc_mort_avg$DietDiversity + nd_inc_mort_avg$ZeroVegtable)
+summary(model)
+```
+
+
+```{r echo=FALSE, warning = FALSE}
+ggplot(nd_inc_mort_avg, aes(x=nd_inc_mort_avg$Mortality_avg, y=nd_inc_mort_avg$Income_avg)) + geom_point()
+ggplot(nd_inc_mort_avg, aes(x=nd_inc_mort_avg$Mortality_avg, y=nd_inc_mort_avg$DietDiversity)) + geom_point()
+
+model <- glm(nd_inc_mort_avg$Mortality_avg ~ nd_inc_mort_avg$Income_avg + nd_inc_mort_avg$DietDiversity)
+summary(model)
+```
+
+```{r}
+step(model, direction = 'both')
+```
+
+ 
+
+
