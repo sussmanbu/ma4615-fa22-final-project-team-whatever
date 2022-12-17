@@ -9,7 +9,7 @@ series: []
 date: 2022-12-14T22:00:48-05:00
 lastmod: 2022-12-14T22:00:48-05:00
 featuredVideo:
-featuredImage:
+featuredImage: 
 draft: false
 ---
 
@@ -205,4 +205,27 @@ draft: false
 ## AIC: 342.26
 ## 
 ## Number of Fisher Scoring iterations: 2</code></pre>
+<pre class="r"><code>step(model, direction = &#39;both&#39;)</code></pre>
+<pre><code>## Start:  AIC=342.26
+## nd_inc_mort_avg$Mortality_avg ~ nd_inc_mort_avg$Income_avg + 
+##     nd_inc_mort_avg$DietDiversity
+## 
+##                                 Df Deviance    AIC
+## &lt;none&gt;                               378.59 342.26
+## - nd_inc_mort_avg$Income_avg     1   464.88 355.66
+## - nd_inc_mort_avg$DietDiversity  1   500.19 361.15</code></pre>
+<pre><code>## 
+## Call:  glm(formula = nd_inc_mort_avg$Mortality_avg ~ nd_inc_mort_avg$Income_avg + 
+##     nd_inc_mort_avg$DietDiversity)
+## 
+## Coefficients:
+##                   (Intercept)     nd_inc_mort_avg$Income_avg  
+##                    11.6533472                     -0.0002846  
+## nd_inc_mort_avg$DietDiversity  
+##                    -0.0907254  
+## 
+## Degrees of Freedom: 74 Total (i.e. Null);  72 Residual
+##   (93 observations deleted due to missingness)
+## Null Deviance:       1046 
+## Residual Deviance: 378.6     AIC: 342.3</code></pre>
 </div>
