@@ -67,8 +67,7 @@ Plotly with default hover text will get no credit. Be creative!
 
 
 ```{r}
-#need to set up working directory perhaps? --> setwd()
-<<<<<<< HEAD
+
 library(maps)
 library(ggplot2)
 library(RColorBrewer)
@@ -101,6 +100,7 @@ best6 %>%
   filter(long==-48.46474, lat==-27.4363289, Country == "Brazil",group == 222, Mortality == 13.313)-> best6act
 
 ```
+
 ```{r}
 long <- c(104.195397,-95.712891,-48.55459,61.52656,-12.22842,103.9697)
 lat <-  c(35.861660,37.090240,-27.8122082,53.50156,14.45859,1.331445)
