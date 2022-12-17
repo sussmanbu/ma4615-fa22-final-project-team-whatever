@@ -34,7 +34,7 @@ print(ls())
 
 ### Linear Model 
 
-```{r echo=FALSE}
+```{r echo=FALSE, warning = FALSE}
 #Scatter Plot and Correlation Matrix of all Variables
 model_data <- select(nd_inc_mort_avg, c(2,6,7,10,11,12,13,14,15))
 ggpairs(model_data, upper = list(continuous = wrap("points", alpha = 0.3, size=0.1)),
@@ -43,13 +43,13 @@ ggpairs(model_data, upper = list(continuous = wrap("points", alpha = 0.3, size=0
 
 
 
-```{r echo=FALSE}
+```{r echo=FALSE, warning = FALSE}
 model <- lm(nd_inc_mort_avg$Mortality_avg ~ nd_inc_mort_avg$LowBirthWT + nd_inc_mort_avg$Income_avg + nd_inc_mort_avg$ExclusiveBreastFeeding + nd_inc_mort_avg$DietDiversity + nd_inc_mort_avg$ZeroVegtable)
 summary(model)
 ```
 
 
-```{r echo=FALSE}
+```{r echo=FALSE, warning = FALSE}
 ggplot(nd_inc_mort_avg, aes(x=nd_inc_mort_avg$Mortality_avg, y=nd_inc_mort_avg$Income_avg)) + geom_point()
 ggplot(nd_inc_mort_avg, aes(x=nd_inc_mort_avg$Mortality_avg, y=nd_inc_mort_avg$DietDiversity)) + geom_point()
 
