@@ -57,6 +57,9 @@ model <- glm(nd_inc_mort_avg$Mortality_avg ~ nd_inc_mort_avg$Income_avg + nd_inc
 summary(model)
 ```
 
+```{r}
+step(model, direction = 'both')
+```
 
  
 
