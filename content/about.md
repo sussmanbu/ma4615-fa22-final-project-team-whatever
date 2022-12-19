@@ -25,6 +25,8 @@ I am a master's student in economics, particularly interested in political econo
 I am a senior majoring in Statistics track.
 github ccount page link: https://github.com/
 
+## YanxuPan
+A M.A. Statistics student.
 <!-- Please leave in the information below -->
 
 ### Info About this Template.
