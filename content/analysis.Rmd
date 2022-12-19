@@ -11,7 +11,7 @@ We describe here our detailed data analysis. Most of our data for analysis is ac
 
 On this page we will introduce you to our analysis, provide some initial questions about the data, and present the figures we produced while exploring the different relationships within the data. 
 
-Please use the links throughout the page to direct you to more information related to our data and analyzation process. 
+Please use the links throughout the page to direct you to more information related to our data and analyzation process.  
 
 
 ```{r echo=FALSE, warning = FALSE}

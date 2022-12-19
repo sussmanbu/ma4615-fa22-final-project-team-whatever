@@ -49,6 +49,7 @@ ggpairs(model_data, upper = list(continuous = wrap("points", alpha = 0.3, size=0
 ```
 
 
+<<<<<<< HEAD
 
 
 From the correlation matrix we see that those variables are: LowBirthWT, Income_avg, DietDiversity and ZeroVegtable.
@@ -58,11 +59,30 @@ From the correlation matrix we see that those variables are: LowBirthWT, Income_
 
 ```{r echo=FALSE}
 model <- lm(model_data$Mortality_avg ~ model_data$LowBirthWT + model_data$DietDiversity + model_data$ZeroVegtable + model_data$MinAcceptDiet + model_data$MinMealFreq)
+=======
+From the correlation matrix we see that those variables are: LowBirthWT, Income_avg, DietDiversity and ZeroVegtable.
+
+
+```{r echo=FALSE}
+model <- lm(model_data$Mortality_avg ~ model_data$LowBirthWT + model_data$DietDiversity + model_data$ZeroVegtable + model_data$MinAcceptDiet + model_data$MinMealFreq)
+
+```
+
+```{r echo = FALSE, warning = FALSE}
+model <- lm(nd_inc_mort_avg$Mortality_avg ~ nd_inc_mort_avg$LowBirthWT + nd_inc_mort_avg$Income_avg + nd_inc_mort_avg$ExclusiveBreastFeeding + nd_inc_mort_avg$DietDiversity + nd_inc_mort_avg$ZeroVegtable)
+
+>>>>>>> 81c975020f6e90335779f21fa18fc73e430d80fa
 summary(model)
 ```
 
 
+<<<<<<< HEAD
 
+=======
+In order to make a more accurate decision, we then ran AIC on the model with these chosen variables. In the end, this resulted in us removing the zero vegetable variable from our model. 
+
+
+>>>>>>> 81c975020f6e90335779f21fa18fc73e430d80fa
 
 
 In order to make a more accurate decision, we then ran AIC on the model with these chosen variables. In the end, this resulted in us removing the zero vegetable variable from our model. 
