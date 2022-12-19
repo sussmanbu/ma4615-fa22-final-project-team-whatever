@@ -44,11 +44,11 @@ For our project we added two additional data sets. One contains the mortality ra
 
 For our project we added four additional data sets. One contains the mortality rates of children under the age of 5 for each country over the years from 1950 to 2021 and the other contains the PPP-adjusted income per capita for each country over the years from 1950 to 2021. The U5Mortality Rate data set comes from UNICEF website as well, specifically from the UN Inter-agency Group for Child Mortality Estimation (UN IGME). The data about income per capita, instead, come from Gapminder.org, a webpage founded by statistician Hans Rosling, that originally took the data from the World Bank.  Combining these two data sets took quite a bit of work. We first had to design a function that removed the k's from the values representing thousand and then, after converting the character strings to numerical values, multiplied by 1000 to get a numerical representation of the numbers. From there we used the pivot_longer() and inner_join() functions to combine the data sets for use in our interactive and modeling.
 
-The third data set is population which was found on _____and gives the population of each country _____ (time?)
+The third data set is population which gives us the population of each country over time. 
 
-Finally, we added vaccination rate data for children at 1 year of age ...... 
+Finally, we added vaccination rate data for children at 1 year of age who have been vaccinated against at least one disease. 
 
-### Please click [here](/sources) to view our compileed list of sources for our additional data 
+### Please click [here](/sources) to view our compiled list of sources for our additional data 
 ### Please click [here](/analysis3) to view the summaries for each variable in the data sets
 
 

@@ -49,36 +49,24 @@ ggpairs(model_data, upper = list(continuous = wrap("points", alpha = 0.3, size=0
 ```
 
 
-
-<<<<<<< HEAD
-=======
 From the correlation matrix we see that those variables are: LowBirthWT, Income_avg, DietDiversity and ZeroVegtable.
 
-
->>>>>>> dbb1a32a7f3c4f51a29bb6c34a08a2678890f492
 
 ```{r echo=FALSE}
 model <- lm(model_data$Mortality_avg ~ model_data$LowBirthWT + model_data$DietDiversity + model_data$ZeroVegtable + model_data$MinAcceptDiet + model_data$MinMealFreq)
 
-
-<<<<<<< HEAD
-=======
 ```
 
 ```{r echo = FALSE, warning = FALSE}
-
->>>>>>> dbb1a32a7f3c4f51a29bb6c34a08a2678890f492
 model <- lm(nd_inc_mort_avg$Mortality_avg ~ nd_inc_mort_avg$LowBirthWT + nd_inc_mort_avg$Income_avg + nd_inc_mort_avg$ExclusiveBreastFeeding + nd_inc_mort_avg$DietDiversity + nd_inc_mort_avg$ZeroVegtable)
 
 summary(model)
 ```
 
 
-<<<<<<< HEAD
-=======
 In order to make a more accurate decision, we then ran AIC on the model with these chosen variables. In the end, this resulted in us removing the zero vegetable variable from our model. 
 
->>>>>>> dbb1a32a7f3c4f51a29bb6c34a08a2678890f492
+
 
 ```{r echo=FALSE, warning = FALSE}
 ggplot(nd_inc_mort_avg, aes(x=nd_inc_mort_avg$Mortality_avg, y=nd_inc_mort_avg$Income_avg)) + geom_point()

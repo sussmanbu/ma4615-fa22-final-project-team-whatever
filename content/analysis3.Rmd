@@ -28,15 +28,15 @@ Here is the list of variables:
 Nutrition variables:
   
   
-    > Low birth weight (%) - birth weight less than 2,500 grams
-    > Un weighted at birth (%) - no birth weight in data source 
-    > Early initiation of breastfeeding (%) - children put to breast within one hour of birth
-    > *Continued breastfeeding (12-23 months) (%) - 12-23 months, fed with breast milk on previous day
-    > *Introduction of solid, semi-solid or soft foods (6–8 months) (%) - fed with solid, semi-solid, soft food
-    > *Minimum Diet Diversity (6–23 months) (%) - had food from at least 5 out of 8 food groups 
-    > *Minimum Meal Frequency (6–23 months) (%) - received solid, semi-solid, or soft food at least the minimum amount of times or more 
-    > *Minimum Acceptable Diet (6–23 months) (%) - children that had minimum acceptable diet 
-    > *Zero vegetable or fruit consumption (6–23 months) – children that did not consume any vegetables or fruits 
+    - Low birth weight (%) - birth weight less than 2,500 grams
+    - Un weighted at birth (%) - no birth weight in data source 
+    - Early initiation of breastfeeding (%) - children put to breast within one hour of birth
+    - *Continued breastfeeding (12-23 months) (%) - 12-23 months, fed with breast milk on previous day
+    - *Introduction of solid, semi-solid or soft foods (6–8 months) (%) - fed with solid, semi-solid, soft food
+    - *Minimum Diet Diversity (6–23 months) (%) - had food from at least 5 out of 8 food groups 
+    - *Minimum Meal Frequency (6–23 months) (%) - received solid, semi-solid, or soft food at least the minimum amount of times or more 
+    - *Minimum Acceptable Diet (6–23 months) (%) - children that had minimum acceptable diet 
+    - *Zero vegetable or fruit consumption (6–23 months) – children that did not consume any vegetables or fruits 
  
  *measurement taken from previous day 
  

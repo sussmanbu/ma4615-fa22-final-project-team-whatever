@@ -10,28 +10,27 @@ draft: false
 ## The State of the World's Children Under the Age of 5: what countries are better equipped for a stronger, healther generation? 
 
 
-After our analysis with the institutional data, we have outlined a few notable factors that potentially influence the world's child mortality rates. With this information, we can provide possible suggestions about what can be done to uphold the standards of the countries with the lowest mortality rates for children under the age of 5. 
+After our analysis with the institutional data, we have outlined a few notable factors that potentially influence the world's child mortality rates. With this information, we can provide possible suggestions about what can be done to uphold the standards of the countries with the lowest mortality rates for children under the age of 5. As you scroll through this page, you will see us comparing the countries with the lowest and highest mortality rates, and what factors differ between them. 
 
-
-As you scroll through this page, you will see us comparing the countries with the lowest and highest mortality rates, and what factors differ between them. 
-
+<br>
 
 In the end, we hope that you are able to have more of an insight into the main differences between the state of children in countries across the world, over a span of time. This will also provide some awareness for future patterns as well. 
 
 
-Here we show the relationships between mortality rates in every region and compare the years 1970 with 2020. 
+- Below we show the relationships between mortality rates in every region and compare the years 1970 with 2020. 
+
+<br>
+
 
 We see that there is a significant decrease in mortality rates over time. Looking at the four variables that contributed most to our model, we can conclude that even though they are obviously not the only factors that contribute to this overall decrease, they are considerably important and influential. So, these variables of nutrition have pulled some weight in the decline of children mortality rates. 
-   
-
 
 ```{r echo = FALSE, warning = FALSE}
-library(maps)
-library(ggplot2)
-library(RColorBrewer)
-library(tidyverse)
-library(dplyr)
-library(gridExtra)
+suppressPackageStartupMessages(library(maps))
+suppressPackageStartupMessages(library(ggplot2))
+suppressPackageStartupMessages(library(RColorBrewer))
+suppressPackageStartupMessages(library(tidyverse))
+suppressPackageStartupMessages(library(dplyr))
+suppressPackageStartupMessages(library(gridExtra))
 load(here::here("dataset/income_mortality.RData"))
 world_map <- map_data("world")
 ```
@@ -129,6 +128,8 @@ mp2+geom_text(data = best6act_2,aes(x = long, y = lat+3, label = Country), group
 ## The Big Conclusion: 
 
 Overall, our project was inspired by the work that the UNICEF organization does in collecting data to better understand what needs to be done to better improve the lives of children across the world. With the analysis we have provided on this page, we have described a few of the many factors that are affecting the survival of children. 
+
+<br>
 
 There is room to grow for future project in discovering more variables that have to do with this significant decline in mortality rates. 
 
