@@ -259,8 +259,8 @@ colnames(U5Mortality)[2] ="Year"
 colnames(U5Mortality)[3] ="Mortality"
 
 U5Mortality$Country[U5Mortality$Country == 'Russian Federation'] <- 'Russia'
-income_per_capita_ppp$Country[income_per_capita_ppp$Country == 'United States'] <- 'United States'
-U5Mortality$Country[U5Mortality$Country == 'United States of America'] <- 'United States'
+income_per_capita_ppp$Country[income_per_capita_ppp$Country == 'United States'] <- 'USA'
+U5Mortality$Country[U5Mortality$Country == 'United States of America'] <- 'USA'
 income_per_capita_ppp$Country[income_per_capita_ppp$Country == 'Hong Kong, China'] <- 'China'
 U5Mortality$Country[U5Mortality$Country == 'Iran (Islamic Republic of)'] <- 'Iran'
 U5Mortality$Country[U5Mortality$Country == 'Bolivia (Plurinational State of)'] <- 'Bolivia'
@@ -402,3 +402,4 @@ colnames(inc_mort_for_nutrition_avg)[3] ="Income_avg"
 nd_inc_mort_avg <- inner_join(nd, inc_mort_for_nutrition_avg,by=c("Country"="Country"))
 
 save(nd_inc_mort_avg, file = "dataset/nd_inc_mort_avg.RData")
+
