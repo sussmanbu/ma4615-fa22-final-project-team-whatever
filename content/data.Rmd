@@ -54,7 +54,11 @@ Finally, we added vaccination rate data for children at 1 year of age ......
 
 ### Data Overview 
 
-table/list of number of rows, etc, for cleaned data + variable names 
+<br> income_mortality (7 Columns, 12567 Rows)
+<br> U5Mortality (3 Columns, 13845 Rows)
+<br> income_per_capita_ppp (3 Columns, 13845 Rows)
+<br> nd (13 Columns, 217 Rows)
+<br> pop_size (3 Columns, 13987 Rows)
 
 
 
