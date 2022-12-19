@@ -6,9 +6,8 @@ featuredImage:
 draft: false
 ---
 
-This comes from the file `content/about.md`.
 
-This is a website for the final project for MA[46]15 Data Science with R by Team TEAMNAME.
+This is a website for the final project for MA[46]15 Data Science with R by Team Whatever.
 The members of this team are below.
 
 ## Luke DiIorio
@@ -24,6 +23,12 @@ I am a master's student in economics, particularly interested in political econo
 ## Mengyao Shi
 I am a senior majoring in Statistics track.
 github ccount page link: https://github.com/
+
+
+
+
+
+
 
 <!-- Please leave in the information below -->
 

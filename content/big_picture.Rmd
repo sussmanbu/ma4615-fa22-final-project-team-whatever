@@ -27,17 +27,7 @@ We see that there is a significant decrease in mortality rates over time. Lookin
 
 
 
-
-
-<<<<<<< HEAD
 ```{r echo = FALSE, warning = FALSE}
-=======
-```{r}
-<<<<<<< HEAD
-
-=======
->>>>>>> 99f4270e550bfc185077f04c34bcf5f3d6f00824
->>>>>>> cde3aa56c0b1451712c7917b638c4cb06e8fed64
 library(maps)
 library(ggplot2)
 library(RColorBrewer)
@@ -73,7 +63,7 @@ best6 %>%
 
 ```
 
-```{r}
+```{r echo = FALSE, warning = FALSE}
 long <- c(104.195397,-95.712891,-48.55459,61.52656,-12.22842,103.9697)
 lat <-  c(35.861660,37.090240,-27.8122082,53.50156,14.45859,1.331445)
 Mortality <- c(11.254,2.324, 13.313,3.782,28.903,28.903)
@@ -84,7 +74,7 @@ best6act<- data.frame(Country = c("China","USA","Brazil","Russia","Senegal","Sin
 ```
 
 
-```{r}
+```{r echo = FALSE, warning = FALSE}
 mp<-ggplot(act_world_map1970,aes(x = long, y = lat, group = group))+
   geom_polygon(aes(fill = Mortality),color = "black")+
   scale_x_continuous(breaks = seq(-180,210,45),labels = function(x){paste0(x,"°")})+
@@ -94,7 +84,7 @@ mp<-ggplot(act_world_map1970,aes(x = long, y = lat, group = group))+
 
 ```
 
-```{r}
+```{r echo = FALSE, warning = FALSE}
 mp+geom_text(data = best6act,aes(x = long, y = lat+3, label = Country), group = group, col = 'orange')+
   geom_text(data = best6act, aes(x = long - 3, y = lat - 5, label = Mortality),col = 'red')+
   theme_light()

@@ -24,11 +24,11 @@ suppressPackageStartupMessages(library(stringr))
 suppressPackageStartupMessages(library(dplyr))
 suppressPackageStartupMessages(library(tidyverse))
 
-print(getwd())
+
 load(here::here("dataset/income_mortality.RData"))
 load(here::here("dataset/nd_regions.RData"))
 load(here::here("dataset/nd_inc_mort_avg.RData"))
-print(ls())
+
 
 ```
 

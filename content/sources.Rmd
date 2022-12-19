@@ -15,19 +15,26 @@ draft: false
 
 Below we have complied the list of all our data sources for easy access. 
 
-Mortality Rates: 
+- Mortality Rates: 
 
 
-Income: 
+- Income: 
 
 
-Population: 
+- Population: 
 
 
-Nutrition: 
+- Nutrition: 
+
+Unicef's The State of the World’s Children 2019: Statistical tables
+(October 2019)
+
+https://data.unicef.org/resources/dataset/sowc-2019-statistical-tables/
+(scroll down to “Tables 7 and 8- Nutrition” to view the tables.)
 
 
 Vaccinations:
+
 
 
 

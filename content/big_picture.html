@@ -28,7 +28,7 @@ draft: false
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()
 ## ✖ purrr::map()    masks maps::map()</code></pre>
-<pre><code>## # A tibble: 12,567 × 6
+<pre><code>## # A tibble: 12,496 × 6
 ##    Country     Year Mortality Income Pop_size Continent
 ##    &lt;chr&gt;      &lt;dbl&gt;     &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;    
 ##  1 San Marino  2020     0.176  59300    34000 Europe   
@@ -41,8 +41,8 @@ draft: false
 ##  8 San Marino  2016     0.208  58900    33700 Europe   
 ##  9 Estonia     2020     0.211  38200  1330000 Europe   
 ## 10 Iceland     2017     0.214  56800   337000 Europe   
-## # … with 12,557 more rows</code></pre>
-<pre><code>## # A tibble: 12,567 × 6
+## # … with 12,486 more rows</code></pre>
+<pre><code>## # A tibble: 12,496 × 6
 ##    Country       Year Mortality Income Pop_size Continent
 ##    &lt;chr&gt;        &lt;dbl&gt;     &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;    
 ##  1 Yemen         1957      45.1   1770  5170000 Asia     
@@ -55,23 +55,8 @@ draft: false
 ##  8 Yemen         1962      41.6   1820  5560000 Asia     
 ##  9 Sierra Leone  1956      41.3   1270  2220000 Africa   
 ## 10 Mali          1965      41.0   1050  5640000 Africa   
-## # … with 12,557 more rows</code></pre>
+## # … with 12,486 more rows</code></pre>
 <pre><code>## Joining, by = c(&quot;Year&quot;, &quot;Mortality&quot;, &quot;Income&quot;, &quot;Pop_size&quot;, &quot;Continent&quot;)</code></pre>
-<pre class="r"><code>long &lt;- c(104.195397,-95.712891,-48.55459,61.52656,-12.22842,103.9697)
-lat &lt;-  c(35.861660,37.090240,-27.8122082,53.50156,14.45859,1.331445)
-Mortality &lt;- c(11.254,2.324, 13.313,3.782,28.903,28.903)
-group &lt;- c(418,1443,222,1242,1348,1349)
-best6act&lt;- data.frame(Country = c(&quot;China&quot;,&quot;USA&quot;,&quot;Brazil&quot;,&quot;Russia&quot;,&quot;Senegal&quot;,&quot;Singapore&quot;),
-                      long, lat,Mortality,group)</code></pre>
-<pre class="r"><code>mp&lt;-ggplot(act_world_map1970,aes(x = long, y = lat, group = group))+
-  geom_polygon(aes(fill = Mortality),color = &quot;black&quot;)+
-  scale_x_continuous(breaks = seq(-180,210,45),labels = function(x){paste0(x,&quot;°&quot;)})+
-  scale_y_continuous(breaks = seq(-60, 100, 30), labels = function(x){paste0(x, &quot;°&quot;)})+
-  scale_fill_gradient(low = &quot;lightblue&quot;, high=&quot;dark blue&quot;) +
-  theme_light() </code></pre>
-<pre class="r"><code>mp+geom_text(data = best6act,aes(x = long, y = lat+3, label = Country), group = group, col = &#39;orange&#39;)+
-  geom_text(data = best6act, aes(x = long - 3, y = lat - 5, label = Mortality),col = &#39;red&#39;)+
-  theme_light()</code></pre>
 <p><img src="/big_picture_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 </div>
 <div id="the-big-conclusion" class="section level2">

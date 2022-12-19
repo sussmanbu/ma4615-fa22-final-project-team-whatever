@@ -14,10 +14,6 @@ draft: false
 ---
 
 
-
-
-
-
 ```{r echo=FALSE}
 suppressPackageStartupMessages(library(ggplot2)) 
 #library(olsrr)
@@ -35,14 +31,13 @@ load(here::here("dataset/nd_inc_mort_avg.RData"))
 print(ls())
 ```
 
-<<<<<<< HEAD
-
-After loading in our combined data set for nutrition, income, and mortality averages, we first created a correlation matrix. This helped us view the correlation between all of our variables in this set, and get a better sense as to what kind of model we would like to create, and with what variables. 
 
 
-=======
-For our model we started with a correlation matrix to see what variables have the highest correlation with Mortality. From the correlation matrix we see that those variables are: LowBirthWT, Income_avg, DietDiversity and ZeroVegtable.
->>>>>>> cde3aa56c0b1451712c7917b638c4cb06e8fed64
+After loading in our combined data set for nutrition, income, and mortality averages, we first created a correlation matrix to see what variables have the highest correlation with Mortality. This helped us view the correlation between all of our variables in this set, and get a better sense as to what kind of model we would like to create, and with what variables. 
+
+
+
+
 
 ### Linear Model 
 
@@ -56,33 +51,27 @@ ggpairs(model_data, upper = list(continuous = wrap("points", alpha = 0.3, size=0
 
 
 
-<<<<<<< HEAD
-Based off this, we chose low birthweight, diet diveristy, zero vegetable consumption, minimum acceptable diet, and minimum meal frequency to be the best predictors for our model. 
+From the correlation matrix we see that those variables are: LowBirthWT, Income_avg, DietDiversity and ZeroVegtable.
 
 
 
-=======
-<<<<<<< HEAD
 ```{r echo=FALSE}
 model <- lm(model_data$Mortality_avg ~ model_data$LowBirthWT + model_data$DietDiversity + model_data$ZeroVegtable + model_data$MinAcceptDiet + model_data$MinMealFreq)
-=======
->>>>>>> cde3aa56c0b1451712c7917b638c4cb06e8fed64
-```{r echo=FALSE, warning = FALSE}
+
+
+```
+
+```{r echo = FALSE, warning = FALSE}
+
 model <- lm(nd_inc_mort_avg$Mortality_avg ~ nd_inc_mort_avg$LowBirthWT + nd_inc_mort_avg$Income_avg + nd_inc_mort_avg$ExclusiveBreastFeeding + nd_inc_mort_avg$DietDiversity + nd_inc_mort_avg$ZeroVegtable)
->>>>>>> 325bdcaa58e6ee013539053e9ac9fced5b1c4beb
+
 summary(model)
 ```
 
 
-<<<<<<< HEAD
 In order to make a more accurate decision, we then ran AIC on the model with these chosen variables. In the end, this resulted in us removing the zero vegetable variable from our model. 
 
 
-
-=======
-<<<<<<< HEAD
-=======
->>>>>>> cde3aa56c0b1451712c7917b638c4cb06e8fed64
 ```{r echo=FALSE, warning = FALSE}
 ggplot(nd_inc_mort_avg, aes(x=nd_inc_mort_avg$Mortality_avg, y=nd_inc_mort_avg$Income_avg)) + geom_point()
 ggplot(nd_inc_mort_avg, aes(x=nd_inc_mort_avg$Mortality_avg, y=nd_inc_mort_avg$DietDiversity)) + geom_point()
@@ -91,7 +80,7 @@ model <- glm(nd_inc_mort_avg$Mortality_avg ~ nd_inc_mort_avg$Income_avg + nd_inc
 summary(model)
 ```
 
->>>>>>> 325bdcaa58e6ee013539053e9ac9fced5b1c4beb
+
 ```{r}
 step(model, direction = 'both')
 ```
@@ -99,4 +88,4 @@ step(model, direction = 'both')
 
  
 
-
+ 
