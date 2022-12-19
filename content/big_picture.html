@@ -28,36 +28,8 @@ draft: false
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()
 ## ✖ purrr::map()    masks maps::map()</code></pre>
-<pre><code>## # A tibble: 12,496 × 6
-##    Country     Year Mortality Income Pop_size Continent
-##    &lt;chr&gt;      &lt;dbl&gt;     &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;    
-##  1 San Marino  2020     0.176  59300    34000 Europe   
-##  2 San Marino  2019     0.183  56500    33900 Europe   
-##  3 San Marino  2018     0.191  60800    33900 Europe   
-##  4 Iceland     2020     0.193  53400   343000 Europe   
-##  5 San Marino  2017     0.199  59600    33800 Europe   
-##  6 Iceland     2019     0.2    51900   341000 Europe   
-##  7 Iceland     2018     0.207  56900   339000 Europe   
-##  8 San Marino  2016     0.208  58900    33700 Europe   
-##  9 Estonia     2020     0.211  38200  1330000 Europe   
-## 10 Iceland     2017     0.214  56800   337000 Europe   
-## # … with 12,486 more rows</code></pre>
-<pre><code>## # A tibble: 12,496 × 6
-##    Country       Year Mortality Income Pop_size Continent
-##    &lt;chr&gt;        &lt;dbl&gt;     &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;    
-##  1 Yemen         1957      45.1   1770  5170000 Asia     
-##  2 Yemen         1958      44.3   1780  5240000 Asia     
-##  3 Yemen         1959      43.7   1790  5320000 Asia     
-##  4 Yemen         1960      43.0   1800  5390000 Asia     
-##  5 Mali          1963      42.5   1040  5500000 Africa   
-##  6 Yemen         1961      42.3   1810  5470000 Asia     
-##  7 Mali          1964      41.8   1030  5570000 Africa   
-##  8 Yemen         1962      41.6   1820  5560000 Asia     
-##  9 Sierra Leone  1956      41.3   1270  2220000 Africa   
-## 10 Mali          1965      41.0   1050  5640000 Africa   
-## # … with 12,486 more rows</code></pre>
 <pre><code>## Joining, by = c(&quot;Year&quot;, &quot;Mortality&quot;, &quot;Income&quot;, &quot;Pop_size&quot;, &quot;Continent&quot;)</code></pre>
-<p><img src="/big_picture_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p><img src="/big_picture_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 </div>
 <div id="the-big-conclusion" class="section level2">
 <h2>The Big Conclusion:</h2>
