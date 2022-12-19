@@ -49,19 +49,18 @@ ggpairs(model_data, upper = list(continuous = wrap("points", alpha = 0.3, size=0
 
 
 
-<<<<<<< HEAD
+
 ```{r echo=FALSE}
 model <- lm(model_data$Mortality_avg ~ model_data$LowBirthWT + model_data$DietDiversity + model_data$ZeroVegtable + model_data$MinAcceptDiet + model_data$MinMealFreq)
-=======
-```{r echo=FALSE, warning = FALSE}
+
+
 model <- lm(nd_inc_mort_avg$Mortality_avg ~ nd_inc_mort_avg$LowBirthWT + nd_inc_mort_avg$Income_avg + nd_inc_mort_avg$ExclusiveBreastFeeding + nd_inc_mort_avg$DietDiversity + nd_inc_mort_avg$ZeroVegtable)
->>>>>>> 325bdcaa58e6ee013539053e9ac9fced5b1c4beb
+
 summary(model)
 ```
 
 
-<<<<<<< HEAD
-=======
+
 ```{r echo=FALSE, warning = FALSE}
 ggplot(nd_inc_mort_avg, aes(x=nd_inc_mort_avg$Mortality_avg, y=nd_inc_mort_avg$Income_avg)) + geom_point()
 ggplot(nd_inc_mort_avg, aes(x=nd_inc_mort_avg$Mortality_avg, y=nd_inc_mort_avg$DietDiversity)) + geom_point()
@@ -70,7 +69,7 @@ model <- glm(nd_inc_mort_avg$Mortality_avg ~ nd_inc_mort_avg$Income_avg + nd_inc
 summary(model)
 ```
 
->>>>>>> 325bdcaa58e6ee013539053e9ac9fced5b1c4beb
+
 ```{r}
 step(model, direction = 'both')
 ```

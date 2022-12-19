@@ -7,14 +7,14 @@ featuredVideo:
 draft: false
 ---
 
-<<<<<<< HEAD
+
 
 #add title 
 
 #thesis/goal - what are we trying to show - for general public 
-=======
+
 ## The State of the World's Children Under the Age of 5: what countries are better equipped for a stronger, healther generation? 
->>>>>>> e81408f447c397726fb09da6577f1271ad561f05
+
 
 
 
@@ -26,36 +26,31 @@ As you scroll through this page, you will see us comparing the top three countri
 
 In the end, we hope that you are able to have more of an insight into the main differences between the state of children in countries across the world, over a span of time. This will also provide some awareness for future patterns as well. 
 
-<<<<<<< HEAD
+
 This comes from the file `content/big_picture.Rmd`.
 
-=======
+
   
 **Note**: This page should have no code visible, i.e. use `echo=FALSE`.  
->>>>>>> e81408f447c397726fb09da6577f1271ad561f05
+
 
 Here we will show the relationships between the factors for the top three countries with both the lowest and highest mortality rates. 
 
 *Note: Figures must be simple enough for the general audience to understand. 
 
-<<<<<<< HEAD
-```
+
+
 
 After our analysis with the institutional data, we have outlined a few notable factors that potentially influence the world's child mortality rates. With this information, we can provide possible suggestions about what can be done to uphold the standards of the countries with the lowest mortality rates for children under the age of 5. 
 
 
 As you scroll through this page, you will see us comparing the top three countries with the lowest and highest mortality rates, and what factors differ between them. 
 
-=======
 
 
->>>>>>> e81408f447c397726fb09da6577f1271ad561f05
+
 
 ```{r}
-<<<<<<< HEAD
-
-=======
->>>>>>> 99f4270e550bfc185077f04c34bcf5f3d6f00824
 library(maps)
 library(ggplot2)
 library(RColorBrewer)
@@ -71,20 +66,9 @@ world_map %>%
 act_world_map1970 <- act_world_map %>% filter(Year == c("1970"))
 ```
 
-<<<<<<< HEAD
 
 
-  
-**Note**: This page should have no code visible, i.e. use `echo=FALSE`.  
 
-
-=======
-```{r}
-
-income_mortality[order(income_mortality$Mortality), ]
-income_mortality[order(income_mortality$Mortality, decreasing= T), ]
-```
->>>>>>> e81408f447c397726fb09da6577f1271ad561f05
 
 ```{r}
 best6 <- act_world_map1970 %>% 
@@ -108,14 +92,14 @@ best6act<- data.frame(Country = c("China","USA","Brazil","Russia","Senegal","Sin
  
 ```
 
-<<<<<<< HEAD
+
 
 * Quality and ease of use of the interactive components.
 Is it clear what can be explored using your interactive components?
 Does it enhance and reinforce your conclusions from the Big Picture?
 Plotly with default hover text will get no credit. Be creative!
 
-=======
+
 
 ```{r}
 mp<-ggplot(act_world_map1970,aes(x = long, y = lat, group = group))+
@@ -134,7 +118,7 @@ mp+geom_text(data = best6act,aes(x = long, y = lat+3, label = Country), group = 
 ```
 
 
->>>>>>> e81408f447c397726fb09da6577f1271ad561f05
+
 
 ### Explanation of Figures: 
 
