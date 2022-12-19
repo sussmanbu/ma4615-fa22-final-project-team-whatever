@@ -15,8 +15,6 @@ draft: false
 <p>We describe here our detailed data analysis. Most of our data for analysis is accredited to UNICEF database.</p>
 <p>On this page we will introduce you to our analysis, provide some initial questions about the data, and present the figures we produced while exploring the different relationships within the data.</p>
 <p>Please use the links throughout the page to direct you to more information related to our data and analyzation process.</p>
-<pre><code>## [1] &quot;/Users/anamariapananas/Data Science/ma4615-fa22-final-project-team-whatever/content&quot;</code></pre>
-<pre><code>## [1] &quot;income_mortality&quot; &quot;nd_inc_mort_avg&quot;  &quot;nd_regions&quot;</code></pre>
 <div id="our-motivation-for-analysis" class="section level2">
 <h2>Our Motivation for Analysis</h2>
 <p>Our data is mainly driven by investigating the state of the world’s children under the age of 5. Through our analysis, we will have a better idea of how influential our chosen variables are to the survival and health of children around the world.</p>
@@ -51,16 +49,12 @@ draft: false
 <div id="figure-one-low-birthweight-in-each-region" class="section level2">
 <h2>Figure one: Low Birthweight in each Region</h2>
 <p>Here, we wanted to give a visual to represent the percentage variability in low birthweight among these regions. Based on the bar chart, South Asia has a visible larger percentage of children that fall in this category. Moving forward, we will keep an eye on South Asia and the relationships that may have impacted this one.</p>
-<pre><code>## Warning: `guides(&lt;scale&gt; = FALSE)` is deprecated. Please use `guides(&lt;scale&gt; =
-## &quot;none&quot;)` instead.</code></pre>
 <p><img src="/analysis_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 </div>
 <div id="figure-two-mortality-rates-and-income-per-capita" class="section level2">
 <h2>Figure Two: Mortality Rates and Income per Capita</h2>
 <p>This figure shows that over time, mortality rates have decreased. We have grouped the countries into their respective continent, so the relationships between the continents can be viewed easily through the time span here.</p>
 <pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
-<pre><code>## Warning: Removed 146 rows containing non-finite values (stat_smooth).</code></pre>
-<pre><code>## Warning: Removed 146 rows containing missing values (geom_point).</code></pre>
 <p><img src="/analysis_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 </div>
 <div id="figure-three-relationship-between-income-and-infants-that-are-exclusively-breastfed" class="section level2">
@@ -69,19 +63,15 @@ draft: false
 <pre><code>&gt; Percentage of infants 0-5 months of age who were fed exclusively with breastmilk during the previous day.</code></pre>
 <p>This relationship with income could signify that higher income regions are more likely to have alternatives to breastfeeding for infants. Of course this is just a hypothesis, but a question to keep in mind.</p>
 <pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
-<pre><code>## Warning: Removed 53 rows containing non-finite values (stat_smooth).</code></pre>
-<pre><code>## Warning: Removed 53 rows containing missing values (geom_point).</code></pre>
 <p><img src="/analysis_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 </div>
 <div id="figure-four-relationship-between-income-per-capita-and-child-diet-diversity" class="section level2">
 <h2>Figure Four: Relationship between Income per capita and Child Diet Diversity</h2>
 <p>Below is a figure that suggets that the diet diversity variable steadily increases as the average income per capita increases.
 Minimum diet diversity, according to the data, is defined as:</p>
-<pre><code>&gt;Percentage of children who received foods from at least 5 out of 8 defined food groups during the previos day. </code></pre>
+<pre><code>&gt;Percentage of children who received foods from at least 5 out of 8 defined food groups during the previous day. </code></pre>
 <p>With this in mind, a possible synthesis is that higher averages of income provide more opportunities to fulfill the diet for all 8 defined food groups.</p>
 <pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
-<pre><code>## Warning: Removed 93 rows containing non-finite values (stat_smooth).</code></pre>
-<pre><code>## Warning: Removed 93 rows containing missing values (geom_point).</code></pre>
 <p><img src="/analysis_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 </div>
 <div id="figure-five-world-map-under-5-mortality-rates-across-countries" class="section level2">
@@ -97,30 +87,20 @@ Minimum diet diversity, according to the data, is defined as:</p>
 <div id="figure-six" class="section level2">
 <h2>Figure Six</h2>
 <p>Here is a similair representation of the same data as above, however we are able to more clearly decipher the major trend in mortality rates across world region.</p>
-<pre><code>## Warning: Removed 1776 rows containing missing values (geom_point).</code></pre>
 <p><img src="/analysis_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 </div>
 <div id="figure-seven-correlation-between-under-5-mortality-rates-and-income-per-capita" class="section level2">
 <h2>Figure Seven: correlation between under 5 mortality rates and income per capita</h2>
 <p>This figure explores the relationship between income and mortality. As forecasted, we see that as the income increases, the mortality rates show a pattern of decline, with a few outliers.</p>
-<pre><code>## Warning in data(income_mortality): data set &#39;income_mortality&#39; not found</code></pre>
-<pre><code>## [1] -0.4813524</code></pre>
-<pre><code>## Warning: Use of `income_mortality$Income` is discouraged. Use `Income` instead.</code></pre>
-<pre><code>## Warning: Use of `income_mortality$Mortality` is discouraged. Use `Mortality`
-## instead.</code></pre>
-<pre><code>## Warning: Removed 1776 rows containing missing values (geom_point).</code></pre>
+<pre><code>## [1] -0.4785735</code></pre>
 <p><img src="/analysis_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 </div>
 <div id="figures-eight-and-nine-vaccines-and-mortality-rates" class="section level2">
 <h2>Figures Eight and Nine: Vaccines and Mortality Rates</h2>
 <p>Both of these figures use are vaccine variables to display their relationship with mortality rates as well. The vaccine variable represent the rate that a 1 year old child has at least one vaccine for a particular disease (please refer back to the variable explanation page for more information). We see a steady decline in overall mortality rates as the vaccination rate increases. The second figure presents this relationship across the years of 1980 - 2019, with points colored by the continent.</p>
 <pre><code>## `geom_smooth()` using method = &#39;gam&#39; and formula &#39;y ~ s(x, bs = &quot;cs&quot;)&#39;</code></pre>
-<pre><code>## Warning: Removed 5823 rows containing non-finite values (stat_smooth).</code></pre>
-<pre><code>## Warning: Removed 5823 rows containing missing values (geom_point).</code></pre>
 <p><img src="/analysis_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 <pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
-<pre><code>## Warning: Removed 115 rows containing non-finite values (stat_smooth).</code></pre>
-<pre><code>## Warning: Removed 115 rows containing missing values (geom_point).</code></pre>
 <p><img src="/analysis_files/figure-html/unnamed-chunk-9-2.png" width="672" /></p>
 </div>
 <div id="modeling-and-inference" class="section level2">

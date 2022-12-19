@@ -14,7 +14,7 @@ On this page we will introduce you to our analysis, provide some initial questio
 Please use the links throughout the page to direct you to more information related to our data and analyzation process. 
 
 
-```{r echo=FALSE}
+```{r echo=FALSE, warning = FALSE}
 suppressPackageStartupMessages(library(ggplot2)) 
 #library(olsrr)
 suppressPackageStartupMessages(library(hrbrthemes))
@@ -24,11 +24,11 @@ suppressPackageStartupMessages(library(stringr))
 suppressPackageStartupMessages(library(dplyr))
 suppressPackageStartupMessages(library(tidyverse))
 
-print(getwd())
+
 load(here::here("dataset/income_mortality.RData"))
 load(here::here("dataset/nd_regions.RData"))
 load(here::here("dataset/nd_inc_mort_avg.RData"))
-print(ls())
+
 
 ```
 
@@ -75,7 +75,7 @@ Please click on the link above to direct you to the discussion about the limitat
 Here, we wanted to give a visual to represent the percentage variability in low birthweight among these regions. Based on the bar chart, South Asia has a visible larger percentage of children that fall in this category. Moving forward, we will keep an eye on South Asia and the relationships that may have impacted this one. 
 
 
-```{r echo=FALSE}
+```{r echo=FALSE, warning = FALSE}
 ggplot(nd_regions, aes(Country , LowBirthWT,  fill=Country)) + 
     coord_flip() +
     geom_bar(stat="identity", width=.90) + 
@@ -91,7 +91,7 @@ ggplot(nd_regions, aes(Country , LowBirthWT,  fill=Country)) +
 
 This figure shows that over time, mortality rates have decreased. We have grouped the countries into their respective continent, so the relationships between the continents can be viewed easily through the time span here. 
 
-```{r echo=FALSE}
+```{r echo=FALSE, warning = FALSE}
 load(here::here("dataset/income_mortality.RData"))
 
 #maybe need to include different regions and color them with "color = " under ggplot aes (instead of Income)
@@ -113,7 +113,7 @@ This is our first attempt at exploring a variable from the nutrition data set wi
 This relationship with income could signify that higher income regions are more likely to have alternatives to breastfeeding for infants. Of course this is just a hypothesis, but a question to keep in mind. 
 
 
-```{r echo=FALSE}
+```{r echo=FALSE, warning = FALSE}
 load(here::here("dataset/nd_inc_mort_avg.RData"))
 ggplot(nd_inc_mort_avg, aes(x = Income_avg, y = ExclusiveBreastFeeding)) + geom_point(size = 0.4) +
   stat_smooth(color='black', alpha = 0.2) +
@@ -127,13 +127,13 @@ ggplot(nd_inc_mort_avg, aes(x = Income_avg, y = ExclusiveBreastFeeding)) + geom_
 Below is a figure that suggets that the diet diversity variable steadily increases as the average income per capita increases. 
 Minimum diet diversity, according to the data, is defined as: 
 
-    >Percentage of children who received foods from at least 5 out of 8 defined food groups during the previos day. 
+    >Percentage of children who received foods from at least 5 out of 8 defined food groups during the previous day. 
     
 With this in mind, a possible synthesis is that higher averages of income provide more opportunities to fulfill the diet for all 8 defined food groups. 
 
 
 
-```{r echo=FALSE}
+```{r echo=FALSE, warning = FALSE}
 load(here::here("dataset/nd_inc_mort_avg.RData"))
 ggplot(nd_inc_mort_avg, aes(x = Income_avg, y = DietDiversity)) + geom_point(size = 0.4) +
   stat_smooth(color='black', alpha = 0.2) +
@@ -146,7 +146,7 @@ ggplot(nd_inc_mort_avg, aes(x = Income_avg, y = DietDiversity)) + geom_point(siz
 Below, we use the world map to give a clear representation of the how mortality rates are distributed across the world. The darker colored blue countries show a much higher rate than those with the very light color. We are also able to see the change in color across each continent, or region, which is harder to see in other figures, which is way this is a good graphical representation of our main variable. 
 
 
-```{r echo=FALSE}
+```{r echo=FALSE, warning = FALSE}
 library(maps)
 library(ggplot2)
 library(RColorBrewer)
@@ -203,7 +203,7 @@ act_world_map2000 <- act_world_map %>% filter(Year == c("2000"))
 Here is a similair representation of the same data as above, however we are able to more clearly decipher the major trend in mortality rates across world region. 
 
 
-```{r echo=FALSE}
+```{r echo=FALSE, warning = FALSE}
 # Interesting structure for visualizing mortality rates by world regions when we'll have the world regions variable in the income_mortality data set
 
 load(here::here("dataset/income_mortality.RData"))
@@ -222,7 +222,7 @@ This figure explores the relationship between income and mortality. As forecaste
 
 
 
-```{r echo=FALSE}
+```{r echo=FALSE, warning = FALSE}
 data(income_mortality)
 a <- cbind(income_mortality$'Mortality', income_mortality$'Income')
 a2<-na.omit(a)
@@ -241,7 +241,7 @@ ggplot(data = income_mortality, mapping = aes(x = income_mortality$'Income', y =
 Both of these figures use are vaccine variables to display their relationship with mortality rates as well. The vaccine variable represent the rate that a 1 year old child has at least one vaccine for a particular disease (please refer back to the variable explanation page for more information). We see a steady decline in overall mortality rates as the vaccination rate increases. The second figure presents this relationship across the years of 1980 - 2019, with points colored by the continent. 
 
 
-```{r echo=FALSE}
+```{r echo=FALSE, warning = FALSE}
 load(here::here("dataset/inc_mort_vax.RData"))
 ggplot(inc_mort_vax, aes(x = Vax_Rate, y = Mortality)) + geom_point(size = 0.4) +
   stat_smooth(color='black', alpha = 0.2) +
