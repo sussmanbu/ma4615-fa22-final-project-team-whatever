@@ -52,6 +52,10 @@ As you scroll through this page, you will see us comparing the top three countri
 >>>>>>> e81408f447c397726fb09da6577f1271ad561f05
 
 ```{r}
+<<<<<<< HEAD
+
+=======
+>>>>>>> 99f4270e550bfc185077f04c34bcf5f3d6f00824
 library(maps)
 library(ggplot2)
 library(RColorBrewer)
@@ -93,6 +97,7 @@ best6 %>%
   filter(long==-48.46474, lat==-27.4363289, Country == "Brazil",group == 222, Mortality == 13.313)-> best6act
 
 ```
+
 ```{r}
 long <- c(104.195397,-95.712891,-48.55459,61.52656,-12.22842,103.9697)
 lat <-  c(35.861660,37.090240,-27.8122082,53.50156,14.45859,1.331445)

@@ -26,6 +26,7 @@ ui <- fluidPage(
   selectInput(inputId = "Continent", label = "Pick a World Region", choices = income_mortality$Continent),
   selectInput(inputId = "Country", label = "Pick a Country", choices = income_mortality$Country),
   plotlyOutput("gg")
+  #,verbatimTextOutput("summary")
 )
 server <- function(input, output) {
   output$gg <- renderPlotly({
@@ -39,7 +40,12 @@ server <- function(input, output) {
       geom_point(aes(frame = Year, size = Pop_size, color = Continent)) +
       scale_x_log10()
     plotly::ggplotly(gg)
-  }) }
+  }) 
+  #output$summary <- renderPrint({
+    #gs <- income_mortality %>% filter(Continent == input$Continent) %>% 
+     # group_by(Continent) %>% rnorm(income_mortality$Mortality) 
+    #summary(gs, na.rm=TRUE)})  
+  }
 shinyApp(ui = ui, server = server)
 
 
