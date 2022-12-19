@@ -31,6 +31,9 @@ print(ls())
 ```
 
 
+After loading in our combined data set for nutrition, income, and mortality averages, we first created a correlation matrix. This helped us view the correlation between all of our variables in this set, and get a better sense as to what kind of model we would like to create, and with what variables. 
+
+
 
 ### Linear Model 
 
@@ -43,10 +46,18 @@ ggpairs(model_data, upper = list(continuous = wrap("points", alpha = 0.3, size=0
 
 
 
+Based off this, we chose low birthweight, diet diveristy, zero vegetable consumption, minimum acceptable diet, and minimum meal frequency to be the best predictors for our model. 
+
+
+
 ```{r echo=FALSE, warning = FALSE}
 model <- lm(nd_inc_mort_avg$Mortality_avg ~ nd_inc_mort_avg$LowBirthWT + nd_inc_mort_avg$Income_avg + nd_inc_mort_avg$ExclusiveBreastFeeding + nd_inc_mort_avg$DietDiversity + nd_inc_mort_avg$ZeroVegtable)
 summary(model)
 ```
+
+
+In order to make a more accurate decision, we then ran AIC on the model with these chosen variables. In the end, this resulted in us removing the zero vegetable variable from our model. 
+
 
 
 ```{r echo=FALSE, warning = FALSE}
@@ -60,6 +71,7 @@ summary(model)
 ```{r}
 step(model, direction = 'both')
 ```
+
 
  
 
