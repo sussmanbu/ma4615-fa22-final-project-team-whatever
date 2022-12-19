@@ -20,9 +20,11 @@ draft: false
 
 <pre><code>## [1] &quot;/Users/anamariapananas/Data Science/ma4615-fa22-final-project-team-whatever/content&quot;</code></pre>
 <pre><code>## [1] &quot;income_mortality&quot; &quot;nd_inc_mort_avg&quot;  &quot;nd_regions&quot;</code></pre>
+<p>After loading in our combined data set for nutrition, income, and mortality averages, we first created a correlation matrix. This helped us view the correlation between all of our variables in this set, and get a better sense as to what kind of model we would like to create, and with what variables.</p>
 <div id="linear-model" class="section level3">
 <h3>Linear Model</h3>
 <p><img src="/analysis4_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>Based off this, we chose low birthweight, diet diveristy, zero vegetable consumption, minimum acceptable diet, and minimum meal frequency to be the best predictors for our model.</p>
 <pre><code>## 
 ## Call:
 ## lm(formula = nd_inc_mort_avg$Mortality_avg ~ nd_inc_mort_avg$LowBirthWT + 
@@ -55,6 +57,7 @@ draft: false
 ##   (115 observations deleted due to missingness)
 ## Multiple R-squared:  0.6743, Adjusted R-squared:  0.6397 
 ## F-statistic: 19.46 on 5 and 47 DF,  p-value: 1.879e-10</code></pre>
+<p>In order to make a more accurate decision, we then ran AIC on the model with these chosen variables. In the end, this resulted in us removing the zero vegetable variable from our model.</p>
 <p><img src="/analysis4_files/figure-html/unnamed-chunk-4-1.png" width="672" /><img src="/analysis4_files/figure-html/unnamed-chunk-4-2.png" width="672" /></p>
 <pre><code>## 
 ## Call:

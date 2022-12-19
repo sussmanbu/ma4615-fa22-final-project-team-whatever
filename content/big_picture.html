@@ -15,15 +15,10 @@ draft: false
 <div id="the-state-of-the-worlds-children-under-the-age-of-5-what-countries-are-better-equipped-for-a-stronger-healther-generation" class="section level2">
 <h2>The State of the World’s Children Under the Age of 5: what countries are better equipped for a stronger, healther generation?</h2>
 <p>After our analysis with the institutional data, we have outlined a few notable factors that potentially influence the world’s child mortality rates. With this information, we can provide possible suggestions about what can be done to uphold the standards of the countries with the lowest mortality rates for children under the age of 5.</p>
-<p>As you scroll through this page, you will see us comparing the top three countries with the lowest and highest mortality rates, and what factors differ between them.</p>
+<p>As you scroll through this page, you will see us comparing the countries with the lowest and highest mortality rates, and what factors differ between them.</p>
 <p>In the end, we hope that you are able to have more of an insight into the main differences between the state of children in countries across the world, over a span of time. This will also provide some awareness for future patterns as well.</p>
-<p><strong>Note</strong>: This page should have no code visible, i.e. use <code>echo=FALSE</code>.</p>
-<p>Here we will show the relationships between the factors for the top three countries with both the lowest and highest mortality rates.</p>
-<p>*Note: Figures must be simple enough for the general audience to understand.</p>
-<pre class="r"><code>library(maps)
-library(ggplot2)
-library(RColorBrewer)
-library(tidyverse)</code></pre>
+<p>Here we show the relationships between mortality rates in every region and compare the years 1970 with 2020.</p>
+<p>We see that there is a significant decrease in mortality rates over time. Looking at the four variables that contributed most to our model, we can conclude that even though they are obviously not the only factors that contribute to this overall decrease, they are considerably important and influential. So, these variables of nutrition have pulled some weight in the decline of children mortality rates.</p>
 <pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
 ## ✔ tibble  3.1.8      ✔ dplyr   1.0.10
 ## ✔ tidyr   1.2.1      ✔ stringr 1.4.1 
@@ -33,13 +28,6 @@ library(tidyverse)</code></pre>
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()
 ## ✖ purrr::map()    masks maps::map()</code></pre>
-<pre class="r"><code>library(dplyr)
-load(here::here(&quot;dataset/income_mortality.RData&quot;))
-world_map &lt;- map_data(&quot;world&quot;)</code></pre>
-<pre class="r"><code>world_map %&gt;% 
-  left_join(income_mortality, by = c(&quot;region&quot; = &quot;Country&quot;)) -&gt; act_world_map
-act_world_map1970 &lt;- act_world_map %&gt;% filter(Year == c(&quot;1970&quot;))</code></pre>
-<pre class="r"><code>income_mortality[order(income_mortality$Mortality), ]</code></pre>
 <pre><code>## # A tibble: 12,567 × 6
 ##    Country     Year Mortality Income Pop_size Continent
 ##    &lt;chr&gt;      &lt;dbl&gt;     &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;    
@@ -54,7 +42,6 @@ act_world_map1970 &lt;- act_world_map %&gt;% filter(Year == c(&quot;1970&quot;))
 ##  9 Estonia     2020     0.211  38200  1330000 Europe   
 ## 10 Iceland     2017     0.214  56800   337000 Europe   
 ## # … with 12,557 more rows</code></pre>
-<pre class="r"><code>income_mortality[order(income_mortality$Mortality, decreasing= T), ]</code></pre>
 <pre><code>## # A tibble: 12,567 × 6
 ##    Country       Year Mortality Income Pop_size Continent
 ##    &lt;chr&gt;        &lt;dbl&gt;     &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;    
@@ -69,14 +56,6 @@ act_world_map1970 &lt;- act_world_map %&gt;% filter(Year == c(&quot;1970&quot;))
 ##  9 Sierra Leone  1956      41.3   1270  2220000 Africa   
 ## 10 Mali          1965      41.0   1050  5640000 Africa   
 ## # … with 12,557 more rows</code></pre>
-<pre class="r"><code>best6 &lt;- act_world_map1970 %&gt;% 
-  filter(region == &quot;China&quot;| region == &quot;USA&quot;|region ==&quot;Brazil&quot;|region ==&quot;Russia&quot;|region ==&quot;Senegal&quot;|region == &quot;Singapore&quot;)
-
-best6 %&gt;% 
-  left_join(income_mortality)%&gt;% 
-  filter(Year == c(&quot;1970&quot;))%&gt;%
-  select(Country,long,lat,group,Mortality)%&gt;%
-  filter(long==-48.46474, lat==-27.4363289, Country == &quot;Brazil&quot;,group == 222, Mortality == 13.313)-&gt; best6act</code></pre>
 <pre><code>## Joining, by = c(&quot;Year&quot;, &quot;Mortality&quot;, &quot;Income&quot;, &quot;Pop_size&quot;, &quot;Continent&quot;)</code></pre>
 <pre class="r"><code>long &lt;- c(104.195397,-95.712891,-48.55459,61.52656,-12.22842,103.9697)
 lat &lt;-  c(35.861660,37.090240,-27.8122082,53.50156,14.45859,1.331445)
@@ -94,21 +73,16 @@ best6act&lt;- data.frame(Country = c(&quot;China&quot;,&quot;USA&quot;,&quot;Bra
   geom_text(data = best6act, aes(x = long - 3, y = lat - 5, label = Mortality),col = &#39;red&#39;)+
   theme_light()</code></pre>
 <p><img src="/big_picture_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
-<div id="explanation-of-figures" class="section level3">
-<h3>Explanation of Figures:</h3>
-</div>
 </div>
 <div id="the-big-conclusion" class="section level2">
 <h2>The Big Conclusion:</h2>
 <p>Overall, our project was inspired by the work that the UNICEF organization does in collecting data to better understand what needs to be done to better improve the lives of children across the world. With the analysis we have provided on this page, we have described a few of the many factors that are affecting the survival of children.</p>
-<div id="the-most-influential-factors-that-contribute-to-whether-a-country-would-have-a-low-or-high-mortality-rate-for-children-under-5-are-shown-below" class="section level3">
-<h3>The most influential factors that contribute to whether a country would have a low or high mortality rate for children under 5 are shown below:</h3>
-</div>
+<p>There is room to grow for future project in discovering more variables that have to do with this significant decline in mortality rates.</p>
 </div>
 <div id="interactive" class="section level2">
 <h2>Interactive</h2>
-<p>• Below is an interactive <em>add explanation of interactive here
-• Click here to start </em>add link to interactive*</p>
+<p>• Below is an interactive that gives a visual of the mortality rates decreasing over time.
+• Click here to start <em>add link to interactive</em></p>
 </div>
 <div id="video" class="section level2">
 <h2>Video</h2>
