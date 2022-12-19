@@ -29,7 +29,15 @@ We see that there is a significant decrease in mortality rates over time. Lookin
 
 
 
+<<<<<<< HEAD
 ```{r echo = FALSE, warning = FALSE}
+=======
+```{r}
+<<<<<<< HEAD
+
+=======
+>>>>>>> 99f4270e550bfc185077f04c34bcf5f3d6f00824
+>>>>>>> cde3aa56c0b1451712c7917b638c4cb06e8fed64
 library(maps)
 library(ggplot2)
 library(RColorBrewer)
@@ -64,6 +72,7 @@ best6 %>%
   filter(long==-48.46474, lat==-27.4363289, Country == "Brazil",group == 222, Mortality == 13.313)-> best6act
 
 ```
+
 ```{r}
 long <- c(104.195397,-95.712891,-48.55459,61.52656,-12.22842,103.9697)
 lat <-  c(35.861660,37.090240,-27.8122082,53.50156,14.45859,1.331445)
