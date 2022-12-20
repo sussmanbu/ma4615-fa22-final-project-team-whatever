@@ -13,11 +13,12 @@ featuredImage: images/map.jpg
 draft: false
 ---
 
-One unfortunate limitation is that the Nutrition data set does not have an extensive time series like the Mortality rates data set. So, if our combined data set for nutrition/income/mortality, we are unable to have a variable for years. We combined data from more than 150 countries across the three tables that left us with some usable information. Not having an appropriate amount of values in the nutrition data for some variables also limits us to have an equitable representation of these variables. 
+One unfortunate limitation is that the Nutrition data set does not have an extensive time series like the Mortality rates data set. So, if our combined data set for nutrition/income/mortality, we are unable to have a variable for years. We combined data from more than 150 countries across the three tables that left us with some usable information. Not having an appropriate amount of values (lots of missing values) in the nutrition data for some variables also limits us to have an equitable representation of these variables. 
 
 
 We are also limited in saying that certain factors are what "cause" lower nutritional values in countries, because since we are looking at country-wide data, there will inevitably be many factors that are potential contributers. But for our project, we hope to be able to create a profile using the variables we chose and be able to predict the nutritional or mortality status of a country based on these chosen factors. 
 
+In summary, there are many variables that contribute to children mortality rates; however, for this project we are limited in time so we chose to look at factors we thought would be interesting and important to analyze.
 
-*continue here* 
+
 

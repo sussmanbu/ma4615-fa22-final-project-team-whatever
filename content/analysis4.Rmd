@@ -13,6 +13,7 @@ featuredImage:
 draft: false
 ---
 
+
 ```{r echo=FALSE}
 suppressPackageStartupMessages(library(ggplot2)) 
 #library(olsrr)
@@ -23,12 +24,15 @@ suppressPackageStartupMessages(library(stringr))
 suppressPackageStartupMessages(library(dplyr))
 suppressPackageStartupMessages(library(tidyverse))
 
-print(getwd())
 load(here::here("dataset/income_mortality.RData"))
 load(here::here("dataset/nd_regions.RData"))
 load(here::here("dataset/nd_inc_mort_avg.RData"))
-print(ls())
+
 ```
+
+
+
+After loading in our combined data set for nutrition, income, and mortality averages, we first created a correlation matrix to see what variables have the highest correlation with Mortality. This helped us view the correlation between all of our variables in this set, and get a better sense as to what kind of model we would like to create, and with what variables. 
 
 
 
@@ -36,31 +40,47 @@ print(ls())
 
 ```{r echo=FALSE, warning = FALSE}
 #Scatter Plot and Correlation Matrix of all Variables
-model_data <- select(nd_inc_mort_avg, c(2,6,7,10,11,12,13,14,15))
+model_data <- (select(nd_inc_mort_avg, c(2,4,6,7,10,11,12,13,15,14)))
+model_data <- na.omit(model_data)
 ggpairs(model_data, upper = list(continuous = wrap("points", alpha = 0.3, size=0.1)),
         lower = list(continuous = wrap('cor', size = 4)))
 ```
 
+<br>
+From the correlation matrix we see that those variables are: LowBirthWT, Income_avg, DietDiversity and ZeroVegtable.
+<br>
 
+```{r}
+model <- lm(model_data$Mortality_avg ~ model_data$LowBirthWT + model_data$DietDiversity + model_data$ZeroVegtable + model_data$MinAcceptDiet + model_data$MinMealFreq)
 
-```{r echo=FALSE, warning = FALSE}
-model <- lm(nd_inc_mort_avg$Mortality_avg ~ nd_inc_mort_avg$LowBirthWT + nd_inc_mort_avg$Income_avg + nd_inc_mort_avg$ExclusiveBreastFeeding + nd_inc_mort_avg$DietDiversity + nd_inc_mort_avg$ZeroVegtable)
 summary(model)
 ```
 
+<br>
 
-```{r echo=FALSE, warning = FALSE}
-ggplot(nd_inc_mort_avg, aes(x=nd_inc_mort_avg$Mortality_avg, y=nd_inc_mort_avg$Income_avg)) + geom_point()
-ggplot(nd_inc_mort_avg, aes(x=nd_inc_mort_avg$Mortality_avg, y=nd_inc_mort_avg$DietDiversity)) + geom_point()
+In order to make a more accurate decision, we then ran AIC on the model with these chosen variables. In the end, this resulted in us removing the zero vegetable variable from our model. 
 
-model <- glm(nd_inc_mort_avg$Mortality_avg ~ nd_inc_mort_avg$Income_avg + nd_inc_mort_avg$DietDiversity)
-summary(model)
-```
-
+<br>
 ```{r}
 step(model, direction = 'both')
 ```
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  
-
-

@@ -1,0 +1,56 @@
+---
+title: Sources
+description:
+toc: true
+authors: []
+tags: []
+categories: []
+series: []
+date: 2022-12-19T15:17:36-05:00
+lastmod: 2022-12-19T15:17:36-05:00
+featuredVideo:
+featuredImage:
+draft: false
+---
+
+Below we have complied the list of all our data sources for easy access. 
+
+- Mortality Rates: 
+
+https://data.unicef.org/topic/child-survival/under-five-mortality/
+
+
+- Income: 
+
+https://www.gapminder.org/data/
+
+Select Indicator: Income
+
+
+- Population: 
+https://www.gapminder.org/data/
+
+Select Indicator: Population
+
+
+- Nutrition: 
+
+Unicef's The State of the World’s Children 2019: Statistical tables
+(October 2019)
+
+https://data.unicef.org/resources/dataset/sowc-2019-statistical-tables/
+(scroll down to “Tables 7 and 8- Nutrition” to view the tables.)
+
+
+Vaccinations:
+https://www.gapminder.org/data/
+
+Select Indicator: Health/Vaccine/Some vaccination rate
+
+
+
+
+
+
+
+
