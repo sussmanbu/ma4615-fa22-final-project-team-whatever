@@ -18,22 +18,20 @@ library(plotly)
 #need to set up working directory perhaps? --> setwd()
 load("income_mortality.RData")
 
-# need to include: color = continent, 
-
 
 ui <- fluidPage(
   titlePanel("Under 5 Mortality Rates over time"),
-  #selectInput(inputId = "Continent", label = "Pick a World Region", choices = income_mortality$Continent),
-  #selectInput(inputId = "Country", label = "Pick a Country", choices = income_mortality$Country),
-  plotlyOutput("interactive")
-  #,verbatimTextOutput("summary")
+  selectInput(inputId = "Continent", label = "Pick a World Region", choices = income_mortality$Continent, multiple = TRUE, selected = c("Africa", "Asia", "North America", "Europe", "South America", "Oceania")),
+  sliderInput(inputId = "Year", label = "Pick a Year (static plot only)", min = 1950, max = 2020, value = c(1950, 2020)),
+  plotlyOutput("interactive"),
+  plotOutput("plot")
 )
 server <- function(input, output) {
 
   output$interactive <- renderPlotly({
     print(input$Country)
     interactive <- income_mortality %>%
-      #filter(Continent == input$Continent) %>%
+      filter(Continent %in% input$Continent) %>%
       #filter(Country == input$Country) %>% 
       #head(10) %>% 
       ggplot(aes(x = Income, y = Mortality)) +
@@ -42,27 +40,12 @@ server <- function(input, output) {
       scale_x_log10()
     plotly::ggplotly(interactive)
   }) 
-  #output$summary <- renderPrint({
-    #gs <- income_mortality %>% filter(Continent == input$Continent) %>% 
-     # group_by(Continent) %>% rnorm(income_mortality$Mortality) 
-    #summary(gs, na.rm=TRUE)})  
+  output$plot <- renderPlot({
+    plot <- income_mortality %>% filter(Continent %in% input$Continent, Year >= input$Year [1], Year <= input$Year [2]) %>% 
+      ggplot(aes(x = Income, y = Mortality, color = Continent)) + geom_point(alpha = 0.1) + geom_smooth() +
+      scale_x_log10()
+    plot(plot)
+    })  
   }
 shinyApp(ui = ui, server = server)
 
-
-#input$which
-
-# c("abc", "def")
-#plotOutput("distPlot")
-
-#data <- reactive({
- # if(input$Continent){gg <- income_mortality %>% filter(Continent %in% input$Continent)}
- # else {gg <- income_mortality}
-#}) 
-
-#if (input$Continent =="Europe"){gg <- income_mortality %>% filter(Continent == "Europe")} 
-#if (input$Continent =="Africa"){gg <- income_mortality %>% filter(Continent == "Africa")}
-#if (input$Continent =="North America"){gg <- income_mortality %>% filter(Continent == "North America")}
-#if (input$Continent =="South America"){gg <- income_mortality %>% filter(Continent == "South America")}
-#if (input$Continent =="Oceania"){gg <- income_mortality %>% filter(Continent == "Oceania")}
-#else {gg <- income_mortality}
