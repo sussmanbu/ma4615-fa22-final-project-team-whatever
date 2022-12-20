@@ -17,11 +17,20 @@ Below we have complied the list of all our data sources for easy access.
 
 - Mortality Rates: 
 
+https://data.unicef.org/topic/child-survival/under-five-mortality/
+
 
 - Income: 
 
+https://www.gapminder.org/data/
+
+Select Indicator: Income
+
 
 - Population: 
+https://www.gapminder.org/data/
+
+Select Indicator: Population
 
 
 - Nutrition: 
@@ -34,8 +43,9 @@ https://data.unicef.org/resources/dataset/sowc-2019-statistical-tables/
 
 
 Vaccinations:
+https://www.gapminder.org/data/
 
-
+Select Indicator: Health/Vaccine/Some vaccination rate
 
 
 
