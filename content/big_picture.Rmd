@@ -40,18 +40,11 @@ world_map %>%
   left_join(income_mortality, by = c("region" = "Country")) -> act_world_map
 act_world_map1970 <- act_world_map %>% filter(Year == c("1970"))
 ```
-
-
-
-<<<<<<< HEAD
  
 
 
-```{r}
+```{r echo=FALSE, warning = FALSE}
 
-=======
-```{r echo = FALSE, warning = FALSE}
->>>>>>> 81c975020f6e90335779f21fa18fc73e430d80fa
 best6 <- act_world_map1970 %>% 
   filter(region == "China"| region == "USA"|region =="Brazil"|region =="Russia"|region =="Senegal"|region == "Singapore"| region == "Australia"| region == "France")
 
@@ -144,10 +137,30 @@ There is room to grow for future project in discovering more variables that have
 
 ## Interactive 
 •	Below is an interactive that gives a visual of the mortality rates decreasing over time. 
-•	Click here to start *add link to interactive* 
+•	Click here to start: 
+
+https://data4development-project.shinyapps.io/finalprojectapp/?_ga=2.139333552.264023201.1671491735-85105188.1669844552
+
+ 
+
 
 
 ## Video 
+
+```{r}
+library(vembedr)
+
+embed_url("https://youtu.be/wb88-3MnikY")
+
+
+
+```
+
+
+
+
+
+
 
 •	Here is a step-by-step demonstration of how to view our interactive
 
