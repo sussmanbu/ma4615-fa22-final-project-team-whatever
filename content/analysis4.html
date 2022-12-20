@@ -22,7 +22,12 @@ draft: false
 <div id="linear-model" class="section level3">
 <h3>Linear Model</h3>
 <p><img src="/analysis4_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
-<p>From the correlation matrix we see that those variables are: LowBirthWT, Income_avg, DietDiversity and ZeroVegtable.</p>
+<p><br>
+From the correlation matrix we see that those variables are: LowBirthWT, Income_avg, DietDiversity and ZeroVegtable.
+<br></p>
+<pre class="r"><code>model &lt;- lm(model_data$Mortality_avg ~ model_data$LowBirthWT + model_data$DietDiversity + model_data$ZeroVegtable + model_data$MinAcceptDiet + model_data$MinMealFreq)
+
+summary(model)</code></pre>
 <pre><code>## 
 ## Call:
 ## lm(formula = model_data$Mortality_avg ~ model_data$LowBirthWT + 
@@ -47,7 +52,9 @@ draft: false
 ## Residual standard error: 2.089 on 41 degrees of freedom
 ## Multiple R-squared:  0.7096, Adjusted R-squared:  0.6742 
 ## F-statistic: 20.04 on 5 and 41 DF,  p-value: 4.603e-10</code></pre>
+<p><br></p>
 <p>In order to make a more accurate decision, we then ran AIC on the model with these chosen variables. In the end, this resulted in us removing the zero vegetable variable from our model.</p>
+<p><br></p>
 <pre class="r"><code>step(model, direction = &#39;both&#39;)</code></pre>
 <pre><code>## Start:  AIC=74.82
 ## model_data$Mortality_avg ~ model_data$LowBirthWT + model_data$DietDiversity + 
