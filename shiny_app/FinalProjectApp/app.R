@@ -23,15 +23,16 @@ load("income_mortality.RData")
 
 ui <- fluidPage(
   titlePanel("Under 5 Mortality Rates over time"),
-  selectInput(inputId = "Continent", label = "Pick a World Region", choices = income_mortality$Continent),
-  selectInput(inputId = "Country", label = "Pick a Country", choices = income_mortality$Country),
-  plotlyOutput("gg")
+  #selectInput(inputId = "Continent", label = "Pick a World Region", choices = income_mortality$Continent),
+  #selectInput(inputId = "Country", label = "Pick a Country", choices = income_mortality$Country),
+  plotlyOutput("interactive")
   #,verbatimTextOutput("summary")
 )
 server <- function(input, output) {
-  output$gg <- renderPlotly({
+
+  output$interactive <- renderPlotly({
     print(input$Country)
-    gg <- income_mortality %>% 
+    interactive <- income_mortality %>%
       #filter(Continent == input$Continent) %>%
       #filter(Country == input$Country) %>% 
       #head(10) %>% 
@@ -39,7 +40,7 @@ server <- function(input, output) {
       # geom_point(alpha = 0.1) +
       geom_point(aes(frame = Year, size = Pop_size, color = Continent)) +
       scale_x_log10()
-    plotly::ggplotly(gg)
+    plotly::ggplotly(interactive)
   }) 
   #output$summary <- renderPrint({
     #gs <- income_mortality %>% filter(Continent == input$Continent) %>% 
@@ -53,3 +54,15 @@ shinyApp(ui = ui, server = server)
 
 # c("abc", "def")
 #plotOutput("distPlot")
+
+#data <- reactive({
+ # if(input$Continent){gg <- income_mortality %>% filter(Continent %in% input$Continent)}
+ # else {gg <- income_mortality}
+#}) 
+
+#if (input$Continent =="Europe"){gg <- income_mortality %>% filter(Continent == "Europe")} 
+#if (input$Continent =="Africa"){gg <- income_mortality %>% filter(Continent == "Africa")}
+#if (input$Continent =="North America"){gg <- income_mortality %>% filter(Continent == "North America")}
+#if (input$Continent =="South America"){gg <- income_mortality %>% filter(Continent == "South America")}
+#if (input$Continent =="Oceania"){gg <- income_mortality %>% filter(Continent == "Oceania")}
+#else {gg <- income_mortality}
