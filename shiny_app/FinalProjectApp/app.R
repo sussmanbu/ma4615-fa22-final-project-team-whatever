@@ -18,8 +18,6 @@ library(plotly)
 #need to set up working directory perhaps? --> setwd()
 load("income_mortality.RData")
 
-# need to include: color = continent, 
-
 
 ui <- fluidPage(
   titlePanel("Under 5 Mortality Rates over time"),
@@ -51,20 +49,3 @@ server <- function(input, output) {
   }
 shinyApp(ui = ui, server = server)
 
-
-#input$which
-
-# c("abc", "def")
-#plotOutput("distPlot")
-
-#data <- reactive({
- # if(input$Continent){gg <- income_mortality %>% filter(Continent %in% input$Continent)}
- # else {gg <- income_mortality}
-#}) 
-
-#if (input$Continent =="Europe"){gg <- income_mortality %>% filter(Continent == "Europe")} 
-#if (input$Continent =="Africa"){gg <- income_mortality %>% filter(Continent == "Africa")}
-#if (input$Continent =="North America"){gg <- income_mortality %>% filter(Continent == "North America")}
-#if (input$Continent =="South America"){gg <- income_mortality %>% filter(Continent == "South America")}
-#if (input$Continent =="Oceania"){gg <- income_mortality %>% filter(Continent == "Oceania")}
-#else {gg <- income_mortality}
