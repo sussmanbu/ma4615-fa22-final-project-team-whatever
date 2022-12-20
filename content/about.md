@@ -10,7 +10,7 @@ draft: false
 This is a website for the final project for MA[46]15 Data Science with R by Team Whatever.
 The members of this team are below.
 
-## Luke DiIorio
+## Luke DiIorio 
 I am a current senior majoring in mathematics and statistics.
 Github account page link: https://github.com/lukediiorio 
 
@@ -21,7 +21,7 @@ Github account page link: https://github.com/apananas
 ## Francesco Benatti
 I am a master's student in economics, particularly interested in political economy. Here is my Github account page link: https://github.com/francescobenatti
 
-## Mengyao Shi
+## Mengyao Shi 
 I am a senior majoring in Statistics track.
 Github account page link: https://github.com/
 
