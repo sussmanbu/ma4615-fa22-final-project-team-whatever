@@ -147,7 +147,7 @@ https://data4development-project.shinyapps.io/finalprojectapp/?_ga=2.139333552.2
 
 ## Video 
 
-```{r}
+```{r echo=FALSE, warning = FALSE}
 library(vembedr)
 
 embed_url("https://youtu.be/wb88-3MnikY")
