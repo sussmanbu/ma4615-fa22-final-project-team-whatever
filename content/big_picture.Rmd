@@ -24,7 +24,7 @@ In the end, we hope that you are able to have more of an insight into the main d
 
 We see that there is a significant decrease in mortality rates over time. Looking at the four variables that contributed most to our model, we can conclude that even though they are obviously not the only factors that contribute to this overall decrease, they are considerably important and influential. So, these variables of nutrition have pulled some weight in the decline of children mortality rates. 
 
-```{r echo = FALSE, warning = FALSE}
+```{r echo = FALSE, warnings = FALSE}
 suppressPackageStartupMessages(library(maps))
 suppressPackageStartupMessages(library(ggplot2))
 suppressPackageStartupMessages(library(RColorBrewer))
@@ -35,7 +35,7 @@ load(here::here("dataset/income_mortality.RData"))
 world_map <- map_data("world")
 ```
 
-```{r echo = FALSE, warning = FALSE}
+```{r echo = FALSE, warnings = FALSE}
 world_map %>% 
   left_join(income_mortality, by = c("region" = "Country")) -> act_world_map
 act_world_map1970 <- act_world_map %>% filter(Year == c("1970"))
@@ -43,7 +43,7 @@ act_world_map1970 <- act_world_map %>% filter(Year == c("1970"))
  
 
 
-```{r echo=FALSE, warning = FALSE}
+```{r echo=FALSE, warnings = FALSE}
 
 best6 <- act_world_map1970 %>% 
   filter(region == "China"| region == "USA"|region =="Brazil"|region =="Russia"|region =="Senegal"|region == "Singapore"| region == "Australia"| region == "France")
@@ -55,7 +55,7 @@ best6 %>%
 
 ```
 
-```{r echo = FALSE, warning = FALSE}
+```{r echo = FALSE, warnings = FALSE}
 
 long <- c(104.195397,-114.8391,-34.80547,90.22451,-12.22842,103.9697,135.89101,7.615625)
 lat <-  c(35.861660,40.49121,-7.288379,66.519432,14.45859,1.331445,-26.1742191,47.59272)
@@ -67,7 +67,7 @@ best6act<- data.frame(Country = c("China","USA","Brazil","Russia","Senegal","Sin
 ```
 
 
-```{r echo = FALSE, warning = FALSE}
+```{r echo = FALSE, warnings = FALSE}
 mp<-ggplot(act_world_map1970,aes(x = long, y = lat, group = group))+
   geom_polygon(aes(fill = Mortality),color = "grey")+
   scale_x_continuous(breaks = seq(-180,210,45),labels = function(x){paste0(x,"°")})+
@@ -77,21 +77,21 @@ mp<-ggplot(act_world_map1970,aes(x = long, y = lat, group = group))+
 
 ```
 
-```{r echo = FALSE, warning = FALSE}
+```{r echo = FALSE, warnings = FALSE}
 mp+geom_text(data = best6act,aes(x = long, y = lat+3, label = Country), group = group, col = 'black')+
   geom_text(data = best6act, aes(x = long - 3, y = lat - 5, label = Mortality),col = 'red')+
   theme_light()
 ```
 
 
-```{r echo = FALSE, warning = FALSE}
+```{r echo = FALSE, warnings = FALSE}
 world_map %>%
   left_join(income_mortality, by = c("region" = "Country")) -> act_world_map
 act_world_map2020 <- act_world_map %>% filter(Year == c("2020"))
 ```
 
 
-```{r echo = FALSE, warning = FALSE}
+```{r echo = FALSE, warnings = FALSE}
 best6_3 <- act_world_map2020 %>%
   filter(region == "China"| region == "USA"|region =="Brazil"|region =="Russia"|region =="Senegal"|region == "Singapore"|region == "Australia"|region == "France")
 best6_3 %>%
@@ -100,7 +100,7 @@ best6_3 %>%
   select(Country,long,lat,group,Mortality)-> best6act_2
 ```
 
-```{r echo = FALSE, warning = FALSE}
+```{r echo = FALSE, warnings = FALSE}
 long <- c(104.195397,-114.8391,-34.80547,90.22451,-12.22842,103.9697,135.89101,7.615625)
 lat <-  c(35.861660,40.49121,-7.288379,66.519432,14.45859,1.331445,-26.1742191,47.59272)
 Mortality <- c(0.734,0.635,1.47,0.541,3.808,0.224,0.37,0.437)
@@ -109,7 +109,7 @@ best6act_2<- data.frame(Country = c("China","USA","Brazil","Russia","Senegal","S
                       long, lat,Mortality,group)
 ```
 
-```{r echo = FALSE, warning = FALSE}
+```{r echo = FALSE, warnings = FALSE}
 mp2<-ggplot(act_world_map2020,aes(x = long, y = lat, group = group))+
   geom_polygon(aes(fill = Mortality),color = "grey")+
   scale_x_continuous(breaks = seq(-180,210,45),labels = function(x){paste0(x,"°")})+
@@ -118,7 +118,7 @@ mp2<-ggplot(act_world_map2020,aes(x = long, y = lat, group = group))+
   theme_light()
 ```
 
-```{r echo = FALSE, warning = FALSE}
+```{r echo = FALSE, warnings = FALSE}
 mp2+geom_text(data = best6act_2,aes(x = long, y = lat+3, label = Country), group = group, col = 'black')+
   geom_text(data = best6act_2, aes(x = long - 3, y = lat - 5, label = Mortality),col = 'red')+
   theme_light()
@@ -136,7 +136,8 @@ There is room to grow for future project in discovering more variables that have
 
 
 ## Interactive 
-•	Below is an interactive that gives a visual of the mortality rates decreasing over time. 
+•	Below is an interactive that gives a visual of the mortality rates for children under the age of 5 decreasing over time. 
+
 •	Click here to start: 
 
 https://data4development-project.shinyapps.io/finalprojectapp/?_ga=2.139333552.264023201.1671491735-85105188.1669844552
@@ -147,24 +148,17 @@ https://data4development-project.shinyapps.io/finalprojectapp/?_ga=2.139333552.2
 
 ## Video 
 
+Please view the demonstration video below to help you navigate through our interactive element!
+
 ```{r echo=FALSE, warning = FALSE}
 library(vembedr)
 
-embed_url("https://youtu.be/wb88-3MnikY")
+embed_url("https://youtu.be/8b0e4QG3wdI")
 
 
 
 ```
 
-
-
-
-
-
-
-•	Here is a step-by-step demonstration of how to view our interactive
-
-```
  
 
 
