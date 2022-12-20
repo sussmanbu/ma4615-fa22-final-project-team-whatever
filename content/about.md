@@ -2,7 +2,7 @@
 title: About
 lastmod: 2021-10-11T09:20:50-05:00
 featuredVideo:
-featuredImage:
+featuredImage: 
 draft: false
 ---
 
@@ -11,23 +11,23 @@ This is a website for the final project for MA[46]15 Data Science with R by Team
 The members of this team are below.
 
 ## Luke DiIorio
-I am a current senior majoring in mathematics. 
+I am a current senior majoring in mathematics and statistics.
+Github account page link: https://github.com/lukediiorio 
 
 ## Anamaria Pananas 
 I am a media science major in communications with a statistical methods track minor. 
-github account page link: https://github.com/apananas
+Github account page link: https://github.com/apananas
 
 ## Francesco Benatti
 I am a master's student in economics, particularly interested in political economy. Here is my Github account page link: https://github.com/francescobenatti
 
 ## Mengyao Shi
 I am a senior majoring in Statistics track.
-github ccount page link: https://github.com/
-
+Github account page link: https://github.com/
 
 ## YanxuPan
-A M.A. Statistics student.
-
+I am a A M.A. Statistics student.
+Github account page link: https://github.com/YanxuPan
 
 
 <!-- Please leave in the information below -->
