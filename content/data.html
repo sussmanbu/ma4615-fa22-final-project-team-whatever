@@ -26,7 +26,7 @@ draft: false
 <h3>Nutrition Data set</h3>
 <p>This is the first data set we chose to tackle. The variables of the data include low birthweight, which is mainly sourced from modeled estimates from World Health Organization alongside UNICEF, which is shown as the percentage of infants weighing less than 2,500 grams at birth. Other variables that we may include from this data, such as minimum meal frequency and zero vegetable or fruit consumptions are the percentage of children who were able to have solid/soft foods for a minimum time and the percentage of children or ate zero vegetables or fruits, respectively. The ages of the children for these two variables range from 6-23 months.</p>
 <p>In this data table, Low birth weight percentages are from 2015, and the infant and children feeding variables range from the years 2013 - 2018. At first we thought would be helpful in being able to focus on a pretty recent year range, however we discuss the limitations to this below on the page.</p>
-<p>All of this information is according to the data set itself, which explicitly lists the sources and variable meanings.</p>
+<p>All of this information is according to the data set itself, which explicitly lists the sources and variable meanings. You can click <a href="/analysis3">here</a> for our variable summary.</p>
 </div>
 </div>
 <div id="part-2-cleaning-the-dataest" class="section level2">
@@ -39,7 +39,6 @@ draft: false
 </div>
 <div id="part-4-additional-datasets" class="section level2">
 <h2>Part 4: Additional Dataset(s)</h2>
-<p>For our project we added two additional data sets. One contains the mortality rates of children under the age of 5 for each country over the years from 1950 to 2021 and the other contains the income per capita for each country over the years from 1950 to 2021. Combining these two data sets took quite a bit of work. We first had to design a function that removed the k’s from the numerical values representing thousand and then multiplied by 1000 to get a numerical representation of the numbers. From there we used the pivot_longer() and inner_join() functions to combine the data sets for use in our interactive and modeling.</p>
 <p>For our project we added four additional data sets. One contains the mortality rates of children under the age of 5 for each country over the years from 1950 to 2021 and the other contains the PPP-adjusted income per capita for each country over the years from 1950 to 2021. The U5Mortality Rate data set comes from UNICEF website as well, specifically from the UN Inter-agency Group for Child Mortality Estimation (UN IGME). The data about income per capita, instead, come from Gapminder.org, a webpage founded by statistician Hans Rosling, that originally took the data from the World Bank. Combining these two data sets took quite a bit of work. We first had to design a function that removed the k’s from the values representing thousand and then, after converting the character strings to numerical values, multiplied by 1000 to get a numerical representation of the numbers. From there we used the pivot_longer() and inner_join() functions to combine the data sets for use in our interactive and modeling.</p>
 <p>The third data set is population which gives us the population of each country over time.</p>
 <p>Finally, we added vaccination rate data for children at 1 year of age who have been vaccinated against at least one disease.</p>
@@ -51,6 +50,7 @@ draft: false
 </div>
 <div id="data-overview" class="section level3">
 <h3>Data Overview</h3>
+<p>Below is a list of the names of our cleaned data sets, as well as the number of columns and rows.</p>
 <ul>
 <li>income_mortality (7 Columns, 12567 Rows)</li>
 <li>U5Mortality (3 Columns, 13845 Rows)</li>
@@ -58,8 +58,6 @@ draft: false
 <li>nd (13 Columns, 217 Rows)</li>
 <li>pop_size (3 Columns, 13987 Rows)</li>
 </ul>
-<p><br>
-We thus ended up with a merged data set (income-mortality) that had 4 column variables (Country, Year, Mortality, Income) and 11,999 rows, representing each country in each year from 1950 to 2020.</p>
 </div>
 <div id="link-to-load_and_clean_data" class="section level3">
 <h3>Link to load_and_clean_data</h3>

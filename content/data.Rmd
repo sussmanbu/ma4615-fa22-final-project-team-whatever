@@ -26,7 +26,9 @@ This is the first data set we chose to tackle. The variables of the data include
 
 In this data table, Low birth weight percentages are from 2015, and the infant and children feeding variables range from the years 2013 - 2018. At first we thought would be helpful in being able to focus on a pretty recent year range, however we discuss the limitations to this below on the page.
 
-All of this information is according to the data set itself, which explicitly lists the sources and variable meanings.
+All of this information is according to the data set itself, which explicitly lists the sources and variable meanings. You can click [here](/analysis3) for our variable summary. 
+
+
 
 ## Part 2: Cleaning the Dataest
 
@@ -38,9 +40,6 @@ In order to clean our Nutrition Data set we first had to deal with the issue of 
 We have a timeline of more than 70 years and too many countries for our data, which will make processing it quite challenging. Additionally, since what we receive is the mean of each country annually, the data may be subject to some restrictions. For instance, when the wealth difference between rich and poor is too wide across many nations, our mean GDP may not accurately reflect this nation's unique circumstances. Additionally, many nations do not contribute data to the UN, therefore there may be data gaps for particular time periods and geographical areas. When performing time series and geographical analysis, this will put us in a lot of difficulties.
 
 ## Part 4: Additional Dataset(s)
-
-For our project we added two additional data sets. One contains the mortality rates of children under the age of 5 for each country over the years from 1950 to 2021 and the other contains the income per capita for each country  over the years from 1950 to 2021. Combining these two data sets took quite a bit of work. We first had to design a function that removed the k's from the numerical values representing thousand and then multiplied by 1000 to get a numerical representation of the numbers. From there we used the pivot_longer() and inner_join() functions to combine the data sets for use in our interactive and modeling.  
-
 
 For our project we added four additional data sets. One contains the mortality rates of children under the age of 5 for each country over the years from 1950 to 2021 and the other contains the PPP-adjusted income per capita for each country over the years from 1950 to 2021. The U5Mortality Rate data set comes from UNICEF website as well, specifically from the UN Inter-agency Group for Child Mortality Estimation (UN IGME). The data about income per capita, instead, come from Gapminder.org, a webpage founded by statistician Hans Rosling, that originally took the data from the World Bank.  Combining these two data sets took quite a bit of work. We first had to design a function that removed the k's from the values representing thousand and then, after converting the character strings to numerical values, multiplied by 1000 to get a numerical representation of the numbers. From there we used the pivot_longer() and inner_join() functions to combine the data sets for use in our interactive and modeling.
 
@@ -54,15 +53,14 @@ Finally, we added vaccination rate data for children at 1 year of age who have b
 
 ### Data Overview 
 
+Below is a list of the names of our cleaned data sets, as well as the number of columns and rows. 
+
 - income_mortality (7 Columns, 12567 Rows)
 - U5Mortality (3 Columns, 13845 Rows)
 - income_per_capita_ppp (3 Columns, 13845 Rows)
 - nd (13 Columns, 217 Rows)
 - pop_size (3 Columns, 13987 Rows)
  
-
-<br>
-We thus ended up with a merged data set (income-mortality) that had 4 column variables (Country, Year, Mortality, Income) and 11,999 rows, representing each country in each year from 1950 to 2020. 
 
 ### Link to load_and_clean_data
 

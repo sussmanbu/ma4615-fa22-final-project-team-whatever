@@ -5,7 +5,7 @@ featuredVideo:
 featuredImage: 
 draft: false
 ---
-
+  
 
 This is a website for the final project for MA[46]15 Data Science with R by Team Whatever.
 The members of this team are below.
